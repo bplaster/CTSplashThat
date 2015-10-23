@@ -87,6 +87,7 @@ typedef int swift_int3  __attribute__((__ext_vector_type__(3)));
 typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import CoreGraphics;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -107,23 +108,32 @@ SWIFT_CLASS("_TtC8MamaBear11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSBundle;
+@class UITableView;
+@class PFObject;
+@class NSIndexPath;
 @class NSCoder;
+@class UITableViewCell;
 
-SWIFT_CLASS("_TtC8MamaBear20AssignViewController")
-@interface AssignViewController : UIViewController
-- (void)viewDidLoad;
-- (void)didReceiveMemoryWarning;
-- (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS("_TtC8MamaBear10AssignView")
+@interface AssignView : UIView <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic) UITableView * __null_unspecified assigneeTableView;
+@property (nonatomic, copy) NSArray<PFObject *> * __nonnull staffList;
+@property (nonatomic, copy) NSString * __null_unspecified objectID;
+@property (nonatomic) NSIndexPath * __null_unspecified indexPath;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (void)bringUp:(NSIndexPath * __nonnull)index;
+- (void)putDown;
 - (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
+- (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)tableView:(UITableView * __nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 @end
 
 @class UILabel;
 @class UIImageView;
-@class UIView;
 @class UIButton;
 @class UIColor;
-@class PFObject;
 
 SWIFT_CLASS("_TtC8MamaBear17TaskTableViewCell")
 @interface TaskTableViewCell : UITableViewCell
@@ -147,19 +157,20 @@ SWIFT_CLASS("_TtC8MamaBear17TaskTableViewCell")
 @property (nonatomic, copy) NSString * __null_unspecified assignee;
 @property (nonatomic, copy) NSString * __null_unspecified completed;
 @property (nonatomic, copy) NSString * __null_unspecified objectID;
+@property (nonatomic) NSIndexPath * __null_unspecified index;
 - (void)awakeFromNib;
 - (void)assignButtonPressed;
 - (void)acceptButtonPressed;
 - (void)completeButtonPressed;
-- (void)populateCell:(PFObject * __nonnull)ticket users:(NSArray<PFObject *> * __nonnull)users currentUser:(NSString * __nonnull)currentUser;
+- (void)customizeCell:(NSString * __nonnull)type;
+- (void)populateCell:(PFObject * __nonnull)ticket currentUser:(NSString * __nonnull)currentUser;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * __nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UITableView;
 @class NSTimer;
-@class NSIndexPath;
+@class NSBundle;
 
 SWIFT_CLASS("_TtC8MamaBear24TicketListViewController")
 @interface TicketListViewController : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -169,15 +180,20 @@ SWIFT_CLASS("_TtC8MamaBear24TicketListViewController")
 @property (nonatomic) NSTimer * __nonnull timer;
 @property (nonatomic, copy) NSString * __nonnull currentUser;
 @property (nonatomic, copy) NSString * __nonnull currentUserType;
+@property (nonatomic) AssignView * __null_unspecified assignView;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
+- (void)dismissAssignView:(NSIndexPath * __nonnull)index;
 - (IBAction)AddButtonPressed:(id __nonnull)sender;
 - (void)didReceiveMemoryWarning;
+- (void)refreshTickets:(NSArray<NSIndexPath *> * __nonnull)indexPaths;
 - (void)refreshTicketList;
 - (void)refreshUserList;
+- (void)assignTicket:(NSIndexPath * __nonnull)index;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
 - (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (NSString * __nonnull)checkCellType:(PFObject * __nonnull)ticket;
 - (void)tableView:(UITableView * __nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

@@ -6,27 +6,27 @@ provides-nominal:
 provides-member:
 - ["C8MamaBear20TicketViewController", ""]
 provides-dynamic-lookup:
-- "titleTextField"
-- "didReceiveMemoryWarning"
 - "assigneeTextField"
-- "viewDidLoad"
+- "titleTextField"
 - "creator"
-- "descTextField"
+- "viewDidLoad"
 - "submitButtonPressed"
+- "didReceiveMemoryWarning"
+- "descTextField"
 depends-top-level:
-- "AnyObject"
-- "StringLiteralType"
-- !private "Void"
-- "TicketViewController"
-- !private "UnicodeScalarType"
-- !private "PFObject"
 - "UITextField"
 - "String"
-- "BooleanLiteralType"
-- "UIViewController"
-- !private "NSError"
-- !private "print"
 - !private "Bool"
+- !private "Void"
+- "UIViewController"
+- "AnyObject"
+- !private "UnicodeScalarType"
+- "StringLiteralType"
+- !private "NSError"
+- !private "PFObject"
+- !private "print"
+- "BooleanLiteralType"
+- "TicketViewController"
 depends-member:
 - !private ["PSs9AnyObject", "PFObject"]
 - ["PSs9AnyObject", "assigneeTextField"]

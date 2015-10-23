@@ -37,6 +37,8 @@ class TaskTableViewCell: UITableViewCell {
     var completed : String!
     var objectID : String!
     
+    var index: NSIndexPath!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -44,12 +46,11 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     func assignButtonPressed() {
-        
+        cellDelegate.assignTicket(index)
     }
 
     func acceptButtonPressed() {
         let query = PFQuery(className:"Ticket")
-        print(objectID)
         query.getObjectInBackgroundWithId(objectID) {
             (ticket: PFObject?, error: NSError?) -> Void in
             if error != nil {
@@ -61,7 +62,7 @@ class TaskTableViewCell: UITableViewCell {
                 ticket["accepted"] = dateFormatter.stringFromDate(date)
                 ticket.saveInBackground()
                 
-                self.cellDelegate.refreshTicketList()
+                self.cellDelegate.refreshTickets([self.index])
             }
         }
     }
@@ -85,7 +86,34 @@ class TaskTableViewCell: UITableViewCell {
 
     }
     
-    func populateCell(ticket: PFObject, users: [PFObject], currentUser: String){
+    func customizeCell(type:String){
+        primaryButton.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
+        
+        switch(type) {
+            case "acceptCell":
+                primaryButton.backgroundColor = green
+                primaryButton.setTitle("ACCEPT", forState: UIControlState.Normal)
+                primaryButton.addTarget(self, action: "acceptButtonPressed", forControlEvents: .TouchUpInside)
+                break;
+            case "completeCell":
+                primaryButton.backgroundColor = blue
+                primaryButton.setTitle("COMPLETE", forState: UIControlState.Normal)
+                primaryButton.addTarget(self, action: "completeButtonPressed", forControlEvents: .TouchUpInside)
+                break;
+            case "assignCell":
+                primaryButton.backgroundColor = orange
+                primaryButton.setTitle("ASSIGN", forState: UIControlState.Normal)
+                primaryButton.addTarget(self, action: "assignButtonPressed", forControlEvents: .TouchUpInside)
+                break;
+        default:
+            primaryButton.backgroundColor = grey
+            primaryButton.enabled = false
+            primaryButton.setTitle("COMPLETED", forState: UIControlState.Disabled)
+            break;
+        }
+    }
+    
+    func populateCell(ticket: PFObject, currentUser: String){
         
         titleLabel.text = ticket["title"] as? String
         descLabel.text = ticket["description"] as? String
@@ -100,26 +128,6 @@ class TaskTableViewCell: UITableViewCell {
         assignee = ticket["assignee"] as? String
         completed = ticket["completed"] as? String
         objectID = ticket.objectId
-        
-        if(assignee == currentUser && (completed == nil || completed == "N" )){
-            if(accepted == nil || accepted == "N"){
-                primaryButton.backgroundColor = green
-                primaryButton.setTitle("ACCEPT", forState: UIControlState.Normal)
-                primaryButton.addTarget(self, action: "acceptButtonPressed", forControlEvents: .TouchUpInside)
-            } else {
-                primaryButton.backgroundColor = blue
-                primaryButton.setTitle("COMPLETE", forState: UIControlState.Normal)
-                primaryButton.addTarget(self, action: "completeButtonPressed", forControlEvents: .TouchUpInside)
-            }
-        } else if(completed == nil || completed == "N" ) {
-            primaryButton.backgroundColor = orange
-            primaryButton.setTitle("ASSIGN", forState: UIControlState.Normal)
-            primaryButton.addTarget(self, action: "assignButtonPressed", forControlEvents: .TouchUpInside)
-        } else {
-            primaryButton.backgroundColor = grey
-            primaryButton.enabled = false
-            primaryButton.setTitle("COMPLETED", forState: UIControlState.Disabled)
-        }
         
     }
     

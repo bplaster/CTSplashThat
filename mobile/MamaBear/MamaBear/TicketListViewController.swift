@@ -11,10 +11,16 @@ import Parse
 
 protocol TaskCellDelegate {
     func refreshTicketList()
+    func assignTicket(index: NSIndexPath)
+    func refreshTickets(indexPaths: [NSIndexPath])
+}
+
+protocol AssignViewDelegate {
+    func dismissAssignView(index:NSIndexPath)
 }
 
 
-class TicketListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TaskCellDelegate {
+class TicketListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TaskCellDelegate, AssignViewDelegate {
 
     @IBOutlet var ticketTableView: UITableView!
     var tickets: [PFObject] = []
@@ -22,6 +28,7 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
     var timer: NSTimer = NSTimer()
     var currentUser = "brandon"
     var currentUserType = "manager"
+    var assignView: AssignView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +38,14 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
         ticketTableView.rowHeight = UITableViewAutomaticDimension
         ticketTableView.estimatedRowHeight = 240.0
         
-        let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
-        ticketTableView.registerNib(nib, forCellReuseIdentifier: "TaskTableViewCell")
+        var nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        ticketTableView.registerNib(nib, forCellReuseIdentifier: "completeCell")
+        nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        ticketTableView.registerNib(nib, forCellReuseIdentifier: "completedCell")
+        nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        ticketTableView.registerNib(nib, forCellReuseIdentifier: "assignCell")
+        nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        ticketTableView.registerNib(nib, forCellReuseIdentifier: "acceptCell")
         
         refreshUserList()
         refreshTicketList()
@@ -44,6 +57,13 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
         super.viewWillAppear(animated)
         refreshTicketList()
     }
+    
+    func dismissAssignView(index: NSIndexPath) {
+        if(assignView != nil){
+            assignView.removeFromSuperview()
+            refreshTickets([index])
+        }
+    }
 
     @IBAction func AddButtonPressed(sender: AnyObject) {
         let newTicketView = TicketViewController()
@@ -54,6 +74,12 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func refreshTickets(indexPaths: [NSIndexPath]){
+        self.ticketTableView.beginUpdates()
+        self.ticketTableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        self.ticketTableView.endUpdates()
     }
     
     func refreshTicketList() {
@@ -72,7 +98,7 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
+                print("Successfully retrieved \(objects!.count) tickets.")
                 // Do something with the found objects
                 if (objects != nil) {
                     self.tickets = objects!
@@ -90,13 +116,13 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func refreshUserList() {
-        let query = PFQuery(className: "User")
-        query.findObjectsInBackgroundWithBlock {
+        let query = PFUser.query()
+        query?.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
+                print("Successfully retrieved \(objects!.count) users.")
                 // Do something with the found objects
                 if (objects != nil) {
                     self.users = objects!
@@ -108,6 +134,17 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
+    }
+    
+    func assignTicket(index: NSIndexPath) {
+        assignView = AssignView(frame: view.frame)
+        assignView.delegate = self
+        assignView.staffList = users
+        assignView.objectID = tickets[index.row].objectId
+        view.addSubview(assignView)
+        
+        assignView.bringUp(index)
+        
     }
     
 
@@ -133,10 +170,35 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("TaskTableViewCell") as! TaskTableViewCell
-        cell.populateCell(tickets[indexPath.row], users: users, currentUser: currentUser)
-        cell.cellDelegate = self
-        return cell
+        let ticket = tickets[indexPath.row]
+        let cellType = checkCellType(ticket)
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellType) as? TaskTableViewCell
+        
+        
+        cell!.customizeCell(cellType)
+        cell!.populateCell(tickets[indexPath.row], currentUser: currentUser)
+        cell!.cellDelegate = self
+        cell!.index = indexPath
+        return cell!
+    }
+    
+    func checkCellType(ticket: PFObject) -> String {
+        let accepted = ticket["accepted"] as? String
+        let assignee = ticket["assignee"] as? String
+        let completed = ticket["completed"] as? String
+        
+        if(assignee == currentUser && (completed == nil || completed == "N" )){
+            if(accepted == nil || accepted == "N"){
+                return "acceptCell"
+            } else {
+                return "completeCell"
+            }
+        } else if(completed == nil || completed == "N" ) {
+            return "assignCell"
+        } else {
+            return "completedCell"
+        }
     }
 
 
