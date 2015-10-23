@@ -6,9 +6,6 @@ provides-nominal:
 provides-member:
 - ["C8MamaBear10AssignView", ""]
 provides-dynamic-lookup:
-- "numberOfSectionsInTableView"
-- "objectID"
-- "bringUp"
 - "assigneeTableView"
 - "indexPath"
 - "putDown"
@@ -16,47 +13,40 @@ provides-dynamic-lookup:
 - "tableView"
 - "tableView"
 - "staffList"
+- "numberOfSectionsInTableView"
+- "objectID"
+- "bringUp"
 depends-top-level:
-- !private "!="
-- "String"
-- "UITableViewCell"
-- "UITableView"
-- "CGRect"
-- !private "CGPointMake"
-- !private "UITableViewCellStyle"
-- !private "UIColor"
-- !private "print"
-- !private "Void"
-- !private "fatalError"
-- !private "NSDateFormatter"
-- "UITableViewDataSource"
-- "NSCoder"
-- !private "=="
-- !private "StringLiteralType"
-- "UITableViewDelegate"
-- !private "PFQuery"
-- !private "CGPoint"
 - "Int"
 - !private "+"
+- "NSIndexPath"
 - !private "/"
 - !private "*"
-- "NSIndexPath"
-- !private "NSError"
-- "PFObject"
 - !private "+="
 - !private "CGRectMake"
-- !private "UIViewAnimationOptions"
-- !private "NSDate"
+- "PFObject"
 - "AssignViewDelegate"
-- "UIView"
+- !private "UIViewAnimationOptions"
+- "UITableViewCell"
 - "AssignView"
+- !private "UIColor"
+- "CGRect"
+- !private "UITableViewCellStyle"
+- "UITableView"
+- "UIView"
+- !private "CGPointMake"
+- !private "StringLiteralType"
+- !private "=="
+- !private "CGPoint"
+- !private "fatalError"
+- "UITableViewDataSource"
+- "UITableViewDelegate"
+- "String"
+- "NSCoder"
 depends-member:
 - !private ["PSs9AnyObject", "CGPoint"]
 - !private ["PSs9AnyObject", "CGPointMake"]
 - !private ["PSs9AnyObject", "CGRectMake"]
-- !private ["PSs9AnyObject", "NSDate"]
-- !private ["PSs9AnyObject", "NSDateFormatter"]
-- !private ["PSs9AnyObject", "PFQuery"]
 - !private ["PSs9AnyObject", "UIColor"]
 - !private ["PSs9AnyObject", "UITableView"]
 - !private ["PSs9AnyObject", "UITableViewCell"]
@@ -72,20 +62,16 @@ depends-member:
 - ["PSs9AnyObject", "bringUp"]
 - !private ["PSs9AnyObject", "center"]
 - !private ["PSs9AnyObject", "dataSource"]
-- !private ["PSs9AnyObject", "dateFormat"]
 - ["PSs9AnyObject", "delegate"]
 - !private ["PSs9AnyObject", "dequeueReusableCellWithIdentifier"]
 - !private ["PSs9AnyObject", "fatalError"]
 - !private ["PSs9AnyObject", "frame"]
-- !private ["PSs9AnyObject", "getObjectInBackgroundWithId"]
 - ["PSs9AnyObject", "indexPath"]
 - ["PSs9AnyObject", "init"]
 - ["PSs9AnyObject", "numberOfSectionsInTableView"]
 - ["PSs9AnyObject", "objectID"]
-- !private ["PSs9AnyObject", "print"]
 - ["PSs9AnyObject", "putDown"]
 - !private ["PSs9AnyObject", "row"]
-- !private ["PSs9AnyObject", "saveInBackground"]
 - ["PSs9AnyObject", "scrollViewDidEndDecelerating"]
 - ["PSs9AnyObject", "scrollViewDidEndDragging"]
 - ["PSs9AnyObject", "scrollViewDidEndScrollingAnimation"]
@@ -100,7 +86,6 @@ depends-member:
 - ["PSs9AnyObject", "scrollViewWillEndDragging"]
 - ["PSs9AnyObject", "sectionIndexTitlesForTableView"]
 - ["PSs9AnyObject", "staffList"]
-- !private ["PSs9AnyObject", "stringFromDate"]
 - !private ["PSs9AnyObject", "subscript"]
 - ["PSs9AnyObject", "tableView"]
 - !private ["PSs9AnyObject", "text"]
@@ -128,12 +113,8 @@ depends-member:
 - !private ["C8MamaBear10AssignView", "CGRectMake"]
 - ["C8MamaBear10AssignView", "Int"]
 - ["C8MamaBear10AssignView", "NSCoder"]
-- !private ["C8MamaBear10AssignView", "NSDate"]
-- !private ["C8MamaBear10AssignView", "NSDateFormatter"]
-- !private ["C8MamaBear10AssignView", "NSError"]
 - ["C8MamaBear10AssignView", "NSIndexPath"]
 - ["C8MamaBear10AssignView", "PFObject"]
-- !private ["C8MamaBear10AssignView", "PFQuery"]
 - ["C8MamaBear10AssignView", "String"]
 - !private ["C8MamaBear10AssignView", "UIColor"]
 - ["C8MamaBear10AssignView", "UITableView"]
@@ -141,7 +122,6 @@ depends-member:
 - !private ["C8MamaBear10AssignView", "UITableViewCellStyle"]
 - !private ["C8MamaBear10AssignView", "UIView"]
 - !private ["C8MamaBear10AssignView", "UIViewAnimationOptions"]
-- !private ["C8MamaBear10AssignView", "Void"]
 - !private ["C8MamaBear10AssignView", "addSubview"]
 - !private ["C8MamaBear10AssignView", "alpha"]
 - ["C8MamaBear10AssignView", "assigneeTableView"]
@@ -156,7 +136,6 @@ depends-member:
 - ["C8MamaBear10AssignView", "init"]
 - ["C8MamaBear10AssignView", "numberOfSectionsInTableView"]
 - ["C8MamaBear10AssignView", "objectID"]
-- !private ["C8MamaBear10AssignView", "print"]
 - ["C8MamaBear10AssignView", "putDown"]
 - ["C8MamaBear10AssignView", "scrollViewDidEndDecelerating"]
 - ["C8MamaBear10AssignView", "scrollViewDidEndDragging"]
@@ -174,6 +153,7 @@ depends-member:
 - ["C8MamaBear10AssignView", "staffList"]
 - ["C8MamaBear10AssignView", "tableView"]
 - ["C8MamaBear10AssignView", "viewForZoomingInScrollView"]
+- !private ["P8MamaBear18AssignViewDelegate", "assignee"]
 - !private ["P8MamaBear18AssignViewDelegate", "dismissAssignView"]
 - !private ["PSs22BidirectionalIndexType", "Distance"]
 - !private ["PSs22BidirectionalIndexType", "IntegerLiteralType"]
@@ -194,9 +174,6 @@ depends-member:
 - !private ["PSs11CVarArgType", "CGRectMake"]
 - !private ["PSs11CVarArgType", "Distance"]
 - !private ["PSs11CVarArgType", "IntegerLiteralType"]
-- !private ["PSs11CVarArgType", "NSDate"]
-- !private ["PSs11CVarArgType", "NSDateFormatter"]
-- !private ["PSs11CVarArgType", "PFQuery"]
 - !private ["PSs11CVarArgType", "UIColor"]
 - !private ["PSs11CVarArgType", "UITableView"]
 - !private ["PSs11CVarArgType", "UITableViewCell"]
@@ -212,20 +189,16 @@ depends-member:
 - ["PSs11CVarArgType", "bringUp"]
 - !private ["PSs11CVarArgType", "center"]
 - !private ["PSs11CVarArgType", "dataSource"]
-- !private ["PSs11CVarArgType", "dateFormat"]
 - ["PSs11CVarArgType", "delegate"]
 - !private ["PSs11CVarArgType", "dequeueReusableCellWithIdentifier"]
 - !private ["PSs11CVarArgType", "fatalError"]
 - !private ["PSs11CVarArgType", "frame"]
-- !private ["PSs11CVarArgType", "getObjectInBackgroundWithId"]
 - ["PSs11CVarArgType", "indexPath"]
 - ["PSs11CVarArgType", "init"]
 - ["PSs11CVarArgType", "numberOfSectionsInTableView"]
 - ["PSs11CVarArgType", "objectID"]
-- !private ["PSs11CVarArgType", "print"]
 - ["PSs11CVarArgType", "putDown"]
 - !private ["PSs11CVarArgType", "row"]
-- !private ["PSs11CVarArgType", "saveInBackground"]
 - ["PSs11CVarArgType", "scrollViewDidEndDecelerating"]
 - ["PSs11CVarArgType", "scrollViewDidEndDragging"]
 - ["PSs11CVarArgType", "scrollViewDidEndScrollingAnimation"]
@@ -240,7 +213,6 @@ depends-member:
 - ["PSs11CVarArgType", "scrollViewWillEndDragging"]
 - ["PSs11CVarArgType", "sectionIndexTitlesForTableView"]
 - ["PSs11CVarArgType", "staffList"]
-- !private ["PSs11CVarArgType", "stringFromDate"]
 - !private ["PSs11CVarArgType", "subscript"]
 - ["PSs11CVarArgType", "tableView"]
 - !private ["PSs11CVarArgType", "text"]
@@ -268,9 +240,6 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "Generator"]
 - !private ["PSs23CustomStringConvertible", "Index"]
 - !private ["PSs23CustomStringConvertible", "IntegerLiteralType"]
-- !private ["PSs23CustomStringConvertible", "NSDate"]
-- !private ["PSs23CustomStringConvertible", "NSDateFormatter"]
-- !private ["PSs23CustomStringConvertible", "PFQuery"]
 - !private ["PSs23CustomStringConvertible", "SubSequence"]
 - !private ["PSs23CustomStringConvertible", "UIColor"]
 - !private ["PSs23CustomStringConvertible", "UITableView"]
@@ -289,20 +258,16 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "center"]
 - !private ["PSs23CustomStringConvertible", "count"]
 - !private ["PSs23CustomStringConvertible", "dataSource"]
-- !private ["PSs23CustomStringConvertible", "dateFormat"]
 - ["PSs23CustomStringConvertible", "delegate"]
 - !private ["PSs23CustomStringConvertible", "dequeueReusableCellWithIdentifier"]
 - !private ["PSs23CustomStringConvertible", "fatalError"]
 - !private ["PSs23CustomStringConvertible", "frame"]
-- !private ["PSs23CustomStringConvertible", "getObjectInBackgroundWithId"]
 - ["PSs23CustomStringConvertible", "indexPath"]
 - ["PSs23CustomStringConvertible", "init"]
 - ["PSs23CustomStringConvertible", "numberOfSectionsInTableView"]
 - ["PSs23CustomStringConvertible", "objectID"]
-- !private ["PSs23CustomStringConvertible", "print"]
 - ["PSs23CustomStringConvertible", "putDown"]
 - !private ["PSs23CustomStringConvertible", "row"]
-- !private ["PSs23CustomStringConvertible", "saveInBackground"]
 - ["PSs23CustomStringConvertible", "scrollViewDidEndDecelerating"]
 - ["PSs23CustomStringConvertible", "scrollViewDidEndDragging"]
 - ["PSs23CustomStringConvertible", "scrollViewDidEndScrollingAnimation"]
@@ -317,7 +282,6 @@ depends-member:
 - ["PSs23CustomStringConvertible", "scrollViewWillEndDragging"]
 - ["PSs23CustomStringConvertible", "sectionIndexTitlesForTableView"]
 - ["PSs23CustomStringConvertible", "staffList"]
-- !private ["PSs23CustomStringConvertible", "stringFromDate"]
 - !private ["PSs23CustomStringConvertible", "subscript"]
 - ["PSs23CustomStringConvertible", "tableView"]
 - !private ["PSs23CustomStringConvertible", "text"]
@@ -331,9 +295,6 @@ depends-member:
 - !private ["PSs9Equatable", "Default"]
 - !private ["PSs9Equatable", "Distance"]
 - !private ["PSs9Equatable", "IntegerLiteralType"]
-- !private ["PSs9Equatable", "NSDate"]
-- !private ["PSs9Equatable", "NSDateFormatter"]
-- !private ["PSs9Equatable", "PFQuery"]
 - !private ["PSs9Equatable", "UIColor"]
 - !private ["PSs9Equatable", "UITableView"]
 - !private ["PSs9Equatable", "UITableViewCell"]
@@ -350,22 +311,18 @@ depends-member:
 - ["PSs9Equatable", "bringUp"]
 - !private ["PSs9Equatable", "center"]
 - !private ["PSs9Equatable", "dataSource"]
-- !private ["PSs9Equatable", "dateFormat"]
 - ["PSs9Equatable", "delegate"]
 - !private ["PSs9Equatable", "dequeueReusableCellWithIdentifier"]
 - !private ["PSs9Equatable", "fatalError"]
 - !private ["PSs9Equatable", "frame"]
-- !private ["PSs9Equatable", "getObjectInBackgroundWithId"]
 - !private ["PSs9Equatable", "height"]
 - ["PSs9Equatable", "indexPath"]
 - ["PSs9Equatable", "init"]
 - ["PSs9Equatable", "numberOfSectionsInTableView"]
 - ["PSs9Equatable", "objectID"]
 - !private ["PSs9Equatable", "origin"]
-- !private ["PSs9Equatable", "print"]
 - ["PSs9Equatable", "putDown"]
 - !private ["PSs9Equatable", "row"]
-- !private ["PSs9Equatable", "saveInBackground"]
 - ["PSs9Equatable", "scrollViewDidEndDecelerating"]
 - ["PSs9Equatable", "scrollViewDidEndDragging"]
 - ["PSs9Equatable", "scrollViewDidEndScrollingAnimation"]
@@ -380,7 +337,6 @@ depends-member:
 - ["PSs9Equatable", "scrollViewWillEndDragging"]
 - ["PSs9Equatable", "sectionIndexTitlesForTableView"]
 - ["PSs9Equatable", "staffList"]
-- !private ["PSs9Equatable", "stringFromDate"]
 - !private ["PSs9Equatable", "subscript"]
 - ["PSs9Equatable", "tableView"]
 - !private ["PSs9Equatable", "text"]
@@ -399,9 +355,6 @@ depends-member:
 - !private ["PSs8Hashable", "Default"]
 - !private ["PSs8Hashable", "Distance"]
 - !private ["PSs8Hashable", "IntegerLiteralType"]
-- !private ["PSs8Hashable", "NSDate"]
-- !private ["PSs8Hashable", "NSDateFormatter"]
-- !private ["PSs8Hashable", "PFQuery"]
 - !private ["PSs8Hashable", "UIColor"]
 - !private ["PSs8Hashable", "UITableView"]
 - !private ["PSs8Hashable", "UITableViewCell"]
@@ -418,20 +371,16 @@ depends-member:
 - ["PSs8Hashable", "bringUp"]
 - !private ["PSs8Hashable", "center"]
 - !private ["PSs8Hashable", "dataSource"]
-- !private ["PSs8Hashable", "dateFormat"]
 - ["PSs8Hashable", "delegate"]
 - !private ["PSs8Hashable", "dequeueReusableCellWithIdentifier"]
 - !private ["PSs8Hashable", "fatalError"]
 - !private ["PSs8Hashable", "frame"]
-- !private ["PSs8Hashable", "getObjectInBackgroundWithId"]
 - ["PSs8Hashable", "indexPath"]
 - ["PSs8Hashable", "init"]
 - ["PSs8Hashable", "numberOfSectionsInTableView"]
 - ["PSs8Hashable", "objectID"]
-- !private ["PSs8Hashable", "print"]
 - ["PSs8Hashable", "putDown"]
 - !private ["PSs8Hashable", "row"]
-- !private ["PSs8Hashable", "saveInBackground"]
 - ["PSs8Hashable", "scrollViewDidEndDecelerating"]
 - ["PSs8Hashable", "scrollViewDidEndDragging"]
 - ["PSs8Hashable", "scrollViewDidEndScrollingAnimation"]
@@ -446,7 +395,6 @@ depends-member:
 - ["PSs8Hashable", "scrollViewWillEndDragging"]
 - ["PSs8Hashable", "sectionIndexTitlesForTableView"]
 - ["PSs8Hashable", "staffList"]
-- !private ["PSs8Hashable", "stringFromDate"]
 - !private ["PSs8Hashable", "subscript"]
 - ["PSs8Hashable", "tableView"]
 - !private ["PSs8Hashable", "text"]
@@ -489,9 +437,6 @@ depends-member:
 - !private ["PSo8NSCoding", "CGPoint"]
 - !private ["PSo8NSCoding", "CGPointMake"]
 - !private ["PSo8NSCoding", "CGRectMake"]
-- !private ["PSo8NSCoding", "NSDate"]
-- !private ["PSo8NSCoding", "NSDateFormatter"]
-- !private ["PSo8NSCoding", "PFQuery"]
 - !private ["PSo8NSCoding", "UIColor"]
 - !private ["PSo8NSCoding", "UITableView"]
 - !private ["PSo8NSCoding", "UITableViewCell"]
@@ -507,7 +452,6 @@ depends-member:
 - ["PSo8NSCoding", "bringUp"]
 - !private ["PSo8NSCoding", "center"]
 - !private ["PSo8NSCoding", "dataSource"]
-- !private ["PSo8NSCoding", "dateFormat"]
 - ["PSo8NSCoding", "delegate"]
 - !private ["PSo8NSCoding", "dequeueReusableCellWithIdentifier"]
 - !private ["PSo8NSCoding", "fatalError"]
@@ -516,7 +460,6 @@ depends-member:
 - ["PSo8NSCoding", "init"]
 - ["PSo8NSCoding", "numberOfSectionsInTableView"]
 - ["PSo8NSCoding", "objectID"]
-- !private ["PSo8NSCoding", "print"]
 - ["PSo8NSCoding", "putDown"]
 - !private ["PSo8NSCoding", "row"]
 - ["PSo8NSCoding", "scrollViewDidEndDecelerating"]
@@ -533,24 +476,13 @@ depends-member:
 - ["PSo8NSCoding", "scrollViewWillEndDragging"]
 - ["PSo8NSCoding", "sectionIndexTitlesForTableView"]
 - ["PSo8NSCoding", "staffList"]
-- !private ["PSo8NSCoding", "stringFromDate"]
 - ["PSo8NSCoding", "tableView"]
 - !private ["PSo8NSCoding", "text"]
 - !private ["PSo8NSCoding", "textLabel"]
 - ["PSo8NSCoding", "viewForZoomingInScrollView"]
 - ["PSo8NSCoding", ""]
-- !private ["PSo9NSCopying", "dateFormat"]
-- !private ["PSo9NSCopying", "getObjectInBackgroundWithId"]
 - !private ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "row"]
-- !private ["PSo9NSCopying", "stringFromDate"]
-- !private ["CSo6NSDate", "init"]
-- !private ["CSo15NSDateFormatter", "dateFormat"]
-- !private ["CSo15NSDateFormatter", "init"]
-- !private ["CSo15NSDateFormatter", "stringFromDate"]
-- !private ["CSo11NSFormatter", "dateFormat"]
-- !private ["CSo11NSFormatter", "init"]
-- !private ["CSo11NSFormatter", "stringFromDate"]
 - !private ["CSo11NSIndexPath", "row"]
 - ["CSo8NSObject", "AssignViewDelegate"]
 - !private ["CSo8NSObject", "CGPoint"]
@@ -559,12 +491,8 @@ depends-member:
 - !private ["CSo8NSObject", "CGRectMake"]
 - ["CSo8NSObject", "Int"]
 - ["CSo8NSObject", "NSCoder"]
-- !private ["CSo8NSObject", "NSDate"]
-- !private ["CSo8NSObject", "NSDateFormatter"]
-- !private ["CSo8NSObject", "NSError"]
 - ["CSo8NSObject", "NSIndexPath"]
 - ["CSo8NSObject", "PFObject"]
-- !private ["CSo8NSObject", "PFQuery"]
 - ["CSo8NSObject", "String"]
 - !private ["CSo8NSObject", "UIColor"]
 - ["CSo8NSObject", "UITableView"]
@@ -572,7 +500,6 @@ depends-member:
 - !private ["CSo8NSObject", "UITableViewCellStyle"]
 - !private ["CSo8NSObject", "UIView"]
 - !private ["CSo8NSObject", "UIViewAnimationOptions"]
-- !private ["CSo8NSObject", "Void"]
 - !private ["CSo8NSObject", "addSubview"]
 - !private ["CSo8NSObject", "alpha"]
 - !private ["CSo8NSObject", "animateWithDuration"]
@@ -582,20 +509,16 @@ depends-member:
 - ["CSo8NSObject", "bringUp"]
 - !private ["CSo8NSObject", "center"]
 - !private ["CSo8NSObject", "dataSource"]
-- !private ["CSo8NSObject", "dateFormat"]
 - ["CSo8NSObject", "delegate"]
 - !private ["CSo8NSObject", "dequeueReusableCellWithIdentifier"]
 - !private ["CSo8NSObject", "fatalError"]
 - !private ["CSo8NSObject", "frame"]
-- !private ["CSo8NSObject", "getObjectInBackgroundWithId"]
 - ["CSo8NSObject", "indexPath"]
 - ["CSo8NSObject", "init"]
 - ["CSo8NSObject", "numberOfSectionsInTableView"]
 - ["CSo8NSObject", "objectID"]
-- !private ["CSo8NSObject", "print"]
 - ["CSo8NSObject", "putDown"]
 - !private ["CSo8NSObject", "row"]
-- !private ["CSo8NSObject", "saveInBackground"]
 - ["CSo8NSObject", "scrollViewDidEndDecelerating"]
 - ["CSo8NSObject", "scrollViewDidEndDragging"]
 - ["CSo8NSObject", "scrollViewDidEndScrollingAnimation"]
@@ -610,7 +533,6 @@ depends-member:
 - ["CSo8NSObject", "scrollViewWillEndDragging"]
 - ["CSo8NSObject", "sectionIndexTitlesForTableView"]
 - ["CSo8NSObject", "staffList"]
-- !private ["CSo8NSObject", "stringFromDate"]
 - !private ["CSo8NSObject", "subscript"]
 - ["CSo8NSObject", "tableView"]
 - !private ["CSo8NSObject", "text"]
@@ -619,9 +541,6 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "CGPoint"]
 - !private ["PSo16NSObjectProtocol", "CGPointMake"]
 - !private ["PSo16NSObjectProtocol", "CGRectMake"]
-- !private ["PSo16NSObjectProtocol", "NSDate"]
-- !private ["PSo16NSObjectProtocol", "NSDateFormatter"]
-- !private ["PSo16NSObjectProtocol", "PFQuery"]
 - !private ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UITableView"]
 - !private ["PSo16NSObjectProtocol", "UITableViewCell"]
@@ -637,20 +556,16 @@ depends-member:
 - ["PSo16NSObjectProtocol", "bringUp"]
 - !private ["PSo16NSObjectProtocol", "center"]
 - !private ["PSo16NSObjectProtocol", "dataSource"]
-- !private ["PSo16NSObjectProtocol", "dateFormat"]
 - ["PSo16NSObjectProtocol", "delegate"]
 - !private ["PSo16NSObjectProtocol", "dequeueReusableCellWithIdentifier"]
 - !private ["PSo16NSObjectProtocol", "fatalError"]
 - !private ["PSo16NSObjectProtocol", "frame"]
-- !private ["PSo16NSObjectProtocol", "getObjectInBackgroundWithId"]
 - ["PSo16NSObjectProtocol", "indexPath"]
 - ["PSo16NSObjectProtocol", "init"]
 - ["PSo16NSObjectProtocol", "numberOfSectionsInTableView"]
 - ["PSo16NSObjectProtocol", "objectID"]
-- !private ["PSo16NSObjectProtocol", "print"]
 - ["PSo16NSObjectProtocol", "putDown"]
 - !private ["PSo16NSObjectProtocol", "row"]
-- !private ["PSo16NSObjectProtocol", "saveInBackground"]
 - ["PSo16NSObjectProtocol", "scrollViewDidEndDecelerating"]
 - ["PSo16NSObjectProtocol", "scrollViewDidEndDragging"]
 - ["PSo16NSObjectProtocol", "scrollViewDidEndScrollingAnimation"]
@@ -665,7 +580,6 @@ depends-member:
 - ["PSo16NSObjectProtocol", "scrollViewWillEndDragging"]
 - ["PSo16NSObjectProtocol", "sectionIndexTitlesForTableView"]
 - ["PSo16NSObjectProtocol", "staffList"]
-- !private ["PSo16NSObjectProtocol", "stringFromDate"]
 - !private ["PSo16NSObjectProtocol", "subscript"]
 - ["PSo16NSObjectProtocol", "tableView"]
 - !private ["PSo16NSObjectProtocol", "text"]
@@ -678,10 +592,7 @@ depends-member:
 - !private ["PSs13OptionSetType", "CurveEaseOut"]
 - ["Sq", "Some"]
 - !private ["Sq", "deinit"]
-- !private ["CSo8PFObject", "saveInBackground"]
 - !private ["CSo8PFObject", "subscript"]
-- !private ["CSo7PFQuery", "getObjectInBackgroundWithId"]
-- !private ["CSo7PFQuery", "init"]
 - !private ["PSs21RandomAccessIndexType", "Distance"]
 - !private ["PSs21RandomAccessIndexType", "IntegerLiteralType"]
 - !private ["PSs30RangeReplaceableCollectionType", "Generator"]
@@ -710,13 +621,9 @@ depends-member:
 - !private ["VSs12StaticString", "deinit"]
 - !private ["PSs10Strideable", "Distance"]
 - !private ["PSs10Strideable", "IntegerLiteralType"]
-- !private ["SS", "deinit"]
 - !private ["PSo29UIAccessibilityIdentification", "CGPoint"]
 - !private ["PSo29UIAccessibilityIdentification", "CGPointMake"]
 - !private ["PSo29UIAccessibilityIdentification", "CGRectMake"]
-- !private ["PSo29UIAccessibilityIdentification", "NSDate"]
-- !private ["PSo29UIAccessibilityIdentification", "NSDateFormatter"]
-- !private ["PSo29UIAccessibilityIdentification", "PFQuery"]
 - !private ["PSo29UIAccessibilityIdentification", "UIColor"]
 - !private ["PSo29UIAccessibilityIdentification", "UITableView"]
 - !private ["PSo29UIAccessibilityIdentification", "UITableViewCell"]
@@ -740,7 +647,6 @@ depends-member:
 - ["PSo29UIAccessibilityIdentification", "init"]
 - ["PSo29UIAccessibilityIdentification", "numberOfSectionsInTableView"]
 - ["PSo29UIAccessibilityIdentification", "objectID"]
-- !private ["PSo29UIAccessibilityIdentification", "print"]
 - ["PSo29UIAccessibilityIdentification", "putDown"]
 - ["PSo29UIAccessibilityIdentification", "scrollViewDidEndDecelerating"]
 - ["PSo29UIAccessibilityIdentification", "scrollViewDidEndDragging"]
@@ -764,9 +670,6 @@ depends-member:
 - !private ["PSo12UIAppearance", "CGPoint"]
 - !private ["PSo12UIAppearance", "CGPointMake"]
 - !private ["PSo12UIAppearance", "CGRectMake"]
-- !private ["PSo12UIAppearance", "NSDate"]
-- !private ["PSo12UIAppearance", "NSDateFormatter"]
-- !private ["PSo12UIAppearance", "PFQuery"]
 - !private ["PSo12UIAppearance", "UIColor"]
 - !private ["PSo12UIAppearance", "UITableView"]
 - !private ["PSo12UIAppearance", "UITableViewCell"]
@@ -790,7 +693,6 @@ depends-member:
 - ["PSo12UIAppearance", "init"]
 - ["PSo12UIAppearance", "numberOfSectionsInTableView"]
 - ["PSo12UIAppearance", "objectID"]
-- !private ["PSo12UIAppearance", "print"]
 - ["PSo12UIAppearance", "putDown"]
 - ["PSo12UIAppearance", "scrollViewDidEndDecelerating"]
 - ["PSo12UIAppearance", "scrollViewDidEndDragging"]
@@ -814,9 +716,6 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "CGPoint"]
 - !private ["PSo21UIAppearanceContainer", "CGPointMake"]
 - !private ["PSo21UIAppearanceContainer", "CGRectMake"]
-- !private ["PSo21UIAppearanceContainer", "NSDate"]
-- !private ["PSo21UIAppearanceContainer", "NSDateFormatter"]
-- !private ["PSo21UIAppearanceContainer", "PFQuery"]
 - !private ["PSo21UIAppearanceContainer", "UIColor"]
 - !private ["PSo21UIAppearanceContainer", "UITableView"]
 - !private ["PSo21UIAppearanceContainer", "UITableViewCell"]
@@ -840,7 +739,6 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "init"]
 - ["PSo21UIAppearanceContainer", "numberOfSectionsInTableView"]
 - ["PSo21UIAppearanceContainer", "objectID"]
-- !private ["PSo21UIAppearanceContainer", "print"]
 - ["PSo21UIAppearanceContainer", "putDown"]
 - ["PSo21UIAppearanceContainer", "scrollViewDidEndDecelerating"]
 - ["PSo21UIAppearanceContainer", "scrollViewDidEndDragging"]
@@ -865,9 +763,6 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "CGPoint"]
 - !private ["PSo17UICoordinateSpace", "CGPointMake"]
 - !private ["PSo17UICoordinateSpace", "CGRectMake"]
-- !private ["PSo17UICoordinateSpace", "NSDate"]
-- !private ["PSo17UICoordinateSpace", "NSDateFormatter"]
-- !private ["PSo17UICoordinateSpace", "PFQuery"]
 - !private ["PSo17UICoordinateSpace", "UIColor"]
 - !private ["PSo17UICoordinateSpace", "UITableView"]
 - !private ["PSo17UICoordinateSpace", "UITableViewCell"]
@@ -891,7 +786,6 @@ depends-member:
 - ["PSo17UICoordinateSpace", "init"]
 - ["PSo17UICoordinateSpace", "numberOfSectionsInTableView"]
 - ["PSo17UICoordinateSpace", "objectID"]
-- !private ["PSo17UICoordinateSpace", "print"]
 - ["PSo17UICoordinateSpace", "putDown"]
 - ["PSo17UICoordinateSpace", "scrollViewDidEndDecelerating"]
 - ["PSo17UICoordinateSpace", "scrollViewDidEndDragging"]
@@ -915,9 +809,6 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "CGPoint"]
 - !private ["PSo13UIDynamicItem", "CGPointMake"]
 - !private ["PSo13UIDynamicItem", "CGRectMake"]
-- !private ["PSo13UIDynamicItem", "NSDate"]
-- !private ["PSo13UIDynamicItem", "NSDateFormatter"]
-- !private ["PSo13UIDynamicItem", "PFQuery"]
 - !private ["PSo13UIDynamicItem", "UIColor"]
 - !private ["PSo13UIDynamicItem", "UITableView"]
 - !private ["PSo13UIDynamicItem", "UITableViewCell"]
@@ -941,7 +832,6 @@ depends-member:
 - ["PSo13UIDynamicItem", "init"]
 - ["PSo13UIDynamicItem", "numberOfSectionsInTableView"]
 - ["PSo13UIDynamicItem", "objectID"]
-- !private ["PSo13UIDynamicItem", "print"]
 - ["PSo13UIDynamicItem", "putDown"]
 - ["PSo13UIDynamicItem", "scrollViewDidEndDecelerating"]
 - ["PSo13UIDynamicItem", "scrollViewDidEndDragging"]
@@ -972,12 +862,8 @@ depends-member:
 - !private ["CSo11UIResponder", "CGRectMake"]
 - ["CSo11UIResponder", "Int"]
 - ["CSo11UIResponder", "NSCoder"]
-- !private ["CSo11UIResponder", "NSDate"]
-- !private ["CSo11UIResponder", "NSDateFormatter"]
-- !private ["CSo11UIResponder", "NSError"]
 - ["CSo11UIResponder", "NSIndexPath"]
 - ["CSo11UIResponder", "PFObject"]
-- !private ["CSo11UIResponder", "PFQuery"]
 - ["CSo11UIResponder", "String"]
 - !private ["CSo11UIResponder", "UIColor"]
 - ["CSo11UIResponder", "UITableView"]
@@ -985,7 +871,6 @@ depends-member:
 - !private ["CSo11UIResponder", "UITableViewCellStyle"]
 - !private ["CSo11UIResponder", "UIView"]
 - !private ["CSo11UIResponder", "UIViewAnimationOptions"]
-- !private ["CSo11UIResponder", "Void"]
 - !private ["CSo11UIResponder", "addSubview"]
 - !private ["CSo11UIResponder", "alpha"]
 - !private ["CSo11UIResponder", "animateWithDuration"]
@@ -1003,7 +888,6 @@ depends-member:
 - ["CSo11UIResponder", "init"]
 - ["CSo11UIResponder", "numberOfSectionsInTableView"]
 - ["CSo11UIResponder", "objectID"]
-- !private ["CSo11UIResponder", "print"]
 - ["CSo11UIResponder", "putDown"]
 - ["CSo11UIResponder", "scrollViewDidEndDecelerating"]
 - ["CSo11UIResponder", "scrollViewDidEndDragging"]
@@ -1032,9 +916,6 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "CGPoint"]
 - !private ["PSo20UIScrollViewDelegate", "CGPointMake"]
 - !private ["PSo20UIScrollViewDelegate", "CGRectMake"]
-- !private ["PSo20UIScrollViewDelegate", "NSDate"]
-- !private ["PSo20UIScrollViewDelegate", "NSDateFormatter"]
-- !private ["PSo20UIScrollViewDelegate", "PFQuery"]
 - !private ["PSo20UIScrollViewDelegate", "UIColor"]
 - !private ["PSo20UIScrollViewDelegate", "UITableView"]
 - !private ["PSo20UIScrollViewDelegate", "UITableViewCell"]
@@ -1051,8 +932,6 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "frame"]
 - !private ["PSo20UIScrollViewDelegate", "indexPath"]
 - ["PSo20UIScrollViewDelegate", "numberOfSectionsInTableView"]
-- !private ["PSo20UIScrollViewDelegate", "objectID"]
-- !private ["PSo20UIScrollViewDelegate", "print"]
 - !private ["PSo20UIScrollViewDelegate", "putDown"]
 - ["PSo20UIScrollViewDelegate", "scrollViewDidEndDecelerating"]
 - ["PSo20UIScrollViewDelegate", "scrollViewDidEndDragging"]
@@ -1083,9 +962,6 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "CGPoint"]
 - !private ["PSo21UITableViewDataSource", "CGPointMake"]
 - !private ["PSo21UITableViewDataSource", "CGRectMake"]
-- !private ["PSo21UITableViewDataSource", "NSDate"]
-- !private ["PSo21UITableViewDataSource", "NSDateFormatter"]
-- !private ["PSo21UITableViewDataSource", "PFQuery"]
 - !private ["PSo21UITableViewDataSource", "UIColor"]
 - !private ["PSo21UITableViewDataSource", "UITableView"]
 - !private ["PSo21UITableViewDataSource", "UITableViewCell"]
@@ -1102,8 +978,6 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "frame"]
 - !private ["PSo21UITableViewDataSource", "indexPath"]
 - ["PSo21UITableViewDataSource", "numberOfSectionsInTableView"]
-- !private ["PSo21UITableViewDataSource", "objectID"]
-- !private ["PSo21UITableViewDataSource", "print"]
 - !private ["PSo21UITableViewDataSource", "putDown"]
 - ["PSo21UITableViewDataSource", "scrollViewDidEndDecelerating"]
 - ["PSo21UITableViewDataSource", "scrollViewDidEndDragging"]
@@ -1125,9 +999,6 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "CGPoint"]
 - !private ["PSo19UITableViewDelegate", "CGPointMake"]
 - !private ["PSo19UITableViewDelegate", "CGRectMake"]
-- !private ["PSo19UITableViewDelegate", "NSDate"]
-- !private ["PSo19UITableViewDelegate", "NSDateFormatter"]
-- !private ["PSo19UITableViewDelegate", "PFQuery"]
 - !private ["PSo19UITableViewDelegate", "UIColor"]
 - !private ["PSo19UITableViewDelegate", "UITableView"]
 - !private ["PSo19UITableViewDelegate", "UITableViewCell"]
@@ -1144,8 +1015,6 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "frame"]
 - !private ["PSo19UITableViewDelegate", "indexPath"]
 - ["PSo19UITableViewDelegate", "numberOfSectionsInTableView"]
-- !private ["PSo19UITableViewDelegate", "objectID"]
-- !private ["PSo19UITableViewDelegate", "print"]
 - !private ["PSo19UITableViewDelegate", "putDown"]
 - ["PSo19UITableViewDelegate", "scrollViewDidEndDecelerating"]
 - ["PSo19UITableViewDelegate", "scrollViewDidEndDragging"]
@@ -1167,9 +1036,6 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "CGPoint"]
 - !private ["PSo18UITraitEnvironment", "CGPointMake"]
 - !private ["PSo18UITraitEnvironment", "CGRectMake"]
-- !private ["PSo18UITraitEnvironment", "NSDate"]
-- !private ["PSo18UITraitEnvironment", "NSDateFormatter"]
-- !private ["PSo18UITraitEnvironment", "PFQuery"]
 - !private ["PSo18UITraitEnvironment", "UIColor"]
 - !private ["PSo18UITraitEnvironment", "UITableView"]
 - !private ["PSo18UITraitEnvironment", "UITableViewCell"]
@@ -1193,7 +1059,6 @@ depends-member:
 - ["PSo18UITraitEnvironment", "init"]
 - ["PSo18UITraitEnvironment", "numberOfSectionsInTableView"]
 - ["PSo18UITraitEnvironment", "objectID"]
-- !private ["PSo18UITraitEnvironment", "print"]
 - ["PSo18UITraitEnvironment", "putDown"]
 - ["PSo18UITraitEnvironment", "scrollViewDidEndDecelerating"]
 - ["PSo18UITraitEnvironment", "scrollViewDidEndDragging"]
@@ -1221,12 +1086,8 @@ depends-member:
 - !private ["CSo6UIView", "CGRectMake"]
 - ["CSo6UIView", "Int"]
 - ["CSo6UIView", "NSCoder"]
-- !private ["CSo6UIView", "NSDate"]
-- !private ["CSo6UIView", "NSDateFormatter"]
-- !private ["CSo6UIView", "NSError"]
 - ["CSo6UIView", "NSIndexPath"]
 - ["CSo6UIView", "PFObject"]
-- !private ["CSo6UIView", "PFQuery"]
 - ["CSo6UIView", "String"]
 - !private ["CSo6UIView", "UIColor"]
 - ["CSo6UIView", "UITableView"]
@@ -1234,7 +1095,6 @@ depends-member:
 - !private ["CSo6UIView", "UITableViewCellStyle"]
 - !private ["CSo6UIView", "UIView"]
 - !private ["CSo6UIView", "UIViewAnimationOptions"]
-- !private ["CSo6UIView", "Void"]
 - !private ["CSo6UIView", "addSubview"]
 - !private ["CSo6UIView", "alpha"]
 - !private ["CSo6UIView", "animateWithDuration"]
@@ -1252,7 +1112,6 @@ depends-member:
 - ["CSo6UIView", "init"]
 - ["CSo6UIView", "numberOfSectionsInTableView"]
 - ["CSo6UIView", "objectID"]
-- !private ["CSo6UIView", "print"]
 - ["CSo6UIView", "putDown"]
 - ["CSo6UIView", "scrollViewDidEndDecelerating"]
 - ["CSo6UIView", "scrollViewDidEndDragging"]
@@ -1311,9 +1170,6 @@ depends-member:
 - !private ["PSs12_Reflectable", "Generator"]
 - !private ["PSs12_Reflectable", "Index"]
 - !private ["PSs12_Reflectable", "IntegerLiteralType"]
-- !private ["PSs12_Reflectable", "NSDate"]
-- !private ["PSs12_Reflectable", "NSDateFormatter"]
-- !private ["PSs12_Reflectable", "PFQuery"]
 - ["PSs12_Reflectable", "Some"]
 - !private ["PSs12_Reflectable", "SubSequence"]
 - !private ["PSs12_Reflectable", "UIColor"]
@@ -1343,7 +1199,6 @@ depends-member:
 - ["PSs12_Reflectable", "numberOfSectionsInTableView"]
 - ["PSs12_Reflectable", "objectID"]
 - !private ["PSs12_Reflectable", "origin"]
-- !private ["PSs12_Reflectable", "print"]
 - ["PSs12_Reflectable", "putDown"]
 - ["PSs12_Reflectable", "scrollViewDidEndDecelerating"]
 - ["PSs12_Reflectable", "scrollViewDidEndDragging"]
@@ -1409,9 +1264,6 @@ depends-nominal:
 - !private "PSs16MutableSliceable"
 - "PSo8NSCoding"
 - !private "PSo9NSCopying"
-- !private "CSo6NSDate"
-- !private "CSo15NSDateFormatter"
-- !private "CSo11NSFormatter"
 - !private "CSo11NSIndexPath"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
@@ -1420,7 +1272,6 @@ depends-nominal:
 - !private "PSs13OptionSetType"
 - "Sq"
 - !private "CSo8PFObject"
-- !private "CSo7PFQuery"
 - !private "PSs21RandomAccessIndexType"
 - !private "PSs30RangeReplaceableCollectionType"
 - !private "PSs16RawRepresentable"
@@ -1431,7 +1282,6 @@ depends-nominal:
 - !private "VSs5Slice"
 - !private "VSs12StaticString"
 - !private "PSs10Strideable"
-- !private "SS"
 - "PSo29UIAccessibilityIdentification"
 - "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
@@ -1520,4 +1370,4 @@ depends-external:
 - "./Parse.framework/Headers/Parse.h"
 - "./Parse.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
-interface-hash: "20edd3ee57ffff78a884a1a54240414b"
+interface-hash: "12440ee87ec4d36862a62f4ef65a6f8e"

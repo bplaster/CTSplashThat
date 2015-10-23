@@ -80,7 +80,7 @@ class TaskTableViewCell: UITableViewCell {
                 ticket["completed"] = dateFormatter.stringFromDate(date)
                 ticket.saveInBackground()
                 
-                self.cellDelegate.refreshTicketList()
+                self.cellDelegate.refreshTickets([self.index])
             }
         }
 
@@ -94,21 +94,35 @@ class TaskTableViewCell: UITableViewCell {
                 primaryButton.backgroundColor = green
                 primaryButton.setTitle("ACCEPT", forState: UIControlState.Normal)
                 primaryButton.addTarget(self, action: "acceptButtonPressed", forControlEvents: .TouchUpInside)
+                headerView.backgroundColor = orange
+                titleLabel.textColor = orange
+                typeImageView.image = UIImage(named: "icon_2")
+                
                 break;
             case "completeCell":
                 primaryButton.backgroundColor = blue
                 primaryButton.setTitle("COMPLETE", forState: UIControlState.Normal)
                 primaryButton.addTarget(self, action: "completeButtonPressed", forControlEvents: .TouchUpInside)
+                titleLabel.textColor = green
+                headerView.backgroundColor = green
+                typeImageView.image = UIImage(named: "icon_3")
                 break;
             case "assignCell":
                 primaryButton.backgroundColor = orange
                 primaryButton.setTitle("ASSIGN", forState: UIControlState.Normal)
                 primaryButton.addTarget(self, action: "assignButtonPressed", forControlEvents: .TouchUpInside)
+                headerView.backgroundColor = red
+                titleLabel.textColor = red
+                typeImageView.image = UIImage(named: "icon_1")
+
                 break;
         default:
             primaryButton.backgroundColor = grey
             primaryButton.enabled = false
             primaryButton.setTitle("COMPLETED", forState: UIControlState.Disabled)
+            headerView.backgroundColor = blue
+            titleLabel.textColor = blue
+            typeImageView.image = UIImage(named: "icon_4")
             break;
         }
     }

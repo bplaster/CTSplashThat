@@ -28,7 +28,7 @@ class AssignView: UIView, UITableViewDataSource, UITableViewDelegate{
         
     }
     
-    func bringUp (index: NSIndexPath) {
+    func bringUp (index: NSIndexPath?) {
         self.indexPath = index
         UIView.animateWithDuration(0.4,
             delay: 0.0,
@@ -39,6 +39,7 @@ class AssignView: UIView, UITableViewDataSource, UITableViewDelegate{
             }, completion: nil)
     }
     
+    
     func putDown () {
         UIView.animateWithDuration(0.4,
             delay: 0.0,
@@ -47,8 +48,6 @@ class AssignView: UIView, UITableViewDataSource, UITableViewDelegate{
                 self.alpha = 0.0
                 self.assigneeTableView.center = CGPoint(x:self.center.x , y: self.center.y + self.assigneeTableView.bounds.height/2)
             }, completion: { finished in self.delegate.dismissAssignView(self.indexPath)} )
-        
- 
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -89,24 +88,9 @@ class AssignView: UIView, UITableViewDataSource, UITableViewDelegate{
     
     // MARK: - Table view delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let username = staffList[indexPath.row]["username"] as? String {
-            let query = PFQuery(className:"Ticket")
-            query.getObjectInBackgroundWithId(objectID) {
-                (ticket: PFObject?, error: NSError?) -> Void in
-                if error != nil {
-                    print(error)
-                } else if let ticket = ticket {
-                    let date = NSDate()
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "MM dd, yy, hh:mm"
-                    ticket["assigned"] = dateFormatter.stringFromDate(date)
-                    ticket["assignee"] = username
-                    ticket.saveInBackground()
-                    self.putDown()
-                    
-                }
-            }
-        }
+        let username = staffList[indexPath.row]["username"] as? String
+        self.delegate.assignee = username!
+        self.putDown()
     }
 
 }

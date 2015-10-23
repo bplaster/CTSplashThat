@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TRg-dt-anR">
-                    <rect key="frame" x="0.0" y="30" width="600" height="570"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
@@ -50,7 +50,7 @@
                 <constraint firstAttribute="bottom" secondItem="TRg-dt-anR" secondAttribute="bottom" id="jik-PE-VFn"/>
                 <constraint firstItem="TRg-dt-anR" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="nbS-mv-0ez"/>
                 <constraint firstAttribute="trailing" secondItem="MHg-EC-wjQ" secondAttribute="trailing" constant="20" id="t9J-PK-Je4"/>
-                <constraint firstItem="TRg-dt-anR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="vUC-0i-Dvq"/>
+                <constraint firstItem="TRg-dt-anR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vUC-0i-Dvq"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">

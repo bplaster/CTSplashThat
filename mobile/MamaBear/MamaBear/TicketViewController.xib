@@ -6,8 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TicketViewController" customModule="MamaBear" customModuleProvider="target">
             <connections>
-                <outlet property="descTextField" destination="Hne-2g-MRX" id="rzM-0u-jTv"/>
-                <outlet property="titleTextField" destination="TJl-cT-0iX" id="TCQ-di-X5S"/>
+                <outlet property="assignButton" destination="OYW-j4-MLo" id="U9Q-j3-CoM"/>
+                <outlet property="descTextField" destination="OBN-cs-MQ4" id="mWQ-bu-NUR"/>
+                <outlet property="titleTextField" destination="QE0-K1-use" id="Idj-lp-IQb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,32 +17,78 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u3-IL-JLd">
-                    <rect key="frame" x="276" y="352" width="49" height="30"/>
-                    <state key="normal" title="Submit"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Brief Description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OBN-cs-MQ4">
+                    <rect key="frame" x="20" y="120" width="560" height="292"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" translatesAutoresizingMaskIntoConstraints="NO" id="QE0-K1-use">
+                    <rect key="frame" x="20" y="40" width="560" height="50"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="RBs-F7-QP4"/>
+                    </constraints>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="23"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWj-a5-bkV">
+                    <rect key="frame" x="20" y="510" width="560" height="70"/>
+                    <color key="backgroundColor" red="0.98039215690000003" green="0.69411764710000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="hSc-gs-uRe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                    <size key="titleShadowOffset" width="1" height="1"/>
+                    <state key="normal" title="SUBMIT">
+                        <color key="titleColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
-                        <action selector="submitButtonPressed:" destination="-1" eventType="touchUpInside" id="35w-5q-l9l"/>
+                        <action selector="submitButtonPressed:" destination="-1" eventType="touchUpInside" id="4Jv-l2-62W"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hne-2g-MRX">
-                    <rect key="frame" x="252" y="230" width="97" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJl-cT-0iX">
-                    <rect key="frame" x="252" y="178" width="97" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYW-j4-MLo">
+                    <rect key="frame" x="20" y="432" width="560" height="70"/>
+                    <color key="backgroundColor" red="0.98039215690000003" green="0.69411764710000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="lbj-4W-ima"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                    <size key="titleShadowOffset" width="1" height="1"/>
+                    <state key="normal" title="ASSIGN">
+                        <color key="titleColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="assignButtonPressed:" destination="-1" eventType="touchUpInside" id="JOl-MU-RAj"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Hne-2g-MRX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="an9-8S-3bN"/>
-                <constraint firstItem="Hne-2g-MRX" firstAttribute="top" secondItem="TJl-cT-0iX" secondAttribute="bottom" constant="22" id="dIT-NX-4pw"/>
-                <constraint firstItem="6u3-IL-JLd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dbt-7J-vRw"/>
-                <constraint firstItem="TJl-cT-0iX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kjY-6R-Rlx"/>
-                <constraint firstItem="TJl-cT-0iX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="178" id="klW-RV-N5b"/>
+                <constraint firstItem="OBN-cs-MQ4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="1eC-Lc-VDs"/>
+                <constraint firstAttribute="trailing" secondItem="QE0-K1-use" secondAttribute="trailing" constant="20" id="3c7-0j-h5f"/>
+                <constraint firstItem="QE0-K1-use" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="At5-nZ-PmL"/>
+                <constraint firstAttribute="trailing" secondItem="OYW-j4-MLo" secondAttribute="trailing" constant="20" id="CpK-8K-SpM"/>
+                <constraint firstItem="OWj-a5-bkV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="EPR-o3-WMq"/>
+                <constraint firstAttribute="trailing" secondItem="OWj-a5-bkV" secondAttribute="trailing" constant="20" id="J3R-Lf-UVB"/>
+                <constraint firstItem="OWj-a5-bkV" firstAttribute="top" secondItem="OYW-j4-MLo" secondAttribute="bottom" constant="8" id="JtI-qt-pjh"/>
+                <constraint firstAttribute="trailing" secondItem="OBN-cs-MQ4" secondAttribute="trailing" constant="20" id="MZK-1D-tVc"/>
+                <constraint firstItem="OYW-j4-MLo" firstAttribute="top" secondItem="OBN-cs-MQ4" secondAttribute="bottom" constant="20" id="mI7-fy-ZM0"/>
+                <constraint firstAttribute="bottom" secondItem="OWj-a5-bkV" secondAttribute="bottom" constant="20" id="nmj-No-gBb"/>
+                <constraint firstItem="QE0-K1-use" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="o2p-Bj-w5T"/>
+                <constraint firstItem="OYW-j4-MLo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="pCy-8m-iZn"/>
+                <constraint firstItem="OWj-a5-bkV" firstAttribute="top" secondItem="OBN-cs-MQ4" secondAttribute="bottom" constant="98" id="pxH-xu-1fH"/>
+                <constraint firstItem="OBN-cs-MQ4" firstAttribute="top" secondItem="QE0-K1-use" secondAttribute="bottom" constant="30" id="qKS-88-0BG"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="pxH-xu-1fH"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

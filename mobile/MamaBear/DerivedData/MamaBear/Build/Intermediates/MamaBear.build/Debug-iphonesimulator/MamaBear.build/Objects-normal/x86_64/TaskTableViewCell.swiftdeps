@@ -6,63 +6,64 @@ provides-nominal:
 provides-member:
 - ["C8MamaBear17TaskTableViewCell", ""]
 provides-dynamic-lookup:
-- "creatorLabel"
-- "assignButton"
-- "setSelected"
-- "titleLabel"
-- "assignee"
 - "completeButtonPressed"
-- "completeButton"
-- "red"
-- "assignButtonPressed"
-- "typeImageView"
-- "orange"
-- "index"
+- "setSelected"
 - "headerView"
-- "populateCell"
-- "grey"
-- "customizeCell"
-- "acceptButtonPressed"
-- "assigned"
-- "infoView"
-- "acceptButton"
-- "objectID"
-- "completed"
+- "completeButton"
+- "orange"
 - "descLabel"
+- "acceptButtonPressed"
+- "customizeCell"
+- "assignButton"
+- "index"
+- "red"
+- "assignee"
+- "assignButtonPressed"
+- "populateCell"
+- "creatorLabel"
+- "objectID"
 - "accepted"
-- "primaryButton"
+- "titleLabel"
+- "infoView"
 - "blue"
+- "assigned"
+- "acceptButton"
 - "green"
+- "primaryButton"
+- "completed"
 - "awakeFromNib"
+- "typeImageView"
+- "grey"
 depends-top-level:
 - !private "+"
 - "NSIndexPath"
+- "Array"
+- !private "NSDateFormatter"
 - "TaskCellDelegate"
-- "UILabel"
+- "TaskTableViewCell"
 - !private "StringLiteralType"
-- !private "UnicodeScalarType"
 - !private "print"
 - "PFObject"
-- "UIImageView"
-- "Bool"
-- !private "UIControlEvents"
-- !private "UIControlState"
-- !private "NSDate"
-- "UITableViewCell"
 - !private "!="
+- !private "UIControlEvents"
 - !private "~="
-- "TaskTableViewCell"
-- "UIView"
-- "String"
-- "CGRect"
-- !private "Void"
-- !private "BooleanLiteralType"
+- !private "UIControlState"
+- "UILabel"
+- "Bool"
+- !private "NSDate"
 - "UIColor"
-- !private "NSDateFormatter"
 - "UIButton"
+- "CGRect"
+- !private "BooleanLiteralType"
+- !private "Void"
 - !private "PFQuery"
+- "UITableViewCell"
+- "UIImageView"
+- "UIView"
 - !private "NSError"
-- "Array"
+- !private "UIImage"
+- !private "UnicodeScalarType"
+- "String"
 depends-member:
 - !private ["PSs9AnyObject", "NSDate"]
 - !private ["PSs9AnyObject", "NSDateFormatter"]
@@ -70,6 +71,7 @@ depends-member:
 - ["PSs9AnyObject", "UIColor"]
 - !private ["PSs9AnyObject", "UIControlEvents"]
 - !private ["PSs9AnyObject", "UIControlState"]
+- !private ["PSs9AnyObject", "UIImage"]
 - ["PSs9AnyObject", "acceptButton"]
 - ["PSs9AnyObject", "acceptButtonPressed"]
 - ["PSs9AnyObject", "accepted"]
@@ -96,6 +98,7 @@ depends-member:
 - ["PSs9AnyObject", "green"]
 - ["PSs9AnyObject", "grey"]
 - ["PSs9AnyObject", "headerView"]
+- !private ["PSs9AnyObject", "image"]
 - ["PSs9AnyObject", "index"]
 - ["PSs9AnyObject", "infoView"]
 - ["PSs9AnyObject", "init"]
@@ -113,6 +116,7 @@ depends-member:
 - !private ["PSs9AnyObject", "stringFromDate"]
 - !private ["PSs9AnyObject", "subscript"]
 - !private ["PSs9AnyObject", "text"]
+- !private ["PSs9AnyObject", "textColor"]
 - ["PSs9AnyObject", "titleLabel"]
 - ["PSs9AnyObject", "typeImageView"]
 - ["PSs9AnyObject", ""]
@@ -132,6 +136,7 @@ depends-member:
 - ["PSs11CVarArgType", "UIColor"]
 - !private ["PSs11CVarArgType", "UIControlEvents"]
 - !private ["PSs11CVarArgType", "UIControlState"]
+- !private ["PSs11CVarArgType", "UIImage"]
 - ["PSs11CVarArgType", "acceptButton"]
 - ["PSs11CVarArgType", "acceptButtonPressed"]
 - ["PSs11CVarArgType", "accepted"]
@@ -158,6 +163,7 @@ depends-member:
 - ["PSs11CVarArgType", "green"]
 - ["PSs11CVarArgType", "grey"]
 - ["PSs11CVarArgType", "headerView"]
+- !private ["PSs11CVarArgType", "image"]
 - ["PSs11CVarArgType", "index"]
 - ["PSs11CVarArgType", "infoView"]
 - ["PSs11CVarArgType", "init"]
@@ -175,6 +181,7 @@ depends-member:
 - !private ["PSs11CVarArgType", "stringFromDate"]
 - !private ["PSs11CVarArgType", "subscript"]
 - !private ["PSs11CVarArgType", "text"]
+- !private ["PSs11CVarArgType", "textColor"]
 - ["PSs11CVarArgType", "titleLabel"]
 - ["PSs11CVarArgType", "typeImageView"]
 - ["PSs11CVarArgType", ""]
@@ -188,6 +195,7 @@ depends-member:
 - ["PSs23CustomStringConvertible", "UIColor"]
 - !private ["PSs23CustomStringConvertible", "UIControlEvents"]
 - !private ["PSs23CustomStringConvertible", "UIControlState"]
+- !private ["PSs23CustomStringConvertible", "UIImage"]
 - !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
 - ["PSs23CustomStringConvertible", "acceptButton"]
 - ["PSs23CustomStringConvertible", "acceptButtonPressed"]
@@ -215,6 +223,7 @@ depends-member:
 - ["PSs23CustomStringConvertible", "green"]
 - ["PSs23CustomStringConvertible", "grey"]
 - ["PSs23CustomStringConvertible", "headerView"]
+- !private ["PSs23CustomStringConvertible", "image"]
 - ["PSs23CustomStringConvertible", "index"]
 - ["PSs23CustomStringConvertible", "infoView"]
 - ["PSs23CustomStringConvertible", "init"]
@@ -232,6 +241,7 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "stringFromDate"]
 - !private ["PSs23CustomStringConvertible", "subscript"]
 - !private ["PSs23CustomStringConvertible", "text"]
+- !private ["PSs23CustomStringConvertible", "textColor"]
 - ["PSs23CustomStringConvertible", "titleLabel"]
 - ["PSs23CustomStringConvertible", "typeImageView"]
 - ["PSs23CustomStringConvertible", ""]
@@ -245,6 +255,7 @@ depends-member:
 - ["PSs9Equatable", "UIColor"]
 - !private ["PSs9Equatable", "UIControlEvents"]
 - !private ["PSs9Equatable", "UIControlState"]
+- !private ["PSs9Equatable", "UIImage"]
 - !private ["PSs9Equatable", "_getBuiltinLogicValue"]
 - ["PSs9Equatable", "acceptButton"]
 - ["PSs9Equatable", "acceptButtonPressed"]
@@ -272,6 +283,7 @@ depends-member:
 - ["PSs9Equatable", "green"]
 - ["PSs9Equatable", "grey"]
 - ["PSs9Equatable", "headerView"]
+- !private ["PSs9Equatable", "image"]
 - ["PSs9Equatable", "index"]
 - ["PSs9Equatable", "infoView"]
 - ["PSs9Equatable", "init"]
@@ -289,6 +301,7 @@ depends-member:
 - !private ["PSs9Equatable", "stringFromDate"]
 - !private ["PSs9Equatable", "subscript"]
 - !private ["PSs9Equatable", "text"]
+- !private ["PSs9Equatable", "textColor"]
 - ["PSs9Equatable", "titleLabel"]
 - ["PSs9Equatable", "typeImageView"]
 - ["PSs9Equatable", ""]
@@ -298,6 +311,7 @@ depends-member:
 - ["PSs8Hashable", "UIColor"]
 - !private ["PSs8Hashable", "UIControlEvents"]
 - !private ["PSs8Hashable", "UIControlState"]
+- !private ["PSs8Hashable", "UIImage"]
 - !private ["PSs8Hashable", "_getBuiltinLogicValue"]
 - ["PSs8Hashable", "acceptButton"]
 - ["PSs8Hashable", "acceptButtonPressed"]
@@ -325,6 +339,7 @@ depends-member:
 - ["PSs8Hashable", "green"]
 - ["PSs8Hashable", "grey"]
 - ["PSs8Hashable", "headerView"]
+- !private ["PSs8Hashable", "image"]
 - ["PSs8Hashable", "index"]
 - ["PSs8Hashable", "infoView"]
 - ["PSs8Hashable", "init"]
@@ -342,6 +357,7 @@ depends-member:
 - !private ["PSs8Hashable", "stringFromDate"]
 - !private ["PSs8Hashable", "subscript"]
 - !private ["PSs8Hashable", "text"]
+- !private ["PSs8Hashable", "textColor"]
 - ["PSs8Hashable", "titleLabel"]
 - ["PSs8Hashable", "typeImageView"]
 - ["PSs8Hashable", ""]
@@ -356,6 +372,7 @@ depends-member:
 - ["PSo8NSCoding", "UIColor"]
 - !private ["PSo8NSCoding", "UIControlEvents"]
 - !private ["PSo8NSCoding", "UIControlState"]
+- !private ["PSo8NSCoding", "UIImage"]
 - ["PSo8NSCoding", "acceptButton"]
 - ["PSo8NSCoding", "acceptButtonPressed"]
 - ["PSo8NSCoding", "accepted"]
@@ -380,6 +397,7 @@ depends-member:
 - ["PSo8NSCoding", "green"]
 - ["PSo8NSCoding", "grey"]
 - ["PSo8NSCoding", "headerView"]
+- !private ["PSo8NSCoding", "image"]
 - ["PSo8NSCoding", "index"]
 - ["PSo8NSCoding", "infoView"]
 - ["PSo8NSCoding", "init"]
@@ -394,6 +412,7 @@ depends-member:
 - !private ["PSo8NSCoding", "setTitle"]
 - !private ["PSo8NSCoding", "stringFromDate"]
 - !private ["PSo8NSCoding", "text"]
+- !private ["PSo8NSCoding", "textColor"]
 - ["PSo8NSCoding", "titleLabel"]
 - ["PSo8NSCoding", "typeImageView"]
 - ["PSo8NSCoding", ""]
@@ -422,6 +441,7 @@ depends-member:
 - ["CSo8NSObject", "UIColor"]
 - !private ["CSo8NSObject", "UIControlEvents"]
 - !private ["CSo8NSObject", "UIControlState"]
+- !private ["CSo8NSObject", "UIImage"]
 - ["CSo8NSObject", "UIImageView"]
 - ["CSo8NSObject", "UILabel"]
 - ["CSo8NSObject", "UIView"]
@@ -453,6 +473,7 @@ depends-member:
 - ["CSo8NSObject", "green"]
 - ["CSo8NSObject", "grey"]
 - ["CSo8NSObject", "headerView"]
+- !private ["CSo8NSObject", "image"]
 - ["CSo8NSObject", "index"]
 - ["CSo8NSObject", "infoView"]
 - ["CSo8NSObject", "init"]
@@ -470,6 +491,7 @@ depends-member:
 - !private ["CSo8NSObject", "stringFromDate"]
 - !private ["CSo8NSObject", "subscript"]
 - !private ["CSo8NSObject", "text"]
+- !private ["CSo8NSObject", "textColor"]
 - ["CSo8NSObject", "titleLabel"]
 - ["CSo8NSObject", "typeImageView"]
 - !private ["PSo16NSObjectProtocol", "NSDate"]
@@ -478,6 +500,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UIControlEvents"]
 - !private ["PSo16NSObjectProtocol", "UIControlState"]
+- !private ["PSo16NSObjectProtocol", "UIImage"]
 - ["PSo16NSObjectProtocol", "acceptButton"]
 - ["PSo16NSObjectProtocol", "acceptButtonPressed"]
 - ["PSo16NSObjectProtocol", "accepted"]
@@ -504,6 +527,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "green"]
 - ["PSo16NSObjectProtocol", "grey"]
 - ["PSo16NSObjectProtocol", "headerView"]
+- !private ["PSo16NSObjectProtocol", "image"]
 - ["PSo16NSObjectProtocol", "index"]
 - ["PSo16NSObjectProtocol", "infoView"]
 - ["PSo16NSObjectProtocol", "init"]
@@ -521,6 +545,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "stringFromDate"]
 - !private ["PSo16NSObjectProtocol", "subscript"]
 - !private ["PSo16NSObjectProtocol", "text"]
+- !private ["PSo16NSObjectProtocol", "textColor"]
 - ["PSo16NSObjectProtocol", "titleLabel"]
 - ["PSo16NSObjectProtocol", "typeImageView"]
 - ["PSo16NSObjectProtocol", ""]
@@ -553,7 +578,6 @@ depends-member:
 - !private ["PSs14SetAlgebraType", "TouchUpInside"]
 - !private ["SS", "deinit"]
 - !private ["P8MamaBear16TaskCellDelegate", "assignTicket"]
-- !private ["P8MamaBear16TaskCellDelegate", "refreshTicketList"]
 - !private ["P8MamaBear16TaskCellDelegate", "refreshTickets"]
 - ["C8MamaBear17TaskTableViewCell", "Bool"]
 - ["C8MamaBear17TaskTableViewCell", "CGRect"]
@@ -569,6 +593,7 @@ depends-member:
 - ["C8MamaBear17TaskTableViewCell", "UIColor"]
 - !private ["C8MamaBear17TaskTableViewCell", "UIControlEvents"]
 - !private ["C8MamaBear17TaskTableViewCell", "UIControlState"]
+- !private ["C8MamaBear17TaskTableViewCell", "UIImage"]
 - ["C8MamaBear17TaskTableViewCell", "UIImageView"]
 - ["C8MamaBear17TaskTableViewCell", "UILabel"]
 - ["C8MamaBear17TaskTableViewCell", "UIView"]
@@ -612,6 +637,7 @@ depends-member:
 - ["PSo29UIAccessibilityIdentification", "UIColor"]
 - !private ["PSo29UIAccessibilityIdentification", "UIControlEvents"]
 - !private ["PSo29UIAccessibilityIdentification", "UIControlState"]
+- !private ["PSo29UIAccessibilityIdentification", "UIImage"]
 - ["PSo29UIAccessibilityIdentification", "acceptButton"]
 - ["PSo29UIAccessibilityIdentification", "acceptButtonPressed"]
 - ["PSo29UIAccessibilityIdentification", "accepted"]
@@ -635,6 +661,7 @@ depends-member:
 - ["PSo29UIAccessibilityIdentification", "green"]
 - ["PSo29UIAccessibilityIdentification", "grey"]
 - ["PSo29UIAccessibilityIdentification", "headerView"]
+- !private ["PSo29UIAccessibilityIdentification", "image"]
 - ["PSo29UIAccessibilityIdentification", "index"]
 - ["PSo29UIAccessibilityIdentification", "infoView"]
 - ["PSo29UIAccessibilityIdentification", "init"]
@@ -648,6 +675,7 @@ depends-member:
 - ["PSo29UIAccessibilityIdentification", "setSelected"]
 - !private ["PSo29UIAccessibilityIdentification", "setTitle"]
 - !private ["PSo29UIAccessibilityIdentification", "text"]
+- !private ["PSo29UIAccessibilityIdentification", "textColor"]
 - ["PSo29UIAccessibilityIdentification", "titleLabel"]
 - ["PSo29UIAccessibilityIdentification", "typeImageView"]
 - ["PSo29UIAccessibilityIdentification", ""]
@@ -657,6 +685,7 @@ depends-member:
 - ["PSo12UIAppearance", "UIColor"]
 - !private ["PSo12UIAppearance", "UIControlEvents"]
 - !private ["PSo12UIAppearance", "UIControlState"]
+- !private ["PSo12UIAppearance", "UIImage"]
 - ["PSo12UIAppearance", "acceptButton"]
 - ["PSo12UIAppearance", "acceptButtonPressed"]
 - ["PSo12UIAppearance", "accepted"]
@@ -680,6 +709,7 @@ depends-member:
 - ["PSo12UIAppearance", "green"]
 - ["PSo12UIAppearance", "grey"]
 - ["PSo12UIAppearance", "headerView"]
+- !private ["PSo12UIAppearance", "image"]
 - ["PSo12UIAppearance", "index"]
 - ["PSo12UIAppearance", "infoView"]
 - ["PSo12UIAppearance", "init"]
@@ -693,6 +723,7 @@ depends-member:
 - ["PSo12UIAppearance", "setSelected"]
 - !private ["PSo12UIAppearance", "setTitle"]
 - !private ["PSo12UIAppearance", "text"]
+- !private ["PSo12UIAppearance", "textColor"]
 - ["PSo12UIAppearance", "titleLabel"]
 - ["PSo12UIAppearance", "typeImageView"]
 - ["PSo12UIAppearance", ""]
@@ -702,6 +733,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "UIColor"]
 - !private ["PSo21UIAppearanceContainer", "UIControlEvents"]
 - !private ["PSo21UIAppearanceContainer", "UIControlState"]
+- !private ["PSo21UIAppearanceContainer", "UIImage"]
 - ["PSo21UIAppearanceContainer", "acceptButton"]
 - ["PSo21UIAppearanceContainer", "acceptButtonPressed"]
 - ["PSo21UIAppearanceContainer", "accepted"]
@@ -725,6 +757,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "green"]
 - ["PSo21UIAppearanceContainer", "grey"]
 - ["PSo21UIAppearanceContainer", "headerView"]
+- !private ["PSo21UIAppearanceContainer", "image"]
 - ["PSo21UIAppearanceContainer", "index"]
 - ["PSo21UIAppearanceContainer", "infoView"]
 - ["PSo21UIAppearanceContainer", "init"]
@@ -738,6 +771,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "setSelected"]
 - !private ["PSo21UIAppearanceContainer", "setTitle"]
 - !private ["PSo21UIAppearanceContainer", "text"]
+- !private ["PSo21UIAppearanceContainer", "textColor"]
 - ["PSo21UIAppearanceContainer", "titleLabel"]
 - ["PSo21UIAppearanceContainer", "typeImageView"]
 - ["PSo21UIAppearanceContainer", ""]
@@ -762,6 +796,7 @@ depends-member:
 - ["PSo17UICoordinateSpace", "UIColor"]
 - !private ["PSo17UICoordinateSpace", "UIControlEvents"]
 - !private ["PSo17UICoordinateSpace", "UIControlState"]
+- !private ["PSo17UICoordinateSpace", "UIImage"]
 - ["PSo17UICoordinateSpace", "acceptButton"]
 - ["PSo17UICoordinateSpace", "acceptButtonPressed"]
 - ["PSo17UICoordinateSpace", "accepted"]
@@ -785,6 +820,7 @@ depends-member:
 - ["PSo17UICoordinateSpace", "green"]
 - ["PSo17UICoordinateSpace", "grey"]
 - ["PSo17UICoordinateSpace", "headerView"]
+- !private ["PSo17UICoordinateSpace", "image"]
 - ["PSo17UICoordinateSpace", "index"]
 - ["PSo17UICoordinateSpace", "infoView"]
 - ["PSo17UICoordinateSpace", "init"]
@@ -798,6 +834,7 @@ depends-member:
 - ["PSo17UICoordinateSpace", "setSelected"]
 - !private ["PSo17UICoordinateSpace", "setTitle"]
 - !private ["PSo17UICoordinateSpace", "text"]
+- !private ["PSo17UICoordinateSpace", "textColor"]
 - ["PSo17UICoordinateSpace", "titleLabel"]
 - ["PSo17UICoordinateSpace", "typeImageView"]
 - ["PSo17UICoordinateSpace", ""]
@@ -807,6 +844,7 @@ depends-member:
 - ["PSo13UIDynamicItem", "UIColor"]
 - !private ["PSo13UIDynamicItem", "UIControlEvents"]
 - !private ["PSo13UIDynamicItem", "UIControlState"]
+- !private ["PSo13UIDynamicItem", "UIImage"]
 - ["PSo13UIDynamicItem", "acceptButton"]
 - ["PSo13UIDynamicItem", "acceptButtonPressed"]
 - ["PSo13UIDynamicItem", "accepted"]
@@ -830,6 +868,7 @@ depends-member:
 - ["PSo13UIDynamicItem", "green"]
 - ["PSo13UIDynamicItem", "grey"]
 - ["PSo13UIDynamicItem", "headerView"]
+- !private ["PSo13UIDynamicItem", "image"]
 - ["PSo13UIDynamicItem", "index"]
 - ["PSo13UIDynamicItem", "infoView"]
 - ["PSo13UIDynamicItem", "init"]
@@ -843,6 +882,7 @@ depends-member:
 - ["PSo13UIDynamicItem", "setSelected"]
 - !private ["PSo13UIDynamicItem", "setTitle"]
 - !private ["PSo13UIDynamicItem", "text"]
+- !private ["PSo13UIDynamicItem", "textColor"]
 - ["PSo13UIDynamicItem", "titleLabel"]
 - ["PSo13UIDynamicItem", "typeImageView"]
 - ["PSo13UIDynamicItem", ""]
@@ -852,6 +892,7 @@ depends-member:
 - ["PSo27UIGestureRecognizerDelegate", "UIColor"]
 - !private ["PSo27UIGestureRecognizerDelegate", "UIControlEvents"]
 - !private ["PSo27UIGestureRecognizerDelegate", "UIControlState"]
+- !private ["PSo27UIGestureRecognizerDelegate", "UIImage"]
 - ["PSo27UIGestureRecognizerDelegate", "acceptButton"]
 - ["PSo27UIGestureRecognizerDelegate", "acceptButtonPressed"]
 - ["PSo27UIGestureRecognizerDelegate", "accepted"]
@@ -885,7 +926,10 @@ depends-member:
 - ["PSo27UIGestureRecognizerDelegate", "titleLabel"]
 - ["PSo27UIGestureRecognizerDelegate", "typeImageView"]
 - ["PSo27UIGestureRecognizerDelegate", ""]
+- !private ["CSo7UIImage", "init"]
+- !private ["CSo11UIImageView", "image"]
 - !private ["CSo7UILabel", "text"]
+- !private ["CSo7UILabel", "textColor"]
 - ["CSo11UIResponder", "Bool"]
 - ["CSo11UIResponder", "CGRect"]
 - !private ["CSo11UIResponder", "NSDate"]
@@ -900,6 +944,7 @@ depends-member:
 - ["CSo11UIResponder", "UIColor"]
 - !private ["CSo11UIResponder", "UIControlEvents"]
 - !private ["CSo11UIResponder", "UIControlState"]
+- !private ["CSo11UIResponder", "UIImage"]
 - ["CSo11UIResponder", "UIImageView"]
 - ["CSo11UIResponder", "UILabel"]
 - ["CSo11UIResponder", "UIView"]
@@ -927,6 +972,7 @@ depends-member:
 - ["CSo11UIResponder", "green"]
 - ["CSo11UIResponder", "grey"]
 - ["CSo11UIResponder", "headerView"]
+- !private ["CSo11UIResponder", "image"]
 - ["CSo11UIResponder", "index"]
 - ["CSo11UIResponder", "infoView"]
 - ["CSo11UIResponder", "init"]
@@ -940,6 +986,7 @@ depends-member:
 - ["CSo11UIResponder", "setSelected"]
 - !private ["CSo11UIResponder", "setTitle"]
 - !private ["CSo11UIResponder", "text"]
+- !private ["CSo11UIResponder", "textColor"]
 - ["CSo11UIResponder", "titleLabel"]
 - ["CSo11UIResponder", "typeImageView"]
 - ["CSo15UITableViewCell", "Bool"]
@@ -956,6 +1003,7 @@ depends-member:
 - ["CSo15UITableViewCell", "UIColor"]
 - !private ["CSo15UITableViewCell", "UIControlEvents"]
 - !private ["CSo15UITableViewCell", "UIControlState"]
+- !private ["CSo15UITableViewCell", "UIImage"]
 - ["CSo15UITableViewCell", "UIImageView"]
 - ["CSo15UITableViewCell", "UILabel"]
 - ["CSo15UITableViewCell", "UIView"]
@@ -999,6 +1047,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "UIColor"]
 - !private ["PSo18UITraitEnvironment", "UIControlEvents"]
 - !private ["PSo18UITraitEnvironment", "UIControlState"]
+- !private ["PSo18UITraitEnvironment", "UIImage"]
 - ["PSo18UITraitEnvironment", "acceptButton"]
 - ["PSo18UITraitEnvironment", "acceptButtonPressed"]
 - ["PSo18UITraitEnvironment", "accepted"]
@@ -1022,6 +1071,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "green"]
 - ["PSo18UITraitEnvironment", "grey"]
 - ["PSo18UITraitEnvironment", "headerView"]
+- !private ["PSo18UITraitEnvironment", "image"]
 - ["PSo18UITraitEnvironment", "index"]
 - ["PSo18UITraitEnvironment", "infoView"]
 - ["PSo18UITraitEnvironment", "init"]
@@ -1035,6 +1085,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "setSelected"]
 - !private ["PSo18UITraitEnvironment", "setTitle"]
 - !private ["PSo18UITraitEnvironment", "text"]
+- !private ["PSo18UITraitEnvironment", "textColor"]
 - ["PSo18UITraitEnvironment", "titleLabel"]
 - ["PSo18UITraitEnvironment", "typeImageView"]
 - ["PSo18UITraitEnvironment", ""]
@@ -1052,6 +1103,7 @@ depends-member:
 - ["CSo6UIView", "UIColor"]
 - !private ["CSo6UIView", "UIControlEvents"]
 - !private ["CSo6UIView", "UIControlState"]
+- !private ["CSo6UIView", "UIImage"]
 - ["CSo6UIView", "UIImageView"]
 - ["CSo6UIView", "UILabel"]
 - ["CSo6UIView", "UIView"]
@@ -1079,6 +1131,7 @@ depends-member:
 - ["CSo6UIView", "green"]
 - ["CSo6UIView", "grey"]
 - ["CSo6UIView", "headerView"]
+- !private ["CSo6UIView", "image"]
 - ["CSo6UIView", "index"]
 - ["CSo6UIView", "infoView"]
 - ["CSo6UIView", "init"]
@@ -1092,6 +1145,7 @@ depends-member:
 - ["CSo6UIView", "setSelected"]
 - !private ["CSo6UIView", "setTitle"]
 - !private ["CSo6UIView", "text"]
+- !private ["CSo6UIView", "textColor"]
 - ["CSo6UIView", "titleLabel"]
 - ["CSo6UIView", "typeImageView"]
 - !private ["PSs10_ArrayType", "Element"]
@@ -1108,6 +1162,7 @@ depends-member:
 - ["PSs12_Reflectable", "UIColor"]
 - !private ["PSs12_Reflectable", "UIControlEvents"]
 - !private ["PSs12_Reflectable", "UIControlState"]
+- !private ["PSs12_Reflectable", "UIImage"]
 - !private ["PSs12_Reflectable", "_getBuiltinLogicValue"]
 - ["PSs12_Reflectable", "acceptButton"]
 - ["PSs12_Reflectable", "acceptButtonPressed"]
@@ -1132,6 +1187,7 @@ depends-member:
 - ["PSs12_Reflectable", "green"]
 - ["PSs12_Reflectable", "grey"]
 - ["PSs12_Reflectable", "headerView"]
+- !private ["PSs12_Reflectable", "image"]
 - ["PSs12_Reflectable", "index"]
 - ["PSs12_Reflectable", "infoView"]
 - ["PSs12_Reflectable", "init"]
@@ -1145,6 +1201,7 @@ depends-member:
 - ["PSs12_Reflectable", "setSelected"]
 - !private ["PSs12_Reflectable", "setTitle"]
 - !private ["PSs12_Reflectable", "text"]
+- !private ["PSs12_Reflectable", "textColor"]
 - ["PSs12_Reflectable", "titleLabel"]
 - ["PSs12_Reflectable", "typeImageView"]
 - ["PSs12_Reflectable", ""]
@@ -1201,6 +1258,8 @@ depends-nominal:
 - "PSo17UICoordinateSpace"
 - "PSo13UIDynamicItem"
 - "PSo27UIGestureRecognizerDelegate"
+- !private "CSo7UIImage"
+- !private "CSo11UIImageView"
 - !private "CSo7UILabel"
 - "CSo11UIResponder"
 - "CSo15UITableViewCell"

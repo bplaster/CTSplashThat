@@ -16,7 +16,8 @@ protocol TaskCellDelegate {
 }
 
 protocol AssignViewDelegate {
-    func dismissAssignView(index:NSIndexPath)
+    func dismissAssignView(index:NSIndexPath?)
+    var assignee: String {get set}
 }
 
 
@@ -29,6 +30,7 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
     var currentUser = "brandon"
     var currentUserType = "manager"
     var assignView: AssignView!
+    var assignee: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
         ticketTableView.delegate = self
         ticketTableView.dataSource = self
         ticketTableView.rowHeight = UITableViewAutomaticDimension
-        ticketTableView.estimatedRowHeight = 240.0
+        ticketTableView.estimatedRowHeight = 260.0
         
         var nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
         ticketTableView.registerNib(nib, forCellReuseIdentifier: "completeCell")
@@ -58,16 +60,36 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
         refreshTicketList()
     }
     
-    func dismissAssignView(index: NSIndexPath) {
+    func dismissAssignView(index: NSIndexPath?) {
         if(assignView != nil){
             assignView.removeFromSuperview()
-            refreshTickets([index])
+            
+            if(index != nil){
+                let objectID = tickets[(index?.row)!].objectId
+                let query = PFQuery(className:"Ticket")
+                query.getObjectInBackgroundWithId(objectID!) {
+                    (ticket: PFObject?, error: NSError?) -> Void in
+                    if error != nil {
+                        print(error)
+                    } else if let ticket = ticket {
+                        let date = NSDate()
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "MM dd, yy, hh:mm"
+                        ticket["assigned"] = dateFormatter.stringFromDate(date)
+                        ticket["assignee"] = self.assignee
+                        ticket.saveInBackground()
+                        self.refreshTickets([index!])
+                    }
+                }
+            }
         }
     }
 
     @IBAction func AddButtonPressed(sender: AnyObject) {
         let newTicketView = TicketViewController()
         newTicketView.creator = currentUser
+        newTicketView.currentUserType = currentUserType
+        newTicketView.users = users
         presentViewController(newTicketView, animated: true, completion: nil)
     }
     
@@ -140,7 +162,7 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
         assignView = AssignView(frame: view.frame)
         assignView.delegate = self
         assignView.staffList = users
-        assignView.objectID = tickets[index.row].objectId
+//        assignView.objectID = tickets[index.row].objectId
         view.addSubview(assignView)
         
         assignView.bringUp(index)

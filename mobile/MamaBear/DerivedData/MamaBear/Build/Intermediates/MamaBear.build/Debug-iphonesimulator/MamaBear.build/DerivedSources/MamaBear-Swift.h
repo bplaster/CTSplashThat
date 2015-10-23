@@ -121,7 +121,7 @@ SWIFT_CLASS("_TtC8MamaBear10AssignView")
 @property (nonatomic, copy) NSString * __null_unspecified objectID;
 @property (nonatomic) NSIndexPath * __null_unspecified indexPath;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (void)bringUp:(NSIndexPath * __nonnull)index;
+- (void)bringUp:(NSIndexPath * __nullable)index;
 - (void)putDown;
 - (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
@@ -181,9 +181,10 @@ SWIFT_CLASS("_TtC8MamaBear24TicketListViewController")
 @property (nonatomic, copy) NSString * __nonnull currentUser;
 @property (nonatomic, copy) NSString * __nonnull currentUserType;
 @property (nonatomic) AssignView * __null_unspecified assignView;
+@property (nonatomic, copy) NSString * __nonnull assignee;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
-- (void)dismissAssignView:(NSIndexPath * __nonnull)index;
+- (void)dismissAssignView:(NSIndexPath * __nullable)index;
 - (IBAction)AddButtonPressed:(id __nonnull)sender;
 - (void)didReceiveMemoryWarning;
 - (void)refreshTickets:(NSArray<NSIndexPath *> * __nonnull)indexPaths;
@@ -199,15 +200,22 @@ SWIFT_CLASS("_TtC8MamaBear24TicketListViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UITextField;
+@class UITextView;
 
 SWIFT_CLASS("_TtC8MamaBear20TicketViewController")
 @interface TicketViewController : UIViewController
-@property (nonatomic) IBOutlet UITextField * __null_unspecified titleTextField;
-@property (nonatomic) IBOutlet UITextField * __null_unspecified descTextField;
-@property (nonatomic) IBOutlet UITextField * __null_unspecified assigneeTextField;
+@property (nonatomic) IBOutlet UITextView * __null_unspecified titleTextField;
+@property (nonatomic) IBOutlet UITextView * __null_unspecified descTextField;
+@property (nonatomic) IBOutlet UIButton * __null_unspecified assignButton;
+@property (nonatomic, copy) NSString * __null_unspecified currentUserType;
+@property (nonatomic, copy) NSArray<PFObject *> * __nonnull users;
 @property (nonatomic, copy) NSString * __nonnull creator;
+@property (nonatomic, copy) NSString * __nonnull assignee;
+@property (nonatomic, copy) NSString * __nonnull assigned;
+@property (nonatomic) AssignView * __null_unspecified assignView;
 - (void)viewDidLoad;
+- (IBAction)assignButtonPressed:(id __nonnull)sender;
+- (void)dismissAssignView:(NSIndexPath * __nullable)index;
 - (IBAction)submitButtonPressed:(id __nonnull)sender;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
