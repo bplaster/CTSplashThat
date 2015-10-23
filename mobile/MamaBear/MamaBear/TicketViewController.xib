@@ -18,14 +18,14 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Brief Description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OBN-cs-MQ4">
-                    <rect key="frame" x="20" y="120" width="560" height="292"/>
+                    <rect key="frame" x="20" y="160" width="560" height="252"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" translatesAutoresizingMaskIntoConstraints="NO" id="QE0-K1-use">
-                    <rect key="frame" x="20" y="40" width="560" height="50"/>
+                    <rect key="frame" x="20" y="80" width="560" height="50"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="RBs-F7-QP4"/>
@@ -71,7 +71,7 @@
             <constraints>
                 <constraint firstItem="OBN-cs-MQ4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="1eC-Lc-VDs"/>
                 <constraint firstAttribute="trailing" secondItem="QE0-K1-use" secondAttribute="trailing" constant="20" id="3c7-0j-h5f"/>
-                <constraint firstItem="QE0-K1-use" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="At5-nZ-PmL"/>
+                <constraint firstItem="QE0-K1-use" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="At5-nZ-PmL"/>
                 <constraint firstAttribute="trailing" secondItem="OYW-j4-MLo" secondAttribute="trailing" constant="20" id="CpK-8K-SpM"/>
                 <constraint firstItem="OWj-a5-bkV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="EPR-o3-WMq"/>
                 <constraint firstAttribute="trailing" secondItem="OWj-a5-bkV" secondAttribute="trailing" constant="20" id="J3R-Lf-UVB"/>

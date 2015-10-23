@@ -130,6 +130,20 @@ SWIFT_CLASS("_TtC8MamaBear10AssignView")
 - (void)tableView:(UITableView * __nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 @end
 
+@class UITextField;
+@class NSBundle;
+
+SWIFT_CLASS("_TtC8MamaBear19LoginViewController")
+@interface LoginViewController : UIViewController
+@property (nonatomic) IBOutlet UITextField * __null_unspecified usernameTextField;
+@property (nonatomic) IBOutlet UITextField * __null_unspecified userTypeTextField;
+- (void)viewDidLoad;
+- (IBAction)enterButtonPressed:(id __nonnull)sender;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UILabel;
 @class UIImageView;
 @class UIButton;
@@ -170,7 +184,6 @@ SWIFT_CLASS("_TtC8MamaBear17TaskTableViewCell")
 @end
 
 @class NSTimer;
-@class NSBundle;
 
 SWIFT_CLASS("_TtC8MamaBear24TicketListViewController")
 @interface TicketListViewController : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>

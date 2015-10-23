@@ -94,15 +94,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //
         //  Swift 2.0
         //
-        //        if #available(iOS 8.0, *) {
-        //            let types: UIUserNotificationType = [.Alert, .Badge, .Sound]
-        //            let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
-        //            application.registerUserNotificationSettings(settings)
-        //            application.registerForRemoteNotifications()
-        //        } else {
-        //            let types: UIRemoteNotificationType = [.Alert, .Badge, .Sound]
-        //            application.registerForRemoteNotificationTypes(types)
-        //        }
+                if #available(iOS 8.0, *) {
+                    let types: UIUserNotificationType = [.Alert, .Badge, .Sound]
+                    let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
+                    application.registerUserNotificationSettings(settings)
+                    application.registerForRemoteNotifications()
+                } else {
+                    let types: UIRemoteNotificationType = [.Alert, .Badge, .Sound]
+                    application.registerForRemoteNotificationTypes(types)
+                }
         
         return true
     }
@@ -114,6 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let installation = PFInstallation.currentInstallation()
         installation.setDeviceTokenFromData(deviceToken)
+        installation.channels = ["global"]
         installation.saveInBackground()
         
         PFPush.subscribeToChannelInBackground("") { (succeeded: Bool, error: NSError?) in

@@ -28,13 +28,13 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
     var users: [PFObject] = []
     var timer: NSTimer = NSTimer()
     var currentUser = "brandon"
-    var currentUserType = "manager"
+    var currentUserType = "staff"
     var assignView: AssignView!
     var assignee: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+                
         ticketTableView.delegate = self
         ticketTableView.dataSource = self
         ticketTableView.rowHeight = UITableViewAutomaticDimension
@@ -65,6 +65,7 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
             assignView.removeFromSuperview()
             
             if(index != nil){
+                
                 let objectID = tickets[(index?.row)!].objectId
                 let query = PFQuery(className:"Ticket")
                 query.getObjectInBackgroundWithId(objectID!) {
@@ -78,6 +79,10 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
                         ticket["assigned"] = dateFormatter.stringFromDate(date)
                         ticket["assignee"] = self.assignee
                         ticket.saveInBackground()
+                        
+                        let push = PFPush()
+                        push.setChannel("tickets")
+                        push.setMessage("A new task needs attention")
                         self.refreshTickets([index!])
                     }
                 }
@@ -90,7 +95,9 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
         newTicketView.creator = currentUser
         newTicketView.currentUserType = currentUserType
         newTicketView.users = users
-        presentViewController(newTicketView, animated: true, completion: nil)
+        let navCon = UINavigationController(rootViewController: newTicketView)
+
+        presentViewController(navCon, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

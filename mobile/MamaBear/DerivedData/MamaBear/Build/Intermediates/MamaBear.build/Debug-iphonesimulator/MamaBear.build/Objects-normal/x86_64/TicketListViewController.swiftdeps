@@ -12,68 +12,69 @@ provides-member:
 - ["P8MamaBear18AssignViewDelegate", ""]
 - ["C8MamaBear24TicketListViewController", ""]
 provides-dynamic-lookup:
-- "currentUser"
-- "numberOfSectionsInTableView"
-- "checkCellType"
-- "viewDidLoad"
-- "tickets"
 - "currentUserType"
-- "assignee"
-- "timer"
-- "refreshUserList"
+- "tickets"
+- "checkCellType"
 - "assignView"
+- "refreshUserList"
 - "ticketTableView"
-- "refreshTickets"
-- "dismissAssignView"
 - "assignTicket"
-- "refreshTicketList"
-- "didReceiveMemoryWarning"
+- "timer"
+- "viewDidLoad"
 - "tableView"
 - "tableView"
 - "tableView"
 - "users"
+- "numberOfSectionsInTableView"
+- "currentUser"
+- "dismissAssignView"
 - "AddButtonPressed"
 - "viewDidAppear"
+- "didReceiveMemoryWarning"
+- "refreshTickets"
+- "assignee"
+- "refreshTicketList"
 depends-top-level:
-- "UnicodeScalarType"
-- "AssignView"
-- "TicketListViewController"
-- "PFObject"
-- !private "print"
-- "UITableViewCell"
-- !private "TicketViewController"
-- !private "!="
-- !private "&&"
-- "NSIndexPath"
-- "StringLiteralType"
-- !private "=="
+- "Array"
+- !private "dispatch_get_main_queue"
+- "Bool"
+- !private "TaskTableViewCell"
+- "UITableView"
 - !private "~="
-- "UIViewController"
+- !private "TicketViewController"
 - "Int"
 - !private "NSDateFormatter"
+- !private "UINavigationController"
+- !private "=="
+- "PFObject"
 - !private "UITableViewRowAnimation"
-- !private "UITableViewAutomaticDimension"
-- "UITableViewDelegate"
 - !private "dispatch_async"
-- "NSTimer"
-- "UITableViewDataSource"
-- !private "PFQuery"
-- !private "dispatch_get_main_queue"
-- "AnyObject"
-- !private "UINib"
-- !private "NSError"
-- "String"
-- !private "TaskTableViewCell"
-- !private "PFUser"
-- "Array"
-- "Bool"
-- "TaskCellDelegate"
 - !private "NSDate"
-- "UITableView"
-- !private "Void"
-- !private "BooleanLiteralType"
+- !private "&&"
+- !private "PFUser"
+- "StringLiteralType"
+- "UnicodeScalarType"
+- !private "PFQuery"
+- "String"
+- "NSTimer"
+- "UITableViewCell"
+- "TaskCellDelegate"
+- !private "UITableViewAutomaticDimension"
+- !private "UINib"
+- !private "!="
+- "UIViewController"
+- "AssignView"
+- !private "print"
 - "AssignViewDelegate"
+- "UITableViewDelegate"
+- !private "NSError"
+- "UITableViewDataSource"
+- "NSIndexPath"
+- !private "Void"
 - !private "||"
+- !private "BooleanLiteralType"
+- "AnyObject"
+- "TicketListViewController"
 depends-member:
 - ["PSs9AnyObject", "AddButtonPressed"]
 - !private ["PSs9AnyObject", "AssignView"]
@@ -83,6 +84,7 @@ depends-member:
 - !private ["PSs9AnyObject", "PFQuery"]
 - !private ["PSs9AnyObject", "PFUser"]
 - !private ["PSs9AnyObject", "TicketViewController"]
+- !private ["PSs9AnyObject", "UINavigationController"]
 - !private ["PSs9AnyObject", "UINib"]
 - !private ["PSs9AnyObject", "UITableViewAutomaticDimension"]
 - !private ["PSs9AnyObject", "UITableViewRowAnimation"]
@@ -190,6 +192,7 @@ depends-member:
 - !private ["P8MamaBear18AssignViewDelegate", "PFUser"]
 - ["P8MamaBear18AssignViewDelegate", "String"]
 - !private ["P8MamaBear18AssignViewDelegate", "TicketViewController"]
+- !private ["P8MamaBear18AssignViewDelegate", "UINavigationController"]
 - !private ["P8MamaBear18AssignViewDelegate", "UINib"]
 - !private ["P8MamaBear18AssignViewDelegate", "UITableViewAutomaticDimension"]
 - !private ["P8MamaBear18AssignViewDelegate", "UITableViewRowAnimation"]
@@ -249,6 +252,7 @@ depends-member:
 - !private ["PSs11CVarArgType", "PFQuery"]
 - !private ["PSs11CVarArgType", "PFUser"]
 - !private ["PSs11CVarArgType", "TicketViewController"]
+- !private ["PSs11CVarArgType", "UINavigationController"]
 - !private ["PSs11CVarArgType", "UINib"]
 - !private ["PSs11CVarArgType", "UITableViewAutomaticDimension"]
 - !private ["PSs11CVarArgType", "UITableViewRowAnimation"]
@@ -359,6 +363,7 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "PFUser"]
 - !private ["PSs23CustomStringConvertible", "SubSequence"]
 - !private ["PSs23CustomStringConvertible", "TicketViewController"]
+- !private ["PSs23CustomStringConvertible", "UINavigationController"]
 - !private ["PSs23CustomStringConvertible", "UINib"]
 - !private ["PSs23CustomStringConvertible", "UITableViewAutomaticDimension"]
 - !private ["PSs23CustomStringConvertible", "UITableViewRowAnimation"]
@@ -448,6 +453,7 @@ depends-member:
 - !private ["PSs9Equatable", "PFQuery"]
 - !private ["PSs9Equatable", "PFUser"]
 - !private ["PSs9Equatable", "TicketViewController"]
+- !private ["PSs9Equatable", "UINavigationController"]
 - !private ["PSs9Equatable", "UINib"]
 - !private ["PSs9Equatable", "UITableViewAutomaticDimension"]
 - !private ["PSs9Equatable", "UITableViewRowAnimation"]
@@ -541,6 +547,7 @@ depends-member:
 - !private ["PSs8Hashable", "PFQuery"]
 - !private ["PSs8Hashable", "PFUser"]
 - !private ["PSs8Hashable", "TicketViewController"]
+- !private ["PSs8Hashable", "UINavigationController"]
 - !private ["PSs8Hashable", "UINib"]
 - !private ["PSs8Hashable", "UITableViewAutomaticDimension"]
 - !private ["PSs8Hashable", "UITableViewRowAnimation"]
@@ -673,6 +680,7 @@ depends-member:
 - !private ["PSo8NSCoding", "PFQuery"]
 - !private ["PSo8NSCoding", "PFUser"]
 - !private ["PSo8NSCoding", "TicketViewController"]
+- !private ["PSo8NSCoding", "UINavigationController"]
 - !private ["PSo8NSCoding", "UINib"]
 - !private ["PSo8NSCoding", "UITableViewAutomaticDimension"]
 - !private ["PSo8NSCoding", "UITableViewRowAnimation"]
@@ -762,6 +770,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "PFQuery"]
 - !private ["PSo26NSExtensionRequestHandling", "PFUser"]
 - !private ["PSo26NSExtensionRequestHandling", "TicketViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "UINavigationController"]
 - !private ["PSo26NSExtensionRequestHandling", "UINib"]
 - !private ["PSo26NSExtensionRequestHandling", "UITableViewAutomaticDimension"]
 - !private ["PSo26NSExtensionRequestHandling", "UITableViewRowAnimation"]
@@ -828,6 +837,7 @@ depends-member:
 - ["CSo8NSObject", "String"]
 - !private ["CSo8NSObject", "TaskTableViewCell"]
 - !private ["CSo8NSObject", "TicketViewController"]
+- !private ["CSo8NSObject", "UINavigationController"]
 - !private ["CSo8NSObject", "UINib"]
 - ["CSo8NSObject", "UITableView"]
 - !private ["CSo8NSObject", "UITableViewAutomaticDimension"]
@@ -914,6 +924,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "PFQuery"]
 - !private ["PSo16NSObjectProtocol", "PFUser"]
 - !private ["PSo16NSObjectProtocol", "TicketViewController"]
+- !private ["PSo16NSObjectProtocol", "UINavigationController"]
 - !private ["PSo16NSObjectProtocol", "UINib"]
 - !private ["PSo16NSObjectProtocol", "UITableViewAutomaticDimension"]
 - !private ["PSo16NSObjectProtocol", "UITableViewRowAnimation"]
@@ -1051,6 +1062,7 @@ depends-member:
 - !private ["P8MamaBear16TaskCellDelegate", "PFQuery"]
 - !private ["P8MamaBear16TaskCellDelegate", "PFUser"]
 - !private ["P8MamaBear16TaskCellDelegate", "TicketViewController"]
+- !private ["P8MamaBear16TaskCellDelegate", "UINavigationController"]
 - !private ["P8MamaBear16TaskCellDelegate", "UINib"]
 - !private ["P8MamaBear16TaskCellDelegate", "UITableViewAutomaticDimension"]
 - !private ["P8MamaBear16TaskCellDelegate", "UITableViewRowAnimation"]
@@ -1109,6 +1121,7 @@ depends-member:
 - ["C8MamaBear24TicketListViewController", "String"]
 - !private ["C8MamaBear24TicketListViewController", "TaskTableViewCell"]
 - !private ["C8MamaBear24TicketListViewController", "TicketViewController"]
+- !private ["C8MamaBear24TicketListViewController", "UINavigationController"]
 - !private ["C8MamaBear24TicketListViewController", "UINib"]
 - ["C8MamaBear24TicketListViewController", "UITableView"]
 - !private ["C8MamaBear24TicketListViewController", "UITableViewAutomaticDimension"]
@@ -1207,6 +1220,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "PFQuery"]
 - !private ["PSo21UIAppearanceContainer", "PFUser"]
 - !private ["PSo21UIAppearanceContainer", "TicketViewController"]
+- !private ["PSo21UIAppearanceContainer", "UINavigationController"]
 - !private ["PSo21UIAppearanceContainer", "UINib"]
 - !private ["PSo21UIAppearanceContainer", "UITableViewAutomaticDimension"]
 - !private ["PSo21UIAppearanceContainer", "UITableViewRowAnimation"]
@@ -1279,6 +1293,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "PFQuery"]
 - !private ["PSo18UIContentContainer", "PFUser"]
 - !private ["PSo18UIContentContainer", "TicketViewController"]
+- !private ["PSo18UIContentContainer", "UINavigationController"]
 - !private ["PSo18UIContentContainer", "UINib"]
 - !private ["PSo18UIContentContainer", "UITableViewAutomaticDimension"]
 - !private ["PSo18UIContentContainer", "UITableViewRowAnimation"]
@@ -1368,6 +1383,7 @@ depends-member:
 - !private ["PSo27UIGestureRecognizerDelegate", "customizeCell"]
 - !private ["PSo27UIGestureRecognizerDelegate", "index"]
 - !private ["PSo27UIGestureRecognizerDelegate", "populateCell"]
+- !private ["CSo22UINavigationController", "init"]
 - !private ["CSo5UINib", "init"]
 - ["CSo11UIResponder", "AddButtonPressed"]
 - ["CSo11UIResponder", "AnyObject"]
@@ -1385,6 +1401,7 @@ depends-member:
 - ["CSo11UIResponder", "String"]
 - !private ["CSo11UIResponder", "TaskTableViewCell"]
 - !private ["CSo11UIResponder", "TicketViewController"]
+- !private ["CSo11UIResponder", "UINavigationController"]
 - !private ["CSo11UIResponder", "UINib"]
 - ["CSo11UIResponder", "UITableView"]
 - !private ["CSo11UIResponder", "UITableViewAutomaticDimension"]
@@ -1469,6 +1486,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "PFQuery"]
 - !private ["PSo20UIScrollViewDelegate", "PFUser"]
 - !private ["PSo20UIScrollViewDelegate", "TicketViewController"]
+- !private ["PSo20UIScrollViewDelegate", "UINavigationController"]
 - !private ["PSo20UIScrollViewDelegate", "UINib"]
 - !private ["PSo20UIScrollViewDelegate", "UITableViewAutomaticDimension"]
 - !private ["PSo20UIScrollViewDelegate", "UITableViewRowAnimation"]
@@ -1520,6 +1538,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "PFQuery"]
 - !private ["PSo16UIStateRestoring", "PFUser"]
 - !private ["PSo16UIStateRestoring", "TicketViewController"]
+- !private ["PSo16UIStateRestoring", "UINavigationController"]
 - !private ["PSo16UIStateRestoring", "UINib"]
 - !private ["PSo16UIStateRestoring", "UITableViewAutomaticDimension"]
 - !private ["PSo16UIStateRestoring", "UITableViewRowAnimation"]
@@ -1586,6 +1605,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "PFQuery"]
 - !private ["PSo21UITableViewDataSource", "PFUser"]
 - !private ["PSo21UITableViewDataSource", "TicketViewController"]
+- !private ["PSo21UITableViewDataSource", "UINavigationController"]
 - !private ["PSo21UITableViewDataSource", "UINib"]
 - !private ["PSo21UITableViewDataSource", "UITableViewAutomaticDimension"]
 - !private ["PSo21UITableViewDataSource", "UITableViewRowAnimation"]
@@ -1636,6 +1656,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "PFQuery"]
 - !private ["PSo19UITableViewDelegate", "PFUser"]
 - !private ["PSo19UITableViewDelegate", "TicketViewController"]
+- !private ["PSo19UITableViewDelegate", "UINavigationController"]
 - !private ["PSo19UITableViewDelegate", "UINib"]
 - !private ["PSo19UITableViewDelegate", "UITableViewAutomaticDimension"]
 - !private ["PSo19UITableViewDelegate", "UITableViewRowAnimation"]
@@ -1688,6 +1709,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "PFQuery"]
 - !private ["PSo18UITraitEnvironment", "PFUser"]
 - !private ["PSo18UITraitEnvironment", "TicketViewController"]
+- !private ["PSo18UITraitEnvironment", "UINavigationController"]
 - !private ["PSo18UITraitEnvironment", "UINib"]
 - !private ["PSo18UITraitEnvironment", "UITableViewAutomaticDimension"]
 - !private ["PSo18UITraitEnvironment", "UITableViewRowAnimation"]
@@ -1789,6 +1811,7 @@ depends-member:
 - ["CSo16UIViewController", "String"]
 - !private ["CSo16UIViewController", "TaskTableViewCell"]
 - !private ["CSo16UIViewController", "TicketViewController"]
+- !private ["CSo16UIViewController", "UINavigationController"]
 - !private ["CSo16UIViewController", "UINib"]
 - ["CSo16UIViewController", "UITableView"]
 - !private ["CSo16UIViewController", "UITableViewAutomaticDimension"]
@@ -2008,6 +2031,7 @@ depends-nominal:
 - !private "PSo17UICoordinateSpace"
 - !private "PSo13UIDynamicItem"
 - !private "PSo27UIGestureRecognizerDelegate"
+- !private "CSo22UINavigationController"
 - !private "CSo5UINib"
 - "CSo11UIResponder"
 - !private "CSo12UIScrollView"
@@ -2102,4 +2126,4 @@ depends-external:
 - "./Parse.framework/Headers/Parse.h"
 - "./Parse.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
-interface-hash: "64e7de6c4b69354e94511cebde4b1fae"
+interface-hash: "7eff46bfd09563768ed9a391795e9cf7"

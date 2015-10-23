@@ -12,31 +12,35 @@ provides-dynamic-lookup:
 - "application"
 - "application"
 depends-top-level:
-- "UIWindow"
-- !private "||"
-- !private "PFInstallation"
-- !private "PFUser"
-- "UIApplicationDelegate"
-- !private "=="
-- "AnyObject"
-- !private "UIApplicationState"
-- !private "print"
-- !private "PFAnalytics"
-- "NSObject"
-- !private "!="
-- !private "StringLiteralType"
-- "Bool"
-- !private "PFACL"
-- !private "PFPush"
-- "NSError"
-- "UIApplication"
-- "AppDelegate"
-- !private "Parse"
 - !private "BooleanLiteralType"
-- "UIResponder"
+- "UIApplicationDelegate"
+- !private "PFPush"
+- "AnyObject"
 - !private "!"
+- !private "PFAnalytics"
+- !private "Parse"
+- !private "UIUserNotificationSettings"
+- !private "print"
+- "NSError"
+- !private "PFUser"
+- !private "!="
+- !private "PFACL"
 - "NSData"
+- !private "||"
+- "NSObject"
+- !private "UIRemoteNotificationType"
+- "UIResponder"
+- "AppDelegate"
+- !private "StringLiteralType"
+- !private "UIApplicationState"
+- !private "=="
+- !private "PFInstallation"
+- "UIWindow"
+- !private "UIUserNotificationType"
+- !private "Array"
+- "UIApplication"
 - !private "UIApplicationLaunchOptionsRemoteNotificationKey"
+- "Bool"
 depends-member:
 - !private ["PSs9AnyObject", "PFACL"]
 - !private ["PSs9AnyObject", "PFAnalytics"]
@@ -46,6 +50,7 @@ depends-member:
 - !private ["PSs9AnyObject", "Parse"]
 - !private ["PSs9AnyObject", "UIApplicationLaunchOptionsRemoteNotificationKey"]
 - !private ["PSs9AnyObject", "UIApplicationState"]
+- !private ["PSs9AnyObject", "UIUserNotificationSettings"]
 - ["PSs9AnyObject", "application"]
 - ["PSs9AnyObject", "applicationDidBecomeActive"]
 - ["PSs9AnyObject", "applicationDidEnterBackground"]
@@ -67,6 +72,9 @@ depends-member:
 - !private ["PSs9AnyObject", "handlePush"]
 - ["PSs9AnyObject", "init"]
 - !private ["PSs9AnyObject", "print"]
+- !private ["PSs9AnyObject", "registerForRemoteNotificationTypes"]
+- !private ["PSs9AnyObject", "registerForRemoteNotifications"]
+- !private ["PSs9AnyObject", "registerUserNotificationSettings"]
 - !private ["PSs9AnyObject", "respondsToSelector"]
 - !private ["PSs9AnyObject", "saveInBackground"]
 - !private ["PSs9AnyObject", "setApplicationId"]
@@ -93,6 +101,9 @@ depends-member:
 - ["C8MamaBear11AppDelegate", "UIApplication"]
 - !private ["C8MamaBear11AppDelegate", "UIApplicationLaunchOptionsRemoteNotificationKey"]
 - !private ["C8MamaBear11AppDelegate", "UIApplicationState"]
+- !private ["C8MamaBear11AppDelegate", "UIRemoteNotificationType"]
+- !private ["C8MamaBear11AppDelegate", "UIUserNotificationSettings"]
+- !private ["C8MamaBear11AppDelegate", "UIUserNotificationType"]
 - ["C8MamaBear11AppDelegate", "UIWindow"]
 - ["C8MamaBear11AppDelegate", "application"]
 - ["C8MamaBear11AppDelegate", "applicationDidBecomeActive"]
@@ -111,6 +122,10 @@ depends-member:
 - !private ["C8MamaBear11AppDelegate", "print"]
 - !private ["C8MamaBear11AppDelegate", "respondsToSelector"]
 - ["C8MamaBear11AppDelegate", "window"]
+- !private ["PSs23ArrayLiteralConvertible", "Alert"]
+- !private ["PSs23ArrayLiteralConvertible", "Badge"]
+- !private ["PSs23ArrayLiteralConvertible", "Element"]
+- !private ["PSs23ArrayLiteralConvertible", "Sound"]
 - !private ["PSs22BidirectionalIndexType", "IntegerLiteralType"]
 - !private ["PSs21BitwiseOperationsType", "IntegerLiteralType"]
 - !private ["Sb", "_getBuiltinLogicValue"]
@@ -125,6 +140,7 @@ depends-member:
 - !private ["PSs11CVarArgType", "Parse"]
 - !private ["PSs11CVarArgType", "UIApplicationLaunchOptionsRemoteNotificationKey"]
 - !private ["PSs11CVarArgType", "UIApplicationState"]
+- !private ["PSs11CVarArgType", "UIUserNotificationSettings"]
 - ["PSs11CVarArgType", "application"]
 - ["PSs11CVarArgType", "applicationDidBecomeActive"]
 - ["PSs11CVarArgType", "applicationDidEnterBackground"]
@@ -145,6 +161,9 @@ depends-member:
 - !private ["PSs11CVarArgType", "handlePush"]
 - ["PSs11CVarArgType", "init"]
 - !private ["PSs11CVarArgType", "print"]
+- !private ["PSs11CVarArgType", "registerForRemoteNotificationTypes"]
+- !private ["PSs11CVarArgType", "registerForRemoteNotifications"]
+- !private ["PSs11CVarArgType", "registerUserNotificationSettings"]
 - !private ["PSs11CVarArgType", "respondsToSelector"]
 - !private ["PSs11CVarArgType", "saveInBackground"]
 - !private ["PSs11CVarArgType", "setApplicationId"]
@@ -183,6 +202,7 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "SubSequence"]
 - !private ["PSs23CustomStringConvertible", "UIApplicationLaunchOptionsRemoteNotificationKey"]
 - !private ["PSs23CustomStringConvertible", "UIApplicationState"]
+- !private ["PSs23CustomStringConvertible", "UIUserNotificationSettings"]
 - !private ["PSs23CustomStringConvertible", "_Element"]
 - !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
 - ["PSs23CustomStringConvertible", "application"]
@@ -205,6 +225,9 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "handlePush"]
 - ["PSs23CustomStringConvertible", "init"]
 - !private ["PSs23CustomStringConvertible", "print"]
+- !private ["PSs23CustomStringConvertible", "registerForRemoteNotificationTypes"]
+- !private ["PSs23CustomStringConvertible", "registerForRemoteNotifications"]
+- !private ["PSs23CustomStringConvertible", "registerUserNotificationSettings"]
 - !private ["PSs23CustomStringConvertible", "respondsToSelector"]
 - !private ["PSs23CustomStringConvertible", "saveInBackground"]
 - !private ["PSs23CustomStringConvertible", "setApplicationId"]
@@ -231,8 +254,11 @@ depends-member:
 - !private ["PSs28DictionaryLiteralConvertible", "SubSequence"]
 - !private ["PSs28DictionaryLiteralConvertible", "_Element"]
 - !private ["PSs28DictionaryLiteralConvertible", "subscript"]
+- !private ["PSs9Equatable", "Alert"]
 - !private ["PSs9Equatable", "Background"]
+- !private ["PSs9Equatable", "Badge"]
 - !private ["PSs9Equatable", "Distance"]
+- !private ["PSs9Equatable", "Element"]
 - !private ["PSs9Equatable", "Inactive"]
 - !private ["PSs9Equatable", "IntegerLiteralType"]
 - !private ["PSs9Equatable", "PFACL"]
@@ -242,8 +268,10 @@ depends-member:
 - !private ["PSs9Equatable", "PFUser"]
 - !private ["PSs9Equatable", "Parse"]
 - !private ["PSs9Equatable", "RawValue"]
+- !private ["PSs9Equatable", "Sound"]
 - !private ["PSs9Equatable", "UIApplicationLaunchOptionsRemoteNotificationKey"]
 - !private ["PSs9Equatable", "UIApplicationState"]
+- !private ["PSs9Equatable", "UIUserNotificationSettings"]
 - !private ["PSs9Equatable", "_DisabledRangeIndex"]
 - !private ["PSs9Equatable", "_getBuiltinLogicValue"]
 - ["PSs9Equatable", "application"]
@@ -266,6 +294,9 @@ depends-member:
 - !private ["PSs9Equatable", "handlePush"]
 - ["PSs9Equatable", "init"]
 - !private ["PSs9Equatable", "print"]
+- !private ["PSs9Equatable", "registerForRemoteNotificationTypes"]
+- !private ["PSs9Equatable", "registerForRemoteNotifications"]
+- !private ["PSs9Equatable", "registerUserNotificationSettings"]
 - !private ["PSs9Equatable", "respondsToSelector"]
 - !private ["PSs9Equatable", "saveInBackground"]
 - !private ["PSs9Equatable", "setApplicationId"]
@@ -295,6 +326,7 @@ depends-member:
 - !private ["PSs8Hashable", "RawValue"]
 - !private ["PSs8Hashable", "UIApplicationLaunchOptionsRemoteNotificationKey"]
 - !private ["PSs8Hashable", "UIApplicationState"]
+- !private ["PSs8Hashable", "UIUserNotificationSettings"]
 - !private ["PSs8Hashable", "_getBuiltinLogicValue"]
 - ["PSs8Hashable", "application"]
 - ["PSs8Hashable", "applicationDidBecomeActive"]
@@ -316,6 +348,9 @@ depends-member:
 - !private ["PSs8Hashable", "handlePush"]
 - ["PSs8Hashable", "init"]
 - !private ["PSs8Hashable", "print"]
+- !private ["PSs8Hashable", "registerForRemoteNotificationTypes"]
+- !private ["PSs8Hashable", "registerForRemoteNotifications"]
+- !private ["PSs8Hashable", "registerUserNotificationSettings"]
 - !private ["PSs8Hashable", "respondsToSelector"]
 - !private ["PSs8Hashable", "saveInBackground"]
 - !private ["PSs8Hashable", "setApplicationId"]
@@ -366,6 +401,9 @@ depends-member:
 - ["CSo8NSObject", "UIApplication"]
 - !private ["CSo8NSObject", "UIApplicationLaunchOptionsRemoteNotificationKey"]
 - !private ["CSo8NSObject", "UIApplicationState"]
+- !private ["CSo8NSObject", "UIRemoteNotificationType"]
+- !private ["CSo8NSObject", "UIUserNotificationSettings"]
+- !private ["CSo8NSObject", "UIUserNotificationType"]
 - ["CSo8NSObject", "UIWindow"]
 - ["CSo8NSObject", "application"]
 - ["CSo8NSObject", "applicationDidBecomeActive"]
@@ -387,6 +425,9 @@ depends-member:
 - !private ["CSo8NSObject", "handlePush"]
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "print"]
+- !private ["CSo8NSObject", "registerForRemoteNotificationTypes"]
+- !private ["CSo8NSObject", "registerForRemoteNotifications"]
+- !private ["CSo8NSObject", "registerUserNotificationSettings"]
 - !private ["CSo8NSObject", "respondsToSelector"]
 - !private ["CSo8NSObject", "saveInBackground"]
 - !private ["CSo8NSObject", "setApplicationId"]
@@ -406,6 +447,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Parse"]
 - !private ["PSo16NSObjectProtocol", "UIApplicationLaunchOptionsRemoteNotificationKey"]
 - !private ["PSo16NSObjectProtocol", "UIApplicationState"]
+- !private ["PSo16NSObjectProtocol", "UIUserNotificationSettings"]
 - ["PSo16NSObjectProtocol", "application"]
 - ["PSo16NSObjectProtocol", "applicationDidBecomeActive"]
 - ["PSo16NSObjectProtocol", "applicationDidEnterBackground"]
@@ -426,6 +468,9 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "handlePush"]
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "print"]
+- !private ["PSo16NSObjectProtocol", "registerForRemoteNotificationTypes"]
+- !private ["PSo16NSObjectProtocol", "registerForRemoteNotifications"]
+- !private ["PSo16NSObjectProtocol", "registerUserNotificationSettings"]
 - !private ["PSo16NSObjectProtocol", "respondsToSelector"]
 - !private ["PSo16NSObjectProtocol", "saveInBackground"]
 - !private ["PSo16NSObjectProtocol", "setApplicationId"]
@@ -440,6 +485,10 @@ depends-member:
 - ["PSo16NSObjectProtocol", ""]
 - !private ["PSo14NSSecureCoding", "code"]
 - ["PSs21NilLiteralConvertible", "Some"]
+- !private ["PSs13OptionSetType", "Alert"]
+- !private ["PSs13OptionSetType", "Badge"]
+- !private ["PSs13OptionSetType", "Element"]
+- !private ["PSs13OptionSetType", "Sound"]
 - ["Sq", "Some"]
 - !private ["Sq", "deinit"]
 - !private ["CSo5PFACL", "init"]
@@ -465,9 +514,13 @@ depends-member:
 - !private ["CSo5Parse", "enableLocalDatastore"]
 - !private ["CSo5Parse", "setApplicationId"]
 - !private ["PSs21RandomAccessIndexType", "IntegerLiteralType"]
+- !private ["PSs16RawRepresentable", "Alert"]
 - !private ["PSs16RawRepresentable", "Background"]
+- !private ["PSs16RawRepresentable", "Badge"]
+- !private ["PSs16RawRepresentable", "Element"]
 - !private ["PSs16RawRepresentable", "Inactive"]
 - !private ["PSs16RawRepresentable", "RawValue"]
+- !private ["PSs16RawRepresentable", "Sound"]
 - !private ["V10ObjectiveC8Selector", "deinit"]
 - !private ["PSs12SequenceType", "Element"]
 - !private ["PSs12SequenceType", "Generator"]
@@ -475,6 +528,10 @@ depends-member:
 - !private ["PSs12SequenceType", "SubSequence"]
 - !private ["PSs12SequenceType", "_Element"]
 - !private ["PSs12SequenceType", "subscript"]
+- !private ["PSs14SetAlgebraType", "Alert"]
+- !private ["PSs14SetAlgebraType", "Badge"]
+- !private ["PSs14SetAlgebraType", "Element"]
+- !private ["PSs14SetAlgebraType", "Sound"]
 - !private ["PSs17SignedIntegerType", "IntegerLiteralType"]
 - !private ["PSs16SignedNumberType", "IntegerLiteralType"]
 - !private ["VSs5Slice", "Generator"]
@@ -483,6 +540,9 @@ depends-member:
 - !private ["VSs5Slice", "_Element"]
 - !private ["PSs10Strideable", "IntegerLiteralType"]
 - !private ["CSo13UIApplication", "applicationState"]
+- !private ["CSo13UIApplication", "registerForRemoteNotificationTypes"]
+- !private ["CSo13UIApplication", "registerForRemoteNotifications"]
+- !private ["CSo13UIApplication", "registerUserNotificationSettings"]
 - !private ["CSo13UIApplication", "respondsToSelector"]
 - !private ["PSo21UIApplicationDelegate", "PFACL"]
 - !private ["PSo21UIApplicationDelegate", "PFAnalytics"]
@@ -492,6 +552,7 @@ depends-member:
 - !private ["PSo21UIApplicationDelegate", "Parse"]
 - !private ["PSo21UIApplicationDelegate", "UIApplicationLaunchOptionsRemoteNotificationKey"]
 - !private ["PSo21UIApplicationDelegate", "UIApplicationState"]
+- !private ["PSo21UIApplicationDelegate", "UIUserNotificationSettings"]
 - ["PSo21UIApplicationDelegate", "application"]
 - ["PSo21UIApplicationDelegate", "applicationDidBecomeActive"]
 - ["PSo21UIApplicationDelegate", "applicationDidEnterBackground"]
@@ -512,6 +573,10 @@ depends-member:
 - !private ["OSC18UIApplicationState", "Inactive"]
 - !private ["OSC18UIApplicationState", "RawValue"]
 - !private ["OSC18UIApplicationState", "deinit"]
+- !private ["VSC24UIRemoteNotificationType", "Alert"]
+- !private ["VSC24UIRemoteNotificationType", "Badge"]
+- !private ["VSC24UIRemoteNotificationType", "Element"]
+- !private ["VSC24UIRemoteNotificationType", "Sound"]
 - ["CSo11UIResponder", "AnyObject"]
 - ["CSo11UIResponder", "Bool"]
 - ["CSo11UIResponder", "NSData"]
@@ -526,6 +591,9 @@ depends-member:
 - ["CSo11UIResponder", "UIApplication"]
 - !private ["CSo11UIResponder", "UIApplicationLaunchOptionsRemoteNotificationKey"]
 - !private ["CSo11UIResponder", "UIApplicationState"]
+- !private ["CSo11UIResponder", "UIRemoteNotificationType"]
+- !private ["CSo11UIResponder", "UIUserNotificationSettings"]
+- !private ["CSo11UIResponder", "UIUserNotificationType"]
 - ["CSo11UIResponder", "UIWindow"]
 - ["CSo11UIResponder", "application"]
 - ["CSo11UIResponder", "applicationDidBecomeActive"]
@@ -542,9 +610,17 @@ depends-member:
 - ["CSo11UIResponder", "applicationWillTerminate"]
 - ["CSo11UIResponder", "init"]
 - !private ["CSo11UIResponder", "print"]
+- !private ["CSo11UIResponder", "registerForRemoteNotificationTypes"]
+- !private ["CSo11UIResponder", "registerForRemoteNotifications"]
+- !private ["CSo11UIResponder", "registerUserNotificationSettings"]
 - !private ["CSo11UIResponder", "respondsToSelector"]
 - ["CSo11UIResponder", "window"]
 - ["CSo11UIResponder", ""]
+- !private ["CSo26UIUserNotificationSettings", "init"]
+- !private ["VSC22UIUserNotificationType", "Alert"]
+- !private ["VSC22UIUserNotificationType", "Badge"]
+- !private ["VSC22UIUserNotificationType", "Element"]
+- !private ["VSC22UIUserNotificationType", "Sound"]
 - !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["PSs33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
 - !private ["PSs14_Incrementable", "Distance"]
@@ -573,6 +649,7 @@ depends-member:
 depends-nominal:
 - "PSs9AnyObject"
 - "C8MamaBear11AppDelegate"
+- !private "PSs23ArrayLiteralConvertible"
 - !private "PSs22BidirectionalIndexType"
 - !private "PSs21BitwiseOperationsType"
 - !private "Sb"
@@ -605,6 +682,7 @@ depends-nominal:
 - "PSo16NSObjectProtocol"
 - !private "PSo14NSSecureCoding"
 - "PSs21NilLiteralConvertible"
+- !private "PSs13OptionSetType"
 - "Sq"
 - !private "CSo5PFACL"
 - !private "CSo11PFAnalytics"
@@ -618,6 +696,7 @@ depends-nominal:
 - !private "PSs16RawRepresentable"
 - !private "V10ObjectiveC8Selector"
 - !private "PSs12SequenceType"
+- !private "PSs14SetAlgebraType"
 - !private "PSs17SignedIntegerType"
 - !private "PSs16SignedNumberType"
 - !private "VSs5Slice"
@@ -625,7 +704,10 @@ depends-nominal:
 - !private "CSo13UIApplication"
 - "PSo21UIApplicationDelegate"
 - !private "OSC18UIApplicationState"
+- !private "VSC24UIRemoteNotificationType"
 - "CSo11UIResponder"
+- !private "CSo26UIUserNotificationSettings"
+- !private "VSC22UIUserNotificationType"
 - !private "PSs33_BuiltinBooleanLiteralConvertible"
 - !private "PSs33_BuiltinIntegerLiteralConvertible"
 - !private "PSs14_Incrementable"
