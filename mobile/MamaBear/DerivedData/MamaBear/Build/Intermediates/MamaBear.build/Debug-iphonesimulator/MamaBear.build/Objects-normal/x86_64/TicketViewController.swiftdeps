@@ -6,44 +6,44 @@ provides-nominal:
 provides-member:
 - ["C8MamaBear20TicketViewController", ""]
 provides-dynamic-lookup:
-- "assignView"
-- "assigned"
-- "assignButtonPressed"
-- "creator"
-- "assignee"
-- "didReceiveMemoryWarning"
 - "dismissAssignView"
-- "viewDidLoad"
-- "currentUserType"
-- "descTextField"
-- "users"
-- "assignButton"
-- "submitButtonPressed"
 - "titleTextField"
+- "submitButtonPressed"
+- "assignButton"
+- "users"
+- "currentUserType"
+- "assigned"
+- "creator"
+- "assignButtonPressed"
+- "didReceiveMemoryWarning"
+- "descTextField"
+- "assignView"
+- "assignee"
+- "viewDidLoad"
 depends-top-level:
-- "StringLiteralType"
-- !private "Bool"
-- "UnicodeScalarType"
-- "UIButton"
-- "PFObject"
-- "AssignViewDelegate"
-- !private "=="
-- "UIViewController"
-- "NSIndexPath"
-- !private "UIControlState"
-- !private "NSDateFormatter"
-- !private "print"
-- "AnyObject"
-- "AssignView"
-- "UITextView"
-- "TicketViewController"
-- !private "BooleanLiteralType"
-- !private "!="
-- !private "Void"
-- !private "NSError"
-- "String"
-- !private "NSDate"
 - !private "+"
+- !private "NSDateFormatter"
+- !private "Bool"
+- "StringLiteralType"
+- !private "NSDate"
+- !private "=="
+- "NSIndexPath"
+- "UIButton"
+- "String"
+- !private "!="
+- "AssignView"
+- "UIViewController"
+- "AssignViewDelegate"
+- "PFObject"
+- "TicketViewController"
+- "UITextView"
+- !private "Void"
+- "AnyObject"
+- !private "NSError"
+- !private "UIControlState"
+- !private "print"
+- !private "BooleanLiteralType"
+- "UnicodeScalarType"
 depends-member:
 - !private ["PSs9AnyObject", "AssignView"]
 - !private ["PSs9AnyObject", "NSDate"]
@@ -587,6 +587,40 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "setTitle"]
 - !private ["PSo13UIDynamicItem", "staffList"]
 - !private ["PSo13UIDynamicItem", "text"]
+- !private ["PSo18UIFocusEnvironment", "AssignView"]
+- !private ["PSo18UIFocusEnvironment", "NSDate"]
+- !private ["PSo18UIFocusEnvironment", "NSDateFormatter"]
+- !private ["PSo18UIFocusEnvironment", "PFObject"]
+- !private ["PSo18UIFocusEnvironment", "UIControlState"]
+- !private ["PSo18UIFocusEnvironment", "addSubview"]
+- !private ["PSo18UIFocusEnvironment", "alpha"]
+- ["PSo18UIFocusEnvironment", "assignButton"]
+- ["PSo18UIFocusEnvironment", "assignButtonPressed"]
+- ["PSo18UIFocusEnvironment", "assignView"]
+- ["PSo18UIFocusEnvironment", "assigned"]
+- ["PSo18UIFocusEnvironment", "assignee"]
+- !private ["PSo18UIFocusEnvironment", "bringUp"]
+- ["PSo18UIFocusEnvironment", "creator"]
+- ["PSo18UIFocusEnvironment", "currentUserType"]
+- !private ["PSo18UIFocusEnvironment", "delegate"]
+- ["PSo18UIFocusEnvironment", "descTextField"]
+- ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "dismissAssignView"]
+- !private ["PSo18UIFocusEnvironment", "dismissViewControllerAnimated"]
+- !private ["PSo18UIFocusEnvironment", "enabled"]
+- !private ["PSo18UIFocusEnvironment", "frame"]
+- ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "print"]
+- !private ["PSo18UIFocusEnvironment", "removeFromSuperview"]
+- !private ["PSo18UIFocusEnvironment", "setTitle"]
+- !private ["PSo18UIFocusEnvironment", "staffList"]
+- ["PSo18UIFocusEnvironment", "submitButtonPressed"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- ["PSo18UIFocusEnvironment", "titleTextField"]
+- ["PSo18UIFocusEnvironment", "users"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
 - !private ["PSo10UIKeyInput", "text"]
 - ["CSo11UIResponder", "AnyObject"]
 - ["CSo11UIResponder", "AssignView"]
@@ -807,6 +841,7 @@ depends-nominal:
 - !private "VSC14UIControlState"
 - !private "PSo17UICoordinateSpace"
 - !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
 - !private "PSo10UIKeyInput"
 - "CSo11UIResponder"
 - !private "CSo12UIScrollView"

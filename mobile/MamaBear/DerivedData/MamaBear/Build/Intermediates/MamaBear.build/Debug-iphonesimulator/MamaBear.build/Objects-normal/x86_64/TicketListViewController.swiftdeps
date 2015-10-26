@@ -12,75 +12,77 @@ provides-member:
 - ["P8MamaBear18AssignViewDelegate", ""]
 - ["C8MamaBear24TicketListViewController", ""]
 provides-dynamic-lookup:
-- "currentUserType"
-- "tickets"
-- "checkCellType"
-- "assignView"
-- "refreshUserList"
-- "ticketTableView"
 - "assignTicket"
-- "timer"
-- "viewDidLoad"
-- "tableView"
-- "tableView"
-- "tableView"
-- "users"
-- "numberOfSectionsInTableView"
+- "assignView"
 - "currentUser"
-- "dismissAssignView"
-- "AddButtonPressed"
 - "viewDidAppear"
-- "didReceiveMemoryWarning"
-- "refreshTickets"
-- "assignee"
+- "ticketTableView"
+- "AddButtonPressed"
 - "refreshTicketList"
+- "dismissAssignView"
+- "users"
+- "tableView"
+- "tableView"
+- "tableView"
+- "refreshTickets"
+- "didReceiveMemoryWarning"
+- "assignee"
+- "viewDidLoad"
+- "numberOfSectionsInTableView"
+- "checkCellType"
+- "refreshUserList"
+- "currentUserType"
+- "timer"
+- "tickets"
 depends-top-level:
-- "Array"
-- !private "dispatch_get_main_queue"
-- "Bool"
-- !private "TaskTableViewCell"
-- "UITableView"
-- !private "~="
-- !private "TicketViewController"
-- "Int"
-- !private "NSDateFormatter"
-- !private "UINavigationController"
-- !private "=="
-- "PFObject"
-- !private "UITableViewRowAnimation"
-- !private "dispatch_async"
-- !private "NSDate"
-- !private "&&"
-- !private "PFUser"
-- "StringLiteralType"
-- "UnicodeScalarType"
-- !private "PFQuery"
-- "String"
-- "NSTimer"
 - "UITableViewCell"
-- "TaskCellDelegate"
-- !private "UITableViewAutomaticDimension"
-- !private "UINib"
-- !private "!="
-- "UIViewController"
-- "AssignView"
-- !private "print"
-- "AssignViewDelegate"
-- "UITableViewDelegate"
-- !private "NSError"
 - "UITableViewDataSource"
-- "NSIndexPath"
+- !private "UITableViewAutomaticDimension"
+- !private "PFPush"
+- !private "dispatch_get_main_queue"
+- !private "dispatch_async"
+- "String"
+- !private "print"
+- "UIViewController"
+- !private "PFQuery"
+- "UITableViewDelegate"
+- "TaskCellDelegate"
+- !private "PFUser"
 - !private "Void"
-- !private "||"
-- !private "BooleanLiteralType"
-- "AnyObject"
+- "Array"
+- "StringLiteralType"
+- "AssignView"
+- !private "UINib"
+- !private "~="
+- "AssignViewDelegate"
+- "NSIndexPath"
 - "TicketListViewController"
+- "Bool"
+- "AnyObject"
+- !private "!="
+- !private "TicketViewController"
+- !private "=="
+- !private "UINavigationController"
+- "PFObject"
+- !private "NSDateFormatter"
+- !private "&&"
+- "UnicodeScalarType"
+- "NSTimer"
+- !private "NSError"
+- !private "NSDate"
+- !private "TaskTableViewCell"
+- "Int"
+- !private "UITableViewRowAnimation"
+- "UITableView"
+- !private "BooleanLiteralType"
+- !private "||"
 depends-member:
 - ["PSs9AnyObject", "AddButtonPressed"]
 - !private ["PSs9AnyObject", "AssignView"]
 - !private ["PSs9AnyObject", "NSDate"]
 - !private ["PSs9AnyObject", "NSDateFormatter"]
 - ["PSs9AnyObject", "NSTimer"]
+- !private ["PSs9AnyObject", "PFPush"]
 - !private ["PSs9AnyObject", "PFQuery"]
 - !private ["PSs9AnyObject", "PFUser"]
 - !private ["PSs9AnyObject", "TicketViewController"]
@@ -114,6 +116,7 @@ depends-member:
 - !private ["PSs9AnyObject", "frame"]
 - !private ["PSs9AnyObject", "getObjectInBackgroundWithId"]
 - !private ["PSs9AnyObject", "index"]
+- ["PSs9AnyObject", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs9AnyObject", "init"]
 - ["PSs9AnyObject", "numberOfSectionsInTableView"]
 - !private ["PSs9AnyObject", "objectId"]
@@ -144,6 +147,8 @@ depends-member:
 - ["PSs9AnyObject", "scrollViewWillBeginZooming"]
 - ["PSs9AnyObject", "scrollViewWillEndDragging"]
 - ["PSs9AnyObject", "sectionIndexTitlesForTableView"]
+- !private ["PSs9AnyObject", "setChannel"]
+- !private ["PSs9AnyObject", "setMessage"]
 - !private ["PSs9AnyObject", "staffList"]
 - !private ["PSs9AnyObject", "stringFromDate"]
 - !private ["PSs9AnyObject", "subscript"]
@@ -188,6 +193,7 @@ depends-member:
 - !private ["P8MamaBear18AssignViewDelegate", "NSDateFormatter"]
 - ["P8MamaBear18AssignViewDelegate", "NSIndexPath"]
 - ["P8MamaBear18AssignViewDelegate", "NSTimer"]
+- !private ["P8MamaBear18AssignViewDelegate", "PFPush"]
 - !private ["P8MamaBear18AssignViewDelegate", "PFQuery"]
 - !private ["P8MamaBear18AssignViewDelegate", "PFUser"]
 - ["P8MamaBear18AssignViewDelegate", "String"]
@@ -206,6 +212,7 @@ depends-member:
 - ["P8MamaBear18AssignViewDelegate", "dismissAssignView"]
 - !private ["P8MamaBear18AssignViewDelegate", "dispatch_async"]
 - !private ["P8MamaBear18AssignViewDelegate", "dispatch_get_main_queue"]
+- ["P8MamaBear18AssignViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["P8MamaBear18AssignViewDelegate", "init"]
 - ["P8MamaBear18AssignViewDelegate", "numberOfSectionsInTableView"]
 - !private ["P8MamaBear18AssignViewDelegate", "presentViewController"]
@@ -249,6 +256,7 @@ depends-member:
 - !private ["PSs11CVarArgType", "NSDate"]
 - !private ["PSs11CVarArgType", "NSDateFormatter"]
 - ["PSs11CVarArgType", "NSTimer"]
+- !private ["PSs11CVarArgType", "PFPush"]
 - !private ["PSs11CVarArgType", "PFQuery"]
 - !private ["PSs11CVarArgType", "PFUser"]
 - !private ["PSs11CVarArgType", "TicketViewController"]
@@ -282,6 +290,7 @@ depends-member:
 - !private ["PSs11CVarArgType", "frame"]
 - !private ["PSs11CVarArgType", "getObjectInBackgroundWithId"]
 - !private ["PSs11CVarArgType", "index"]
+- ["PSs11CVarArgType", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs11CVarArgType", "init"]
 - ["PSs11CVarArgType", "numberOfSectionsInTableView"]
 - !private ["PSs11CVarArgType", "objectId"]
@@ -312,6 +321,8 @@ depends-member:
 - ["PSs11CVarArgType", "scrollViewWillBeginZooming"]
 - ["PSs11CVarArgType", "scrollViewWillEndDragging"]
 - ["PSs11CVarArgType", "sectionIndexTitlesForTableView"]
+- !private ["PSs11CVarArgType", "setChannel"]
+- !private ["PSs11CVarArgType", "setMessage"]
 - !private ["PSs11CVarArgType", "staffList"]
 - !private ["PSs11CVarArgType", "stringFromDate"]
 - !private ["PSs11CVarArgType", "subscript"]
@@ -359,6 +370,7 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "NSDate"]
 - !private ["PSs23CustomStringConvertible", "NSDateFormatter"]
 - ["PSs23CustomStringConvertible", "NSTimer"]
+- !private ["PSs23CustomStringConvertible", "PFPush"]
 - !private ["PSs23CustomStringConvertible", "PFQuery"]
 - !private ["PSs23CustomStringConvertible", "PFUser"]
 - !private ["PSs23CustomStringConvertible", "SubSequence"]
@@ -395,6 +407,7 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "frame"]
 - !private ["PSs23CustomStringConvertible", "getObjectInBackgroundWithId"]
 - !private ["PSs23CustomStringConvertible", "index"]
+- ["PSs23CustomStringConvertible", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs23CustomStringConvertible", "init"]
 - ["PSs23CustomStringConvertible", "numberOfSectionsInTableView"]
 - !private ["PSs23CustomStringConvertible", "objectId"]
@@ -425,6 +438,8 @@ depends-member:
 - ["PSs23CustomStringConvertible", "scrollViewWillBeginZooming"]
 - ["PSs23CustomStringConvertible", "scrollViewWillEndDragging"]
 - ["PSs23CustomStringConvertible", "sectionIndexTitlesForTableView"]
+- !private ["PSs23CustomStringConvertible", "setChannel"]
+- !private ["PSs23CustomStringConvertible", "setMessage"]
 - !private ["PSs23CustomStringConvertible", "staffList"]
 - !private ["PSs23CustomStringConvertible", "stringFromDate"]
 - !private ["PSs23CustomStringConvertible", "subscript"]
@@ -450,6 +465,7 @@ depends-member:
 - !private ["PSs9Equatable", "NSDate"]
 - !private ["PSs9Equatable", "NSDateFormatter"]
 - ["PSs9Equatable", "NSTimer"]
+- !private ["PSs9Equatable", "PFPush"]
 - !private ["PSs9Equatable", "PFQuery"]
 - !private ["PSs9Equatable", "PFUser"]
 - !private ["PSs9Equatable", "TicketViewController"]
@@ -484,6 +500,7 @@ depends-member:
 - !private ["PSs9Equatable", "frame"]
 - !private ["PSs9Equatable", "getObjectInBackgroundWithId"]
 - !private ["PSs9Equatable", "index"]
+- ["PSs9Equatable", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs9Equatable", "init"]
 - ["PSs9Equatable", "numberOfSectionsInTableView"]
 - !private ["PSs9Equatable", "objectId"]
@@ -514,6 +531,8 @@ depends-member:
 - ["PSs9Equatable", "scrollViewWillBeginZooming"]
 - ["PSs9Equatable", "scrollViewWillEndDragging"]
 - ["PSs9Equatable", "sectionIndexTitlesForTableView"]
+- !private ["PSs9Equatable", "setChannel"]
+- !private ["PSs9Equatable", "setMessage"]
 - !private ["PSs9Equatable", "staffList"]
 - !private ["PSs9Equatable", "stringFromDate"]
 - !private ["PSs9Equatable", "subscript"]
@@ -544,6 +563,7 @@ depends-member:
 - !private ["PSs8Hashable", "NSDate"]
 - !private ["PSs8Hashable", "NSDateFormatter"]
 - ["PSs8Hashable", "NSTimer"]
+- !private ["PSs8Hashable", "PFPush"]
 - !private ["PSs8Hashable", "PFQuery"]
 - !private ["PSs8Hashable", "PFUser"]
 - !private ["PSs8Hashable", "TicketViewController"]
@@ -578,6 +598,7 @@ depends-member:
 - !private ["PSs8Hashable", "frame"]
 - !private ["PSs8Hashable", "getObjectInBackgroundWithId"]
 - !private ["PSs8Hashable", "index"]
+- ["PSs8Hashable", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs8Hashable", "init"]
 - ["PSs8Hashable", "numberOfSectionsInTableView"]
 - !private ["PSs8Hashable", "objectId"]
@@ -608,6 +629,8 @@ depends-member:
 - ["PSs8Hashable", "scrollViewWillBeginZooming"]
 - ["PSs8Hashable", "scrollViewWillEndDragging"]
 - ["PSs8Hashable", "sectionIndexTitlesForTableView"]
+- !private ["PSs8Hashable", "setChannel"]
+- !private ["PSs8Hashable", "setMessage"]
 - !private ["PSs8Hashable", "staffList"]
 - !private ["PSs8Hashable", "stringFromDate"]
 - !private ["PSs8Hashable", "subscript"]
@@ -677,6 +700,7 @@ depends-member:
 - !private ["PSo8NSCoding", "NSDate"]
 - !private ["PSo8NSCoding", "NSDateFormatter"]
 - ["PSo8NSCoding", "NSTimer"]
+- !private ["PSo8NSCoding", "PFPush"]
 - !private ["PSo8NSCoding", "PFQuery"]
 - !private ["PSo8NSCoding", "PFUser"]
 - !private ["PSo8NSCoding", "TicketViewController"]
@@ -708,6 +732,7 @@ depends-member:
 - !private ["PSo8NSCoding", "estimatedRowHeight"]
 - !private ["PSo8NSCoding", "frame"]
 - !private ["PSo8NSCoding", "index"]
+- ["PSo8NSCoding", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo8NSCoding", "init"]
 - ["PSo8NSCoding", "numberOfSectionsInTableView"]
 - !private ["PSo8NSCoding", "populateCell"]
@@ -754,6 +779,8 @@ depends-member:
 - !private ["PSo9NSCopying", "getObjectInBackgroundWithId"]
 - !private ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "row"]
+- !private ["PSo9NSCopying", "setChannel"]
+- !private ["PSo9NSCopying", "setMessage"]
 - !private ["PSo9NSCopying", "stringFromDate"]
 - !private ["PSo9NSCopying", "userInfo"]
 - !private ["PSo9NSCopying", "whereKey"]
@@ -767,6 +794,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "NSDate"]
 - !private ["PSo26NSExtensionRequestHandling", "NSDateFormatter"]
 - ["PSo26NSExtensionRequestHandling", "NSTimer"]
+- !private ["PSo26NSExtensionRequestHandling", "PFPush"]
 - !private ["PSo26NSExtensionRequestHandling", "PFQuery"]
 - !private ["PSo26NSExtensionRequestHandling", "PFUser"]
 - !private ["PSo26NSExtensionRequestHandling", "TicketViewController"]
@@ -785,6 +813,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "dismissAssignView"]
 - !private ["PSo26NSExtensionRequestHandling", "dispatch_async"]
 - !private ["PSo26NSExtensionRequestHandling", "dispatch_get_main_queue"]
+- ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo26NSExtensionRequestHandling", "init"]
 - ["PSo26NSExtensionRequestHandling", "numberOfSectionsInTableView"]
 - !private ["PSo26NSExtensionRequestHandling", "presentViewController"]
@@ -832,6 +861,7 @@ depends-member:
 - ["CSo8NSObject", "NSIndexPath"]
 - ["CSo8NSObject", "NSTimer"]
 - ["CSo8NSObject", "PFObject"]
+- !private ["CSo8NSObject", "PFPush"]
 - !private ["CSo8NSObject", "PFQuery"]
 - !private ["CSo8NSObject", "PFUser"]
 - ["CSo8NSObject", "String"]
@@ -871,6 +901,7 @@ depends-member:
 - !private ["CSo8NSObject", "frame"]
 - !private ["CSo8NSObject", "getObjectInBackgroundWithId"]
 - !private ["CSo8NSObject", "index"]
+- ["CSo8NSObject", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo8NSObject", "init"]
 - ["CSo8NSObject", "numberOfSectionsInTableView"]
 - !private ["CSo8NSObject", "objectId"]
@@ -901,6 +932,8 @@ depends-member:
 - ["CSo8NSObject", "scrollViewWillBeginZooming"]
 - ["CSo8NSObject", "scrollViewWillEndDragging"]
 - ["CSo8NSObject", "sectionIndexTitlesForTableView"]
+- !private ["CSo8NSObject", "setChannel"]
+- !private ["CSo8NSObject", "setMessage"]
 - !private ["CSo8NSObject", "staffList"]
 - !private ["CSo8NSObject", "stringFromDate"]
 - !private ["CSo8NSObject", "subscript"]
@@ -921,6 +954,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "NSDate"]
 - !private ["PSo16NSObjectProtocol", "NSDateFormatter"]
 - ["PSo16NSObjectProtocol", "NSTimer"]
+- !private ["PSo16NSObjectProtocol", "PFPush"]
 - !private ["PSo16NSObjectProtocol", "PFQuery"]
 - !private ["PSo16NSObjectProtocol", "PFUser"]
 - !private ["PSo16NSObjectProtocol", "TicketViewController"]
@@ -954,6 +988,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "frame"]
 - !private ["PSo16NSObjectProtocol", "getObjectInBackgroundWithId"]
 - !private ["PSo16NSObjectProtocol", "index"]
+- ["PSo16NSObjectProtocol", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo16NSObjectProtocol", "init"]
 - ["PSo16NSObjectProtocol", "numberOfSectionsInTableView"]
 - !private ["PSo16NSObjectProtocol", "objectId"]
@@ -984,6 +1019,8 @@ depends-member:
 - ["PSo16NSObjectProtocol", "scrollViewWillBeginZooming"]
 - ["PSo16NSObjectProtocol", "scrollViewWillEndDragging"]
 - ["PSo16NSObjectProtocol", "sectionIndexTitlesForTableView"]
+- !private ["PSo16NSObjectProtocol", "setChannel"]
+- !private ["PSo16NSObjectProtocol", "setMessage"]
 - !private ["PSo16NSObjectProtocol", "staffList"]
 - !private ["PSo16NSObjectProtocol", "stringFromDate"]
 - !private ["PSo16NSObjectProtocol", "subscript"]
@@ -1014,6 +1051,9 @@ depends-member:
 - !private ["CSo8PFObject", "query"]
 - !private ["CSo8PFObject", "saveInBackground"]
 - !private ["CSo8PFObject", "subscript"]
+- !private ["CSo6PFPush", "init"]
+- !private ["CSo6PFPush", "setChannel"]
+- !private ["CSo6PFPush", "setMessage"]
 - !private ["CSo7PFQuery", "findObjectsInBackgroundWithBlock"]
 - !private ["CSo7PFQuery", "getObjectInBackgroundWithId"]
 - !private ["CSo7PFQuery", "init"]
@@ -1059,6 +1099,7 @@ depends-member:
 - !private ["P8MamaBear16TaskCellDelegate", "NSDateFormatter"]
 - ["P8MamaBear16TaskCellDelegate", "NSIndexPath"]
 - ["P8MamaBear16TaskCellDelegate", "NSTimer"]
+- !private ["P8MamaBear16TaskCellDelegate", "PFPush"]
 - !private ["P8MamaBear16TaskCellDelegate", "PFQuery"]
 - !private ["P8MamaBear16TaskCellDelegate", "PFUser"]
 - !private ["P8MamaBear16TaskCellDelegate", "TicketViewController"]
@@ -1075,6 +1116,7 @@ depends-member:
 - ["P8MamaBear16TaskCellDelegate", "dismissAssignView"]
 - !private ["P8MamaBear16TaskCellDelegate", "dispatch_async"]
 - !private ["P8MamaBear16TaskCellDelegate", "dispatch_get_main_queue"]
+- ["P8MamaBear16TaskCellDelegate", "indexPathForPreferredFocusedViewInTableView"]
 - ["P8MamaBear16TaskCellDelegate", "numberOfSectionsInTableView"]
 - !private ["P8MamaBear16TaskCellDelegate", "presentViewController"]
 - !private ["P8MamaBear16TaskCellDelegate", "print"]
@@ -1116,6 +1158,7 @@ depends-member:
 - ["C8MamaBear24TicketListViewController", "NSIndexPath"]
 - ["C8MamaBear24TicketListViewController", "NSTimer"]
 - ["C8MamaBear24TicketListViewController", "PFObject"]
+- !private ["C8MamaBear24TicketListViewController", "PFPush"]
 - !private ["C8MamaBear24TicketListViewController", "PFQuery"]
 - !private ["C8MamaBear24TicketListViewController", "PFUser"]
 - ["C8MamaBear24TicketListViewController", "String"]
@@ -1139,6 +1182,7 @@ depends-member:
 - ["C8MamaBear24TicketListViewController", "dismissAssignView"]
 - !private ["C8MamaBear24TicketListViewController", "dispatch_async"]
 - !private ["C8MamaBear24TicketListViewController", "dispatch_get_main_queue"]
+- ["C8MamaBear24TicketListViewController", "indexPathForPreferredFocusedViewInTableView"]
 - ["C8MamaBear24TicketListViewController", "init"]
 - ["C8MamaBear24TicketListViewController", "numberOfSectionsInTableView"]
 - !private ["C8MamaBear24TicketListViewController", "presentViewController"]
@@ -1217,6 +1261,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "NSDate"]
 - !private ["PSo21UIAppearanceContainer", "NSDateFormatter"]
 - ["PSo21UIAppearanceContainer", "NSTimer"]
+- !private ["PSo21UIAppearanceContainer", "PFPush"]
 - !private ["PSo21UIAppearanceContainer", "PFQuery"]
 - !private ["PSo21UIAppearanceContainer", "PFUser"]
 - !private ["PSo21UIAppearanceContainer", "TicketViewController"]
@@ -1247,6 +1292,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "estimatedRowHeight"]
 - !private ["PSo21UIAppearanceContainer", "frame"]
 - !private ["PSo21UIAppearanceContainer", "index"]
+- ["PSo21UIAppearanceContainer", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo21UIAppearanceContainer", "init"]
 - ["PSo21UIAppearanceContainer", "numberOfSectionsInTableView"]
 - !private ["PSo21UIAppearanceContainer", "populateCell"]
@@ -1290,6 +1336,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "NSDate"]
 - !private ["PSo18UIContentContainer", "NSDateFormatter"]
 - ["PSo18UIContentContainer", "NSTimer"]
+- !private ["PSo18UIContentContainer", "PFPush"]
 - !private ["PSo18UIContentContainer", "PFQuery"]
 - !private ["PSo18UIContentContainer", "PFUser"]
 - !private ["PSo18UIContentContainer", "TicketViewController"]
@@ -1308,6 +1355,7 @@ depends-member:
 - ["PSo18UIContentContainer", "dismissAssignView"]
 - !private ["PSo18UIContentContainer", "dispatch_async"]
 - !private ["PSo18UIContentContainer", "dispatch_get_main_queue"]
+- ["PSo18UIContentContainer", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo18UIContentContainer", "init"]
 - ["PSo18UIContentContainer", "numberOfSectionsInTableView"]
 - !private ["PSo18UIContentContainer", "presentViewController"]
@@ -1379,6 +1427,81 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "removeFromSuperview"]
 - !private ["PSo13UIDynamicItem", "rowHeight"]
 - !private ["PSo13UIDynamicItem", "staffList"]
+- ["PSo18UIFocusEnvironment", "AddButtonPressed"]
+- !private ["PSo18UIFocusEnvironment", "AssignView"]
+- !private ["PSo18UIFocusEnvironment", "NSDate"]
+- !private ["PSo18UIFocusEnvironment", "NSDateFormatter"]
+- ["PSo18UIFocusEnvironment", "NSTimer"]
+- !private ["PSo18UIFocusEnvironment", "PFPush"]
+- !private ["PSo18UIFocusEnvironment", "PFQuery"]
+- !private ["PSo18UIFocusEnvironment", "PFUser"]
+- !private ["PSo18UIFocusEnvironment", "TicketViewController"]
+- !private ["PSo18UIFocusEnvironment", "UINavigationController"]
+- !private ["PSo18UIFocusEnvironment", "UINib"]
+- !private ["PSo18UIFocusEnvironment", "UITableViewAutomaticDimension"]
+- !private ["PSo18UIFocusEnvironment", "UITableViewRowAnimation"]
+- !private ["PSo18UIFocusEnvironment", "addSubview"]
+- ["PSo18UIFocusEnvironment", "assignTicket"]
+- ["PSo18UIFocusEnvironment", "assignView"]
+- ["PSo18UIFocusEnvironment", "assignee"]
+- !private ["PSo18UIFocusEnvironment", "beginUpdates"]
+- !private ["PSo18UIFocusEnvironment", "bringUp"]
+- !private ["PSo18UIFocusEnvironment", "cellDelegate"]
+- ["PSo18UIFocusEnvironment", "checkCellType"]
+- !private ["PSo18UIFocusEnvironment", "creator"]
+- ["PSo18UIFocusEnvironment", "currentUser"]
+- ["PSo18UIFocusEnvironment", "currentUserType"]
+- !private ["PSo18UIFocusEnvironment", "customizeCell"]
+- !private ["PSo18UIFocusEnvironment", "dataSource"]
+- !private ["PSo18UIFocusEnvironment", "delegate"]
+- !private ["PSo18UIFocusEnvironment", "dequeueReusableCellWithIdentifier"]
+- ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "dismissAssignView"]
+- !private ["PSo18UIFocusEnvironment", "dispatch_async"]
+- !private ["PSo18UIFocusEnvironment", "dispatch_get_main_queue"]
+- !private ["PSo18UIFocusEnvironment", "endUpdates"]
+- !private ["PSo18UIFocusEnvironment", "estimatedRowHeight"]
+- !private ["PSo18UIFocusEnvironment", "frame"]
+- !private ["PSo18UIFocusEnvironment", "index"]
+- ["PSo18UIFocusEnvironment", "indexPathForPreferredFocusedViewInTableView"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "numberOfSectionsInTableView"]
+- !private ["PSo18UIFocusEnvironment", "populateCell"]
+- !private ["PSo18UIFocusEnvironment", "presentViewController"]
+- !private ["PSo18UIFocusEnvironment", "print"]
+- ["PSo18UIFocusEnvironment", "refreshTicketList"]
+- ["PSo18UIFocusEnvironment", "refreshTickets"]
+- ["PSo18UIFocusEnvironment", "refreshUserList"]
+- !private ["PSo18UIFocusEnvironment", "registerNib"]
+- !private ["PSo18UIFocusEnvironment", "reloadData"]
+- !private ["PSo18UIFocusEnvironment", "reloadRowsAtIndexPaths"]
+- !private ["PSo18UIFocusEnvironment", "removeFromSuperview"]
+- !private ["PSo18UIFocusEnvironment", "rowHeight"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidEndDecelerating"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidEndDragging"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidEndScrollingAnimation"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidEndZooming"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidScroll"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidScrollToTop"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidZoom"]
+- ["PSo18UIFocusEnvironment", "scrollViewShouldScrollToTop"]
+- ["PSo18UIFocusEnvironment", "scrollViewWillBeginDecelerating"]
+- ["PSo18UIFocusEnvironment", "scrollViewWillBeginDragging"]
+- ["PSo18UIFocusEnvironment", "scrollViewWillBeginZooming"]
+- ["PSo18UIFocusEnvironment", "scrollViewWillEndDragging"]
+- ["PSo18UIFocusEnvironment", "sectionIndexTitlesForTableView"]
+- !private ["PSo18UIFocusEnvironment", "staffList"]
+- ["PSo18UIFocusEnvironment", "tableView"]
+- ["PSo18UIFocusEnvironment", "ticketTableView"]
+- ["PSo18UIFocusEnvironment", "tickets"]
+- ["PSo18UIFocusEnvironment", "timer"]
+- ["PSo18UIFocusEnvironment", "users"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- ["PSo18UIFocusEnvironment", "viewDidAppear"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", "viewForZoomingInScrollView"]
+- !private ["PSo18UIFocusEnvironment", "viewWillAppear"]
+- ["PSo18UIFocusEnvironment", ""]
 - !private ["PSo27UIGestureRecognizerDelegate", "cellDelegate"]
 - !private ["PSo27UIGestureRecognizerDelegate", "customizeCell"]
 - !private ["PSo27UIGestureRecognizerDelegate", "index"]
@@ -1396,6 +1519,7 @@ depends-member:
 - ["CSo11UIResponder", "NSIndexPath"]
 - ["CSo11UIResponder", "NSTimer"]
 - ["CSo11UIResponder", "PFObject"]
+- !private ["CSo11UIResponder", "PFPush"]
 - !private ["CSo11UIResponder", "PFQuery"]
 - !private ["CSo11UIResponder", "PFUser"]
 - ["CSo11UIResponder", "String"]
@@ -1432,6 +1556,7 @@ depends-member:
 - !private ["CSo11UIResponder", "estimatedRowHeight"]
 - !private ["CSo11UIResponder", "frame"]
 - !private ["CSo11UIResponder", "index"]
+- ["CSo11UIResponder", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo11UIResponder", "init"]
 - ["CSo11UIResponder", "numberOfSectionsInTableView"]
 - !private ["CSo11UIResponder", "populateCell"]
@@ -1483,6 +1608,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "NSDate"]
 - !private ["PSo20UIScrollViewDelegate", "NSDateFormatter"]
 - ["PSo20UIScrollViewDelegate", "NSTimer"]
+- !private ["PSo20UIScrollViewDelegate", "PFPush"]
 - !private ["PSo20UIScrollViewDelegate", "PFQuery"]
 - !private ["PSo20UIScrollViewDelegate", "PFUser"]
 - !private ["PSo20UIScrollViewDelegate", "TicketViewController"]
@@ -1501,6 +1627,7 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "dismissAssignView"]
 - !private ["PSo20UIScrollViewDelegate", "dispatch_async"]
 - !private ["PSo20UIScrollViewDelegate", "dispatch_get_main_queue"]
+- ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo20UIScrollViewDelegate", "init"]
 - ["PSo20UIScrollViewDelegate", "numberOfSectionsInTableView"]
 - !private ["PSo20UIScrollViewDelegate", "presentViewController"]
@@ -1535,6 +1662,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "NSDate"]
 - !private ["PSo16UIStateRestoring", "NSDateFormatter"]
 - ["PSo16UIStateRestoring", "NSTimer"]
+- !private ["PSo16UIStateRestoring", "PFPush"]
 - !private ["PSo16UIStateRestoring", "PFQuery"]
 - !private ["PSo16UIStateRestoring", "PFUser"]
 - !private ["PSo16UIStateRestoring", "TicketViewController"]
@@ -1553,6 +1681,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "dismissAssignView"]
 - !private ["PSo16UIStateRestoring", "dispatch_async"]
 - !private ["PSo16UIStateRestoring", "dispatch_get_main_queue"]
+- ["PSo16UIStateRestoring", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo16UIStateRestoring", "init"]
 - ["PSo16UIStateRestoring", "numberOfSectionsInTableView"]
 - !private ["PSo16UIStateRestoring", "presentViewController"]
@@ -1602,6 +1731,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "NSDate"]
 - !private ["PSo21UITableViewDataSource", "NSDateFormatter"]
 - ["PSo21UITableViewDataSource", "NSTimer"]
+- !private ["PSo21UITableViewDataSource", "PFPush"]
 - !private ["PSo21UITableViewDataSource", "PFQuery"]
 - !private ["PSo21UITableViewDataSource", "PFUser"]
 - !private ["PSo21UITableViewDataSource", "TicketViewController"]
@@ -1620,6 +1750,7 @@ depends-member:
 - ["PSo21UITableViewDataSource", "dismissAssignView"]
 - !private ["PSo21UITableViewDataSource", "dispatch_async"]
 - !private ["PSo21UITableViewDataSource", "dispatch_get_main_queue"]
+- ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo21UITableViewDataSource", "init"]
 - ["PSo21UITableViewDataSource", "numberOfSectionsInTableView"]
 - !private ["PSo21UITableViewDataSource", "presentViewController"]
@@ -1653,6 +1784,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "NSDate"]
 - !private ["PSo19UITableViewDelegate", "NSDateFormatter"]
 - ["PSo19UITableViewDelegate", "NSTimer"]
+- !private ["PSo19UITableViewDelegate", "PFPush"]
 - !private ["PSo19UITableViewDelegate", "PFQuery"]
 - !private ["PSo19UITableViewDelegate", "PFUser"]
 - !private ["PSo19UITableViewDelegate", "TicketViewController"]
@@ -1671,6 +1803,7 @@ depends-member:
 - ["PSo19UITableViewDelegate", "dismissAssignView"]
 - !private ["PSo19UITableViewDelegate", "dispatch_async"]
 - !private ["PSo19UITableViewDelegate", "dispatch_get_main_queue"]
+- ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo19UITableViewDelegate", "init"]
 - ["PSo19UITableViewDelegate", "numberOfSectionsInTableView"]
 - !private ["PSo19UITableViewDelegate", "presentViewController"]
@@ -1706,6 +1839,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "NSDate"]
 - !private ["PSo18UITraitEnvironment", "NSDateFormatter"]
 - ["PSo18UITraitEnvironment", "NSTimer"]
+- !private ["PSo18UITraitEnvironment", "PFPush"]
 - !private ["PSo18UITraitEnvironment", "PFQuery"]
 - !private ["PSo18UITraitEnvironment", "PFUser"]
 - !private ["PSo18UITraitEnvironment", "TicketViewController"]
@@ -1736,6 +1870,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "estimatedRowHeight"]
 - !private ["PSo18UITraitEnvironment", "frame"]
 - !private ["PSo18UITraitEnvironment", "index"]
+- ["PSo18UITraitEnvironment", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo18UITraitEnvironment", "init"]
 - ["PSo18UITraitEnvironment", "numberOfSectionsInTableView"]
 - !private ["PSo18UITraitEnvironment", "populateCell"]
@@ -1806,6 +1941,7 @@ depends-member:
 - ["CSo16UIViewController", "NSIndexPath"]
 - ["CSo16UIViewController", "NSTimer"]
 - ["CSo16UIViewController", "PFObject"]
+- !private ["CSo16UIViewController", "PFPush"]
 - !private ["CSo16UIViewController", "PFQuery"]
 - !private ["CSo16UIViewController", "PFUser"]
 - ["CSo16UIViewController", "String"]
@@ -1829,6 +1965,7 @@ depends-member:
 - ["CSo16UIViewController", "dismissAssignView"]
 - !private ["CSo16UIViewController", "dispatch_async"]
 - !private ["CSo16UIViewController", "dispatch_get_main_queue"]
+- ["CSo16UIViewController", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo16UIViewController", "init"]
 - ["CSo16UIViewController", "numberOfSectionsInTableView"]
 - !private ["CSo16UIViewController", "presentViewController"]
@@ -2004,6 +2141,7 @@ depends-nominal:
 - !private "Sq"
 - !private "PSs16OutputStreamType"
 - !private "CSo8PFObject"
+- !private "CSo6PFPush"
 - !private "CSo7PFQuery"
 - !private "PSo13PFSubclassing"
 - !private "CSo6PFUser"
@@ -2030,6 +2168,7 @@ depends-nominal:
 - "PSo18UIContentContainer"
 - !private "PSo17UICoordinateSpace"
 - !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
 - !private "PSo27UIGestureRecognizerDelegate"
 - !private "CSo22UINavigationController"
 - !private "CSo5UINib"

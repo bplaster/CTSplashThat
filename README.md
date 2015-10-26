@@ -1,12 +1,13 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+MamaBear 
+
+Handling unexpected “fires” throughout an event can sometimes throw an entire event into freefall. What adds to the difficulty in resolving these issues is the complications of discovering those issues in a timely manner and communicating the problem to staff members for resolution. There is not a solution on the market at this time to efficiently discover and resolve issues during an event. Using social media feeds and machine learning, FireStomper is a mobile platform application designed for event planners and their team to be able to discover issues and resolve them in a timely manner.
 
 ### What is this repository for? ###
 
 * Quick summary
 * Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
 

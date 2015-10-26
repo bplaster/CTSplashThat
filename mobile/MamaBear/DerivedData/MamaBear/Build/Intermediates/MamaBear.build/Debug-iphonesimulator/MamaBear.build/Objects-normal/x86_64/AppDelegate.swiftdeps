@@ -6,41 +6,41 @@ provides-nominal:
 provides-member:
 - ["C8MamaBear11AppDelegate", ""]
 provides-dynamic-lookup:
+- "application"
+- "application"
+- "application"
+- "application"
 - "window"
-- "application"
-- "application"
-- "application"
-- "application"
 depends-top-level:
-- !private "BooleanLiteralType"
-- "UIApplicationDelegate"
-- !private "PFPush"
-- "AnyObject"
-- !private "!"
-- !private "PFAnalytics"
-- !private "Parse"
-- !private "UIUserNotificationSettings"
 - !private "print"
-- "NSError"
-- !private "PFUser"
-- !private "!="
-- !private "PFACL"
-- "NSData"
-- !private "||"
-- "NSObject"
-- !private "UIRemoteNotificationType"
-- "UIResponder"
-- "AppDelegate"
-- !private "StringLiteralType"
-- !private "UIApplicationState"
-- !private "=="
 - !private "PFInstallation"
 - "UIWindow"
-- !private "UIUserNotificationType"
-- !private "Array"
-- "UIApplication"
+- "NSObject"
 - !private "UIApplicationLaunchOptionsRemoteNotificationKey"
+- !private "PFACL"
+- !private "StringLiteralType"
+- !private "!="
+- !private "!"
+- "UIApplication"
+- !private "UIUserNotificationSettings"
+- !private "=="
 - "Bool"
+- "AppDelegate"
+- !private "Parse"
+- !private "UIUserNotificationType"
+- "NSData"
+- "UIResponder"
+- !private "BooleanLiteralType"
+- !private "PFUser"
+- "AnyObject"
+- !private "PFAnalytics"
+- !private "Array"
+- "UIApplicationDelegate"
+- !private "||"
+- "NSError"
+- !private "UIApplicationState"
+- !private "UIRemoteNotificationType"
+- !private "PFPush"
 depends-member:
 - !private ["PSs9AnyObject", "PFACL"]
 - !private ["PSs9AnyObject", "PFAnalytics"]
@@ -64,6 +64,7 @@ depends-member:
 - ["PSs9AnyObject", "applicationWillEnterForeground"]
 - ["PSs9AnyObject", "applicationWillResignActive"]
 - ["PSs9AnyObject", "applicationWillTerminate"]
+- !private ["PSs9AnyObject", "channels"]
 - !private ["PSs9AnyObject", "code"]
 - !private ["PSs9AnyObject", "currentInstallation"]
 - !private ["PSs9AnyObject", "deinit"]
@@ -122,6 +123,7 @@ depends-member:
 - !private ["C8MamaBear11AppDelegate", "print"]
 - !private ["C8MamaBear11AppDelegate", "respondsToSelector"]
 - ["C8MamaBear11AppDelegate", "window"]
+- !private ["Sa", "Element"]
 - !private ["PSs23ArrayLiteralConvertible", "Alert"]
 - !private ["PSs23ArrayLiteralConvertible", "Badge"]
 - !private ["PSs23ArrayLiteralConvertible", "Element"]
@@ -154,6 +156,7 @@ depends-member:
 - ["PSs11CVarArgType", "applicationWillEnterForeground"]
 - ["PSs11CVarArgType", "applicationWillResignActive"]
 - ["PSs11CVarArgType", "applicationWillTerminate"]
+- !private ["PSs11CVarArgType", "channels"]
 - !private ["PSs11CVarArgType", "code"]
 - !private ["PSs11CVarArgType", "currentInstallation"]
 - !private ["PSs11CVarArgType", "enableAutomaticUser"]
@@ -176,6 +179,7 @@ depends-member:
 - !private ["PSs11CVarArgType", "trackAppOpenedWithRemoteNotificationPayload"]
 - ["PSs11CVarArgType", "window"]
 - ["PSs11CVarArgType", ""]
+- !private ["PSs14CollectionType", "Element"]
 - !private ["PSs14CollectionType", "Generator"]
 - !private ["PSs14CollectionType", "Index"]
 - !private ["PSs14CollectionType", "SubSequence"]
@@ -184,12 +188,14 @@ depends-member:
 - !private ["PSs10Comparable", "Distance"]
 - !private ["PSs10Comparable", "IntegerLiteralType"]
 - !private ["PSs10Comparable", "_DisabledRangeIndex"]
+- !private ["PSs28CustomDebugStringConvertible", "Element"]
 - !private ["PSs28CustomDebugStringConvertible", "Generator"]
 - !private ["PSs28CustomDebugStringConvertible", "Index"]
 - ["PSs28CustomDebugStringConvertible", "Some"]
 - !private ["PSs28CustomDebugStringConvertible", "SubSequence"]
 - !private ["PSs28CustomDebugStringConvertible", "_Element"]
 - !private ["PSs28CustomDebugStringConvertible", "subscript"]
+- !private ["PSs23CustomStringConvertible", "Element"]
 - !private ["PSs23CustomStringConvertible", "Generator"]
 - !private ["PSs23CustomStringConvertible", "Index"]
 - !private ["PSs23CustomStringConvertible", "IntegerLiteralType"]
@@ -218,6 +224,7 @@ depends-member:
 - ["PSs23CustomStringConvertible", "applicationWillEnterForeground"]
 - ["PSs23CustomStringConvertible", "applicationWillResignActive"]
 - ["PSs23CustomStringConvertible", "applicationWillTerminate"]
+- !private ["PSs23CustomStringConvertible", "channels"]
 - !private ["PSs23CustomStringConvertible", "code"]
 - !private ["PSs23CustomStringConvertible", "currentInstallation"]
 - !private ["PSs23CustomStringConvertible", "enableAutomaticUser"]
@@ -287,6 +294,7 @@ depends-member:
 - ["PSs9Equatable", "applicationWillEnterForeground"]
 - ["PSs9Equatable", "applicationWillResignActive"]
 - ["PSs9Equatable", "applicationWillTerminate"]
+- !private ["PSs9Equatable", "channels"]
 - !private ["PSs9Equatable", "code"]
 - !private ["PSs9Equatable", "currentInstallation"]
 - !private ["PSs9Equatable", "enableAutomaticUser"]
@@ -341,6 +349,7 @@ depends-member:
 - ["PSs8Hashable", "applicationWillEnterForeground"]
 - ["PSs8Hashable", "applicationWillResignActive"]
 - ["PSs8Hashable", "applicationWillTerminate"]
+- !private ["PSs8Hashable", "channels"]
 - !private ["PSs8Hashable", "code"]
 - !private ["PSs8Hashable", "currentInstallation"]
 - !private ["PSs8Hashable", "enableAutomaticUser"]
@@ -363,6 +372,7 @@ depends-member:
 - !private ["PSs8Hashable", "trackAppOpenedWithRemoteNotificationPayload"]
 - ["PSs8Hashable", "window"]
 - ["PSs8Hashable", ""]
+- !private ["PSs9Indexable", "Element"]
 - !private ["PSs9Indexable", "Generator"]
 - !private ["PSs9Indexable", "Index"]
 - !private ["PSs9Indexable", "SubSequence"]
@@ -374,6 +384,9 @@ depends-member:
 - !private ["PSs25IntegerLiteralConvertible", "IntegerLiteralType"]
 - !private ["PSs11IntegerType", "IntegerLiteralType"]
 - !private ["PSs14MirrorPathType", "IntegerLiteralType"]
+- !private ["PSs21MutableCollectionType", "Element"]
+- !private ["PSs16MutableIndexable", "Element"]
+- !private ["PSs16MutableSliceable", "Element"]
 - !private ["PSo8NSCoding", "code"]
 - !private ["PSo8NSCoding", "init"]
 - !private ["PSo8NSCoding", "setDefaultACL"]
@@ -418,6 +431,7 @@ depends-member:
 - ["CSo8NSObject", "applicationWillEnterForeground"]
 - ["CSo8NSObject", "applicationWillResignActive"]
 - ["CSo8NSObject", "applicationWillTerminate"]
+- !private ["CSo8NSObject", "channels"]
 - !private ["CSo8NSObject", "code"]
 - !private ["CSo8NSObject", "currentInstallation"]
 - !private ["CSo8NSObject", "enableAutomaticUser"]
@@ -461,6 +475,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "applicationWillEnterForeground"]
 - ["PSo16NSObjectProtocol", "applicationWillResignActive"]
 - ["PSo16NSObjectProtocol", "applicationWillTerminate"]
+- !private ["PSo16NSObjectProtocol", "channels"]
 - !private ["PSo16NSObjectProtocol", "code"]
 - !private ["PSo16NSObjectProtocol", "currentInstallation"]
 - !private ["PSo16NSObjectProtocol", "enableAutomaticUser"]
@@ -497,15 +512,18 @@ depends-member:
 - !private ["CSo5PFACL", "setPublicWriteAccess"]
 - !private ["CSo11PFAnalytics", "trackAppOpenedWithLaunchOptions"]
 - !private ["CSo11PFAnalytics", "trackAppOpenedWithRemoteNotificationPayload"]
+- !private ["CSo14PFInstallation", "channels"]
 - !private ["CSo14PFInstallation", "currentInstallation"]
 - !private ["CSo14PFInstallation", "saveInBackground"]
 - !private ["CSo14PFInstallation", "setDeviceTokenFromData"]
+- !private ["CSo8PFObject", "channels"]
 - !private ["CSo8PFObject", "currentInstallation"]
 - !private ["CSo8PFObject", "enableAutomaticUser"]
 - !private ["CSo8PFObject", "saveInBackground"]
 - !private ["CSo8PFObject", "setDeviceTokenFromData"]
 - !private ["CSo6PFPush", "handlePush"]
 - !private ["CSo6PFPush", "subscribeToChannelInBackground"]
+- !private ["PSo13PFSubclassing", "channels"]
 - !private ["PSo13PFSubclassing", "currentInstallation"]
 - !private ["PSo13PFSubclassing", "enableAutomaticUser"]
 - !private ["PSo13PFSubclassing", "saveInBackground"]
@@ -514,6 +532,7 @@ depends-member:
 - !private ["CSo5Parse", "enableLocalDatastore"]
 - !private ["CSo5Parse", "setApplicationId"]
 - !private ["PSs21RandomAccessIndexType", "IntegerLiteralType"]
+- !private ["PSs30RangeReplaceableCollectionType", "Element"]
 - !private ["PSs16RawRepresentable", "Alert"]
 - !private ["PSs16RawRepresentable", "Background"]
 - !private ["PSs16RawRepresentable", "Badge"]
@@ -539,6 +558,7 @@ depends-member:
 - !private ["VSs5Slice", "SubSequence"]
 - !private ["VSs5Slice", "_Element"]
 - !private ["PSs10Strideable", "IntegerLiteralType"]
+- !private ["SS", "deinit"]
 - !private ["CSo13UIApplication", "applicationState"]
 - !private ["CSo13UIApplication", "registerForRemoteNotificationTypes"]
 - !private ["CSo13UIApplication", "registerForRemoteNotifications"]
@@ -621,13 +641,16 @@ depends-member:
 - !private ["VSC22UIUserNotificationType", "Badge"]
 - !private ["VSC22UIUserNotificationType", "Element"]
 - !private ["VSC22UIUserNotificationType", "Sound"]
+- !private ["PSs10_ArrayType", "Element"]
 - !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["PSs33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["PSs24_DestructorSafeContainer", "Element"]
 - !private ["PSs14_Incrementable", "Distance"]
 - !private ["PSs14_Incrementable", "IntegerLiteralType"]
 - !private ["PSs14_Incrementable", "_DisabledRangeIndex"]
 - !private ["PSs22_IntegerArithmeticType", "IntegerLiteralType"]
 - !private ["PSs12_IntegerType", "IntegerLiteralType"]
+- !private ["PSs21_ObjectiveCBridgeable", "Element"]
 - !private ["PSs21_ObjectiveCBridgeable", "Generator"]
 - !private ["PSs21_ObjectiveCBridgeable", "Index"]
 - !private ["PSs21_ObjectiveCBridgeable", "IntegerLiteralType"]
@@ -636,6 +659,7 @@ depends-member:
 - !private ["PSs21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["PSs21_ObjectiveCBridgeable", "subscript"]
 - !private ["PSs22_RandomAccessAmbiguity", "IntegerLiteralType"]
+- !private ["PSs12_Reflectable", "Element"]
 - !private ["PSs12_Reflectable", "Generator"]
 - !private ["PSs12_Reflectable", "Index"]
 - !private ["PSs12_Reflectable", "IntegerLiteralType"]
@@ -649,6 +673,7 @@ depends-member:
 depends-nominal:
 - "PSs9AnyObject"
 - "C8MamaBear11AppDelegate"
+- !private "Sa"
 - !private "PSs23ArrayLiteralConvertible"
 - !private "PSs22BidirectionalIndexType"
 - !private "PSs21BitwiseOperationsType"
@@ -675,6 +700,9 @@ depends-nominal:
 - !private "PSs25IntegerLiteralConvertible"
 - !private "PSs11IntegerType"
 - !private "PSs14MirrorPathType"
+- !private "PSs21MutableCollectionType"
+- !private "PSs16MutableIndexable"
+- !private "PSs16MutableSliceable"
 - !private "PSo8NSCoding"
 - !private "PSo9NSCopying"
 - !private "CSo7NSError"
@@ -693,6 +721,7 @@ depends-nominal:
 - !private "CSo6PFUser"
 - !private "CSo5Parse"
 - !private "PSs21RandomAccessIndexType"
+- !private "PSs30RangeReplaceableCollectionType"
 - !private "PSs16RawRepresentable"
 - !private "V10ObjectiveC8Selector"
 - !private "PSs12SequenceType"
@@ -701,6 +730,7 @@ depends-nominal:
 - !private "PSs16SignedNumberType"
 - !private "VSs5Slice"
 - !private "PSs10Strideable"
+- !private "SS"
 - !private "CSo13UIApplication"
 - "PSo21UIApplicationDelegate"
 - !private "OSC18UIApplicationState"
@@ -708,8 +738,10 @@ depends-nominal:
 - "CSo11UIResponder"
 - !private "CSo26UIUserNotificationSettings"
 - !private "VSC22UIUserNotificationType"
+- !private "PSs10_ArrayType"
 - !private "PSs33_BuiltinBooleanLiteralConvertible"
 - !private "PSs33_BuiltinIntegerLiteralConvertible"
+- !private "PSs24_DestructorSafeContainer"
 - !private "PSs14_Incrementable"
 - !private "PSs22_IntegerArithmeticType"
 - !private "PSs12_IntegerType"

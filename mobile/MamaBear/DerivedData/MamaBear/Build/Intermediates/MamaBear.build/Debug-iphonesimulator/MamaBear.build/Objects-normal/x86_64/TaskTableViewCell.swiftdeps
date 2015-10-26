@@ -6,64 +6,64 @@ provides-nominal:
 provides-member:
 - ["C8MamaBear17TaskTableViewCell", ""]
 provides-dynamic-lookup:
-- "completeButton"
-- "assignee"
-- "index"
-- "populateCell"
-- "infoView"
-- "acceptButton"
+- "acceptButtonPressed"
 - "blue"
-- "primaryButton"
-- "green"
-- "headerView"
+- "populateCell"
+- "awakeFromNib"
+- "creatorLabel"
+- "assignButton"
+- "accepted"
+- "customizeCell"
+- "setSelected"
+- "titleLabel"
+- "red"
 - "completeButtonPressed"
+- "completed"
+- "orange"
+- "completeButton"
+- "headerView"
 - "assigned"
 - "objectID"
-- "typeImageView"
-- "assignButton"
-- "creatorLabel"
-- "grey"
-- "accepted"
-- "titleLabel"
-- "orange"
-- "completed"
-- "awakeFromNib"
-- "acceptButtonPressed"
-- "setSelected"
-- "descLabel"
-- "red"
 - "assignButtonPressed"
-- "customizeCell"
+- "typeImageView"
+- "assignee"
+- "green"
+- "index"
+- "descLabel"
+- "primaryButton"
+- "grey"
+- "infoView"
+- "acceptButton"
 depends-top-level:
-- !private "print"
-- "TaskTableViewCell"
-- "Bool"
-- "TaskCellDelegate"
-- "UITableViewCell"
-- !private "NSDateFormatter"
-- !private "PFQuery"
-- !private "NSDate"
-- !private "StringLiteralType"
-- "UIButton"
-- !private "~="
-- "Array"
-- "UIColor"
 - "String"
-- "UIView"
-- "CGRect"
-- "NSIndexPath"
-- !private "UIControlEvents"
-- "UILabel"
-- !private "Void"
-- !private "NSError"
-- !private "!="
-- !private "UnicodeScalarType"
-- !private "UIControlState"
-- "UIImageView"
-- !private "+"
+- "UIButton"
+- "Bool"
 - !private "BooleanLiteralType"
-- !private "UIImage"
+- !private "NSDateFormatter"
 - "PFObject"
+- "UILabel"
+- !private "!="
+- !private "Void"
+- "CGRect"
+- !private "UIControlEvents"
+- !private "+"
+- !private "print"
+- !private "~="
+- "NSIndexPath"
+- !private "NSError"
+- "TaskCellDelegate"
+- !private "PFQuery"
+- "UIColor"
+- "Array"
+- "UIView"
+- !private "StringLiteralType"
+- "TaskTableViewCell"
+- !private "UnicodeScalarType"
+- !private "NSDate"
+- !private "UIImage"
+- !private "UIControlState"
+- "UITableViewCell"
+- "UIImageView"
 depends-member:
 - !private ["PSs9AnyObject", "NSDate"]
 - !private ["PSs9AnyObject", "NSDateFormatter"]
@@ -886,6 +886,54 @@ depends-member:
 - ["PSo13UIDynamicItem", "titleLabel"]
 - ["PSo13UIDynamicItem", "typeImageView"]
 - ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "NSDate"]
+- !private ["PSo18UIFocusEnvironment", "NSDateFormatter"]
+- !private ["PSo18UIFocusEnvironment", "PFQuery"]
+- ["PSo18UIFocusEnvironment", "UIColor"]
+- !private ["PSo18UIFocusEnvironment", "UIControlEvents"]
+- !private ["PSo18UIFocusEnvironment", "UIControlState"]
+- !private ["PSo18UIFocusEnvironment", "UIImage"]
+- ["PSo18UIFocusEnvironment", "acceptButton"]
+- ["PSo18UIFocusEnvironment", "acceptButtonPressed"]
+- ["PSo18UIFocusEnvironment", "accepted"]
+- !private ["PSo18UIFocusEnvironment", "addTarget"]
+- ["PSo18UIFocusEnvironment", "assignButton"]
+- ["PSo18UIFocusEnvironment", "assignButtonPressed"]
+- ["PSo18UIFocusEnvironment", "assigned"]
+- ["PSo18UIFocusEnvironment", "assignee"]
+- ["PSo18UIFocusEnvironment", "awakeFromNib"]
+- !private ["PSo18UIFocusEnvironment", "backgroundColor"]
+- ["PSo18UIFocusEnvironment", "blue"]
+- ["PSo18UIFocusEnvironment", "buttonFrame"]
+- ["PSo18UIFocusEnvironment", "cellDelegate"]
+- ["PSo18UIFocusEnvironment", "completeButton"]
+- ["PSo18UIFocusEnvironment", "completeButtonPressed"]
+- ["PSo18UIFocusEnvironment", "completed"]
+- ["PSo18UIFocusEnvironment", "creatorLabel"]
+- ["PSo18UIFocusEnvironment", "customizeCell"]
+- ["PSo18UIFocusEnvironment", "descLabel"]
+- !private ["PSo18UIFocusEnvironment", "enabled"]
+- ["PSo18UIFocusEnvironment", "green"]
+- ["PSo18UIFocusEnvironment", "grey"]
+- ["PSo18UIFocusEnvironment", "headerView"]
+- !private ["PSo18UIFocusEnvironment", "image"]
+- ["PSo18UIFocusEnvironment", "index"]
+- ["PSo18UIFocusEnvironment", "infoView"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "objectID"]
+- ["PSo18UIFocusEnvironment", "orange"]
+- ["PSo18UIFocusEnvironment", "populateCell"]
+- ["PSo18UIFocusEnvironment", "primaryButton"]
+- !private ["PSo18UIFocusEnvironment", "print"]
+- ["PSo18UIFocusEnvironment", "red"]
+- !private ["PSo18UIFocusEnvironment", "removeTarget"]
+- ["PSo18UIFocusEnvironment", "setSelected"]
+- !private ["PSo18UIFocusEnvironment", "setTitle"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- !private ["PSo18UIFocusEnvironment", "textColor"]
+- ["PSo18UIFocusEnvironment", "titleLabel"]
+- ["PSo18UIFocusEnvironment", "typeImageView"]
+- ["PSo18UIFocusEnvironment", ""]
 - !private ["PSo27UIGestureRecognizerDelegate", "NSDate"]
 - !private ["PSo27UIGestureRecognizerDelegate", "NSDateFormatter"]
 - !private ["PSo27UIGestureRecognizerDelegate", "PFQuery"]
@@ -1150,7 +1198,9 @@ depends-member:
 - ["CSo6UIView", "typeImageView"]
 - !private ["PSs10_ArrayType", "Element"]
 - !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- ["PSs24_ColorLiteralConvertible", "init"]
 - !private ["PSs24_DestructorSafeContainer", "Element"]
+- !private ["PSs24_ImageLiteralConvertible", "init"]
 - !private ["PSs21_ObjectiveCBridgeable", "Element"]
 - !private ["PSs21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["VSs26_OptionalNilComparisonType", "deinit"]
@@ -1257,6 +1307,7 @@ depends-nominal:
 - !private "VSC14UIControlState"
 - "PSo17UICoordinateSpace"
 - "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
 - "PSo27UIGestureRecognizerDelegate"
 - !private "CSo7UIImage"
 - !private "CSo11UIImageView"
@@ -1267,7 +1318,9 @@ depends-nominal:
 - "CSo6UIView"
 - !private "PSs10_ArrayType"
 - !private "PSs33_BuiltinBooleanLiteralConvertible"
+- "PSs24_ColorLiteralConvertible"
 - !private "PSs24_DestructorSafeContainer"
+- !private "PSs24_ImageLiteralConvertible"
 - !private "PSs21_ObjectiveCBridgeable"
 - !private "VSs26_OptionalNilComparisonType"
 - "PSs12_Reflectable"
