@@ -6,43 +6,43 @@ provides-nominal:
 provides-member:
 - ["C8MamaBear10AssignView", ""]
 provides-dynamic-lookup:
-- "assigneeTableView"
-- "indexPath"
-- "bringUp"
-- "numberOfSectionsInTableView"
 - "objectID"
 - "staffList"
+- "indexPath"
+- "bringUp"
+- "assigneeTableView"
+- "tableView"
+- "tableView"
+- "tableView"
 - "putDown"
-- "tableView"
-- "tableView"
-- "tableView"
+- "numberOfSectionsInTableView"
 depends-top-level:
-- !private "+="
-- "UITableView"
-- "PFObject"
-- "Int"
-- !private "UIViewAnimationOptions"
-- !private "*"
-- "UITableViewDelegate"
-- !private "/"
-- "String"
-- "UITableViewDataSource"
-- !private "CGPoint"
-- !private "CGPointMake"
-- "UITableViewCell"
-- !private "+"
-- "CGRect"
-- "NSCoder"
-- "UIView"
-- !private "fatalError"
-- "AssignView"
-- !private "UIColor"
-- !private "UITableViewCellStyle"
-- !private "=="
-- !private "StringLiteralType"
-- "AssignViewDelegate"
-- "NSIndexPath"
 - !private "CGRectMake"
+- !private "CGPoint"
+- !private "+="
+- "NSIndexPath"
+- !private "fatalError"
+- "String"
+- "UITableViewCell"
+- "Int"
+- !private "StringLiteralType"
+- !private "=="
+- "CGRect"
+- !private "UITableViewCellStyle"
+- "PFObject"
+- "UITableViewDelegate"
+- !private "+"
+- !private "CGPointMake"
+- "NSCoder"
+- "UITableViewDataSource"
+- "UIView"
+- !private "*"
+- "UITableView"
+- !private "/"
+- !private "UIColor"
+- "AssignView"
+- !private "UIViewAnimationOptions"
+- "AssignViewDelegate"
 depends-member:
 - !private ["PSs9AnyObject", "CGPoint"]
 - !private ["PSs9AnyObject", "CGPointMake"]
@@ -67,6 +67,7 @@ depends-member:
 - !private ["PSs9AnyObject", "fatalError"]
 - !private ["PSs9AnyObject", "frame"]
 - ["PSs9AnyObject", "indexPath"]
+- ["PSs9AnyObject", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs9AnyObject", "init"]
 - ["PSs9AnyObject", "numberOfSectionsInTableView"]
 - ["PSs9AnyObject", "objectID"]
@@ -133,6 +134,7 @@ depends-member:
 - !private ["C8MamaBear10AssignView", "fatalError"]
 - !private ["C8MamaBear10AssignView", "frame"]
 - ["C8MamaBear10AssignView", "indexPath"]
+- ["C8MamaBear10AssignView", "indexPathForPreferredFocusedViewInTableView"]
 - ["C8MamaBear10AssignView", "init"]
 - ["C8MamaBear10AssignView", "numberOfSectionsInTableView"]
 - ["C8MamaBear10AssignView", "objectID"]
@@ -194,6 +196,7 @@ depends-member:
 - !private ["PSs11CVarArgType", "fatalError"]
 - !private ["PSs11CVarArgType", "frame"]
 - ["PSs11CVarArgType", "indexPath"]
+- ["PSs11CVarArgType", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs11CVarArgType", "init"]
 - ["PSs11CVarArgType", "numberOfSectionsInTableView"]
 - ["PSs11CVarArgType", "objectID"]
@@ -263,6 +266,7 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "fatalError"]
 - !private ["PSs23CustomStringConvertible", "frame"]
 - ["PSs23CustomStringConvertible", "indexPath"]
+- ["PSs23CustomStringConvertible", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs23CustomStringConvertible", "init"]
 - ["PSs23CustomStringConvertible", "numberOfSectionsInTableView"]
 - ["PSs23CustomStringConvertible", "objectID"]
@@ -317,6 +321,7 @@ depends-member:
 - !private ["PSs9Equatable", "frame"]
 - !private ["PSs9Equatable", "height"]
 - ["PSs9Equatable", "indexPath"]
+- ["PSs9Equatable", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs9Equatable", "init"]
 - ["PSs9Equatable", "numberOfSectionsInTableView"]
 - ["PSs9Equatable", "objectID"]
@@ -376,6 +381,7 @@ depends-member:
 - !private ["PSs8Hashable", "fatalError"]
 - !private ["PSs8Hashable", "frame"]
 - ["PSs8Hashable", "indexPath"]
+- ["PSs8Hashable", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs8Hashable", "init"]
 - ["PSs8Hashable", "numberOfSectionsInTableView"]
 - ["PSs8Hashable", "objectID"]
@@ -457,6 +463,7 @@ depends-member:
 - !private ["PSo8NSCoding", "fatalError"]
 - !private ["PSo8NSCoding", "frame"]
 - ["PSo8NSCoding", "indexPath"]
+- ["PSo8NSCoding", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo8NSCoding", "init"]
 - ["PSo8NSCoding", "numberOfSectionsInTableView"]
 - ["PSo8NSCoding", "objectID"]
@@ -514,6 +521,7 @@ depends-member:
 - !private ["CSo8NSObject", "fatalError"]
 - !private ["CSo8NSObject", "frame"]
 - ["CSo8NSObject", "indexPath"]
+- ["CSo8NSObject", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo8NSObject", "init"]
 - ["CSo8NSObject", "numberOfSectionsInTableView"]
 - ["CSo8NSObject", "objectID"]
@@ -561,6 +569,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "fatalError"]
 - !private ["PSo16NSObjectProtocol", "frame"]
 - ["PSo16NSObjectProtocol", "indexPath"]
+- ["PSo16NSObjectProtocol", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo16NSObjectProtocol", "init"]
 - ["PSo16NSObjectProtocol", "numberOfSectionsInTableView"]
 - ["PSo16NSObjectProtocol", "objectID"]
@@ -644,6 +653,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "fatalError"]
 - !private ["PSo29UIAccessibilityIdentification", "frame"]
 - ["PSo29UIAccessibilityIdentification", "indexPath"]
+- ["PSo29UIAccessibilityIdentification", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo29UIAccessibilityIdentification", "init"]
 - ["PSo29UIAccessibilityIdentification", "numberOfSectionsInTableView"]
 - ["PSo29UIAccessibilityIdentification", "objectID"]
@@ -690,6 +700,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "fatalError"]
 - !private ["PSo12UIAppearance", "frame"]
 - ["PSo12UIAppearance", "indexPath"]
+- ["PSo12UIAppearance", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo12UIAppearance", "init"]
 - ["PSo12UIAppearance", "numberOfSectionsInTableView"]
 - ["PSo12UIAppearance", "objectID"]
@@ -736,6 +747,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "fatalError"]
 - !private ["PSo21UIAppearanceContainer", "frame"]
 - ["PSo21UIAppearanceContainer", "indexPath"]
+- ["PSo21UIAppearanceContainer", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo21UIAppearanceContainer", "init"]
 - ["PSo21UIAppearanceContainer", "numberOfSectionsInTableView"]
 - ["PSo21UIAppearanceContainer", "objectID"]
@@ -783,6 +795,7 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "fatalError"]
 - !private ["PSo17UICoordinateSpace", "frame"]
 - ["PSo17UICoordinateSpace", "indexPath"]
+- ["PSo17UICoordinateSpace", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo17UICoordinateSpace", "init"]
 - ["PSo17UICoordinateSpace", "numberOfSectionsInTableView"]
 - ["PSo17UICoordinateSpace", "objectID"]
@@ -829,6 +842,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "fatalError"]
 - !private ["PSo13UIDynamicItem", "frame"]
 - ["PSo13UIDynamicItem", "indexPath"]
+- ["PSo13UIDynamicItem", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo13UIDynamicItem", "init"]
 - ["PSo13UIDynamicItem", "numberOfSectionsInTableView"]
 - ["PSo13UIDynamicItem", "objectID"]
@@ -852,6 +866,53 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "textLabel"]
 - ["PSo13UIDynamicItem", "viewForZoomingInScrollView"]
 - ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "CGPoint"]
+- !private ["PSo18UIFocusEnvironment", "CGPointMake"]
+- !private ["PSo18UIFocusEnvironment", "CGRectMake"]
+- !private ["PSo18UIFocusEnvironment", "UIColor"]
+- !private ["PSo18UIFocusEnvironment", "UITableView"]
+- !private ["PSo18UIFocusEnvironment", "UITableViewCell"]
+- !private ["PSo18UIFocusEnvironment", "UITableViewCellStyle"]
+- !private ["PSo18UIFocusEnvironment", "UIView"]
+- !private ["PSo18UIFocusEnvironment", "UIViewAnimationOptions"]
+- !private ["PSo18UIFocusEnvironment", "addSubview"]
+- !private ["PSo18UIFocusEnvironment", "alpha"]
+- !private ["PSo18UIFocusEnvironment", "animateWithDuration"]
+- ["PSo18UIFocusEnvironment", "assigneeTableView"]
+- !private ["PSo18UIFocusEnvironment", "backgroundColor"]
+- !private ["PSo18UIFocusEnvironment", "bounds"]
+- ["PSo18UIFocusEnvironment", "bringUp"]
+- !private ["PSo18UIFocusEnvironment", "center"]
+- !private ["PSo18UIFocusEnvironment", "dataSource"]
+- ["PSo18UIFocusEnvironment", "delegate"]
+- !private ["PSo18UIFocusEnvironment", "dequeueReusableCellWithIdentifier"]
+- !private ["PSo18UIFocusEnvironment", "fatalError"]
+- !private ["PSo18UIFocusEnvironment", "frame"]
+- ["PSo18UIFocusEnvironment", "indexPath"]
+- ["PSo18UIFocusEnvironment", "indexPathForPreferredFocusedViewInTableView"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "numberOfSectionsInTableView"]
+- ["PSo18UIFocusEnvironment", "objectID"]
+- ["PSo18UIFocusEnvironment", "putDown"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidEndDecelerating"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidEndDragging"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidEndScrollingAnimation"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidEndZooming"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidScroll"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidScrollToTop"]
+- ["PSo18UIFocusEnvironment", "scrollViewDidZoom"]
+- ["PSo18UIFocusEnvironment", "scrollViewShouldScrollToTop"]
+- ["PSo18UIFocusEnvironment", "scrollViewWillBeginDecelerating"]
+- ["PSo18UIFocusEnvironment", "scrollViewWillBeginDragging"]
+- ["PSo18UIFocusEnvironment", "scrollViewWillBeginZooming"]
+- ["PSo18UIFocusEnvironment", "scrollViewWillEndDragging"]
+- ["PSo18UIFocusEnvironment", "sectionIndexTitlesForTableView"]
+- ["PSo18UIFocusEnvironment", "staffList"]
+- ["PSo18UIFocusEnvironment", "tableView"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- !private ["PSo18UIFocusEnvironment", "textLabel"]
+- ["PSo18UIFocusEnvironment", "viewForZoomingInScrollView"]
+- ["PSo18UIFocusEnvironment", ""]
 - !private ["PSo27UIGestureRecognizerDelegate", "init"]
 - !private ["PSo27UIGestureRecognizerDelegate", "textLabel"]
 - !private ["CSo7UILabel", "text"]
@@ -885,6 +946,7 @@ depends-member:
 - !private ["CSo11UIResponder", "fatalError"]
 - !private ["CSo11UIResponder", "frame"]
 - ["CSo11UIResponder", "indexPath"]
+- ["CSo11UIResponder", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo11UIResponder", "init"]
 - ["CSo11UIResponder", "numberOfSectionsInTableView"]
 - ["CSo11UIResponder", "objectID"]
@@ -931,6 +993,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "fatalError"]
 - !private ["PSo20UIScrollViewDelegate", "frame"]
 - !private ["PSo20UIScrollViewDelegate", "indexPath"]
+- ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo20UIScrollViewDelegate", "numberOfSectionsInTableView"]
 - !private ["PSo20UIScrollViewDelegate", "putDown"]
 - ["PSo20UIScrollViewDelegate", "scrollViewDidEndDecelerating"]
@@ -977,6 +1040,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "fatalError"]
 - !private ["PSo21UITableViewDataSource", "frame"]
 - !private ["PSo21UITableViewDataSource", "indexPath"]
+- ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo21UITableViewDataSource", "numberOfSectionsInTableView"]
 - !private ["PSo21UITableViewDataSource", "putDown"]
 - ["PSo21UITableViewDataSource", "scrollViewDidEndDecelerating"]
@@ -1014,6 +1078,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "fatalError"]
 - !private ["PSo19UITableViewDelegate", "frame"]
 - !private ["PSo19UITableViewDelegate", "indexPath"]
+- ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo19UITableViewDelegate", "numberOfSectionsInTableView"]
 - !private ["PSo19UITableViewDelegate", "putDown"]
 - ["PSo19UITableViewDelegate", "scrollViewDidEndDecelerating"]
@@ -1056,6 +1121,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "fatalError"]
 - !private ["PSo18UITraitEnvironment", "frame"]
 - ["PSo18UITraitEnvironment", "indexPath"]
+- ["PSo18UITraitEnvironment", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo18UITraitEnvironment", "init"]
 - ["PSo18UITraitEnvironment", "numberOfSectionsInTableView"]
 - ["PSo18UITraitEnvironment", "objectID"]
@@ -1109,6 +1175,7 @@ depends-member:
 - !private ["CSo6UIView", "fatalError"]
 - !private ["CSo6UIView", "frame"]
 - ["CSo6UIView", "indexPath"]
+- ["CSo6UIView", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo6UIView", "init"]
 - ["CSo6UIView", "numberOfSectionsInTableView"]
 - ["CSo6UIView", "objectID"]
@@ -1141,6 +1208,7 @@ depends-member:
 - !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["PSs33_BuiltinIntegerLiteralConvertible", "Distance"]
 - !private ["PSs33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["PSs24_ColorLiteralConvertible", "init"]
 - !private ["PSs24_DestructorSafeContainer", "Generator"]
 - !private ["PSs24_DestructorSafeContainer", "Index"]
 - !private ["PSs24_DestructorSafeContainer", "SubSequence"]
@@ -1195,6 +1263,7 @@ depends-member:
 - !private ["PSs12_Reflectable", "frame"]
 - !private ["PSs12_Reflectable", "height"]
 - ["PSs12_Reflectable", "indexPath"]
+- ["PSs12_Reflectable", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSs12_Reflectable", "init"]
 - ["PSs12_Reflectable", "numberOfSectionsInTableView"]
 - ["PSs12_Reflectable", "objectID"]
@@ -1288,6 +1357,7 @@ depends-nominal:
 - !private "CSo7UIColor"
 - "PSo17UICoordinateSpace"
 - "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
 - !private "PSo27UIGestureRecognizerDelegate"
 - !private "CSo7UILabel"
 - "CSo11UIResponder"
@@ -1304,6 +1374,7 @@ depends-nominal:
 - !private "PSs10_ArrayType"
 - !private "PSs33_BuiltinBooleanLiteralConvertible"
 - !private "PSs33_BuiltinIntegerLiteralConvertible"
+- !private "PSs24_ColorLiteralConvertible"
 - !private "PSs24_DestructorSafeContainer"
 - !private "PSs14_Incrementable"
 - !private "PSs22_IntegerArithmeticType"

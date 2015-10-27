@@ -6,44 +6,45 @@ provides-nominal:
 provides-member:
 - ["C8MamaBear20TicketViewController", ""]
 provides-dynamic-lookup:
-- "assignButtonPressed"
-- "users"
-- "assignee"
-- "currentUserType"
-- "assigned"
-- "creator"
-- "dismissAssignView"
-- "assignButton"
-- "assignView"
-- "titleTextField"
-- "submitButtonPressed"
 - "descTextField"
+- "assignButton"
+- "assigned"
+- "currentUserType"
+- "creator"
+- "assignee"
+- "dismissAssignView"
+- "titleTextField"
 - "didReceiveMemoryWarning"
+- "users"
+- "assignView"
 - "viewDidLoad"
+- "assignButtonPressed"
+- "submitButtonPressed"
 depends-top-level:
-- "AssignViewDelegate"
-- !private "NSDateFormatter"
-- !private "UIControlState"
 - "AssignView"
-- "NSIndexPath"
-- "StringLiteralType"
-- !private "=="
-- "AnyObject"
-- !private "+"
-- !private "NSDate"
-- !private "BooleanLiteralType"
-- !private "Void"
-- "UnicodeScalarType"
-- "UIButton"
-- "PFObject"
-- "UITextView"
 - "String"
-- !private "!="
-- "UIViewController"
-- "TicketViewController"
+- "AssignViewDelegate"
 - !private "NSError"
-- !private "Bool"
+- !private "Void"
+- !private "UIControlState"
+- "PFObject"
+- !private "BooleanLiteralType"
+- "AnyObject"
+- !private "NSDate"
 - !private "print"
+- "UITextView"
+- !private "!="
+- !private "=="
+- "UIButton"
+- "TicketViewController"
+- !private "Bool"
+- "NSIndexPath"
+- !private "NSDateFormatter"
+- "UIViewController"
+- "UnicodeScalarType"
+- !private "+"
+- "TicketViewDelegate"
+- "StringLiteralType"
 depends-member:
 - !private ["PSs9AnyObject", "AssignView"]
 - !private ["PSs9AnyObject", "NSDate"]
@@ -62,15 +63,16 @@ depends-member:
 - ["PSs9AnyObject", "currentUserType"]
 - !private ["PSs9AnyObject", "dateFormat"]
 - !private ["PSs9AnyObject", "deinit"]
-- !private ["PSs9AnyObject", "delegate"]
+- ["PSs9AnyObject", "delegate"]
 - ["PSs9AnyObject", "descTextField"]
 - !private ["PSs9AnyObject", "description"]
 - ["PSs9AnyObject", "didReceiveMemoryWarning"]
 - ["PSs9AnyObject", "dismissAssignView"]
-- !private ["PSs9AnyObject", "dismissViewControllerAnimated"]
 - !private ["PSs9AnyObject", "enabled"]
 - !private ["PSs9AnyObject", "frame"]
 - ["PSs9AnyObject", "init"]
+- !private ["PSs9AnyObject", "navigationController"]
+- !private ["PSs9AnyObject", "popViewControllerAnimated"]
 - !private ["PSs9AnyObject", "print"]
 - !private ["PSs9AnyObject", "removeFromSuperview"]
 - !private ["PSs9AnyObject", "saveInBackgroundWithBlock"]
@@ -103,12 +105,12 @@ depends-member:
 - ["P8MamaBear18AssignViewDelegate", "assignee"]
 - !private ["P8MamaBear18AssignViewDelegate", "creator"]
 - !private ["P8MamaBear18AssignViewDelegate", "currentUserType"]
+- !private ["P8MamaBear18AssignViewDelegate", "delegate"]
 - !private ["P8MamaBear18AssignViewDelegate", "descTextField"]
 - ["P8MamaBear18AssignViewDelegate", "dismissAssignView"]
-- !private ["P8MamaBear18AssignViewDelegate", "dismissViewControllerAnimated"]
+- !private ["P8MamaBear18AssignViewDelegate", "navigationController"]
 - !private ["P8MamaBear18AssignViewDelegate", "print"]
 - !private ["P8MamaBear18AssignViewDelegate", "titleTextField"]
-- !private ["P8MamaBear18AssignViewDelegate", "users"]
 - !private ["P8MamaBear18AssignViewDelegate", "view"]
 - ["P8MamaBear18AssignViewDelegate", ""]
 - !private ["Sb", "_getBuiltinLogicValue"]
@@ -131,15 +133,16 @@ depends-member:
 - ["PSs11CVarArgType", "creator"]
 - ["PSs11CVarArgType", "currentUserType"]
 - !private ["PSs11CVarArgType", "dateFormat"]
-- !private ["PSs11CVarArgType", "delegate"]
+- ["PSs11CVarArgType", "delegate"]
 - ["PSs11CVarArgType", "descTextField"]
 - !private ["PSs11CVarArgType", "description"]
 - ["PSs11CVarArgType", "didReceiveMemoryWarning"]
 - ["PSs11CVarArgType", "dismissAssignView"]
-- !private ["PSs11CVarArgType", "dismissViewControllerAnimated"]
 - !private ["PSs11CVarArgType", "enabled"]
 - !private ["PSs11CVarArgType", "frame"]
 - ["PSs11CVarArgType", "init"]
+- !private ["PSs11CVarArgType", "navigationController"]
+- !private ["PSs11CVarArgType", "popViewControllerAnimated"]
 - !private ["PSs11CVarArgType", "print"]
 - !private ["PSs11CVarArgType", "removeFromSuperview"]
 - !private ["PSs11CVarArgType", "saveInBackgroundWithBlock"]
@@ -171,15 +174,16 @@ depends-member:
 - ["PSs23CustomStringConvertible", "creator"]
 - ["PSs23CustomStringConvertible", "currentUserType"]
 - !private ["PSs23CustomStringConvertible", "dateFormat"]
-- !private ["PSs23CustomStringConvertible", "delegate"]
+- ["PSs23CustomStringConvertible", "delegate"]
 - ["PSs23CustomStringConvertible", "descTextField"]
 - !private ["PSs23CustomStringConvertible", "description"]
 - ["PSs23CustomStringConvertible", "didReceiveMemoryWarning"]
 - ["PSs23CustomStringConvertible", "dismissAssignView"]
-- !private ["PSs23CustomStringConvertible", "dismissViewControllerAnimated"]
 - !private ["PSs23CustomStringConvertible", "enabled"]
 - !private ["PSs23CustomStringConvertible", "frame"]
 - ["PSs23CustomStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "navigationController"]
+- !private ["PSs23CustomStringConvertible", "popViewControllerAnimated"]
 - !private ["PSs23CustomStringConvertible", "print"]
 - !private ["PSs23CustomStringConvertible", "removeFromSuperview"]
 - !private ["PSs23CustomStringConvertible", "saveInBackgroundWithBlock"]
@@ -212,15 +216,16 @@ depends-member:
 - ["PSs9Equatable", "creator"]
 - ["PSs9Equatable", "currentUserType"]
 - !private ["PSs9Equatable", "dateFormat"]
-- !private ["PSs9Equatable", "delegate"]
+- ["PSs9Equatable", "delegate"]
 - ["PSs9Equatable", "descTextField"]
 - !private ["PSs9Equatable", "description"]
 - ["PSs9Equatable", "didReceiveMemoryWarning"]
 - ["PSs9Equatable", "dismissAssignView"]
-- !private ["PSs9Equatable", "dismissViewControllerAnimated"]
 - !private ["PSs9Equatable", "enabled"]
 - !private ["PSs9Equatable", "frame"]
 - ["PSs9Equatable", "init"]
+- !private ["PSs9Equatable", "navigationController"]
+- !private ["PSs9Equatable", "popViewControllerAnimated"]
 - !private ["PSs9Equatable", "print"]
 - !private ["PSs9Equatable", "removeFromSuperview"]
 - !private ["PSs9Equatable", "saveInBackgroundWithBlock"]
@@ -253,15 +258,16 @@ depends-member:
 - ["PSs8Hashable", "creator"]
 - ["PSs8Hashable", "currentUserType"]
 - !private ["PSs8Hashable", "dateFormat"]
-- !private ["PSs8Hashable", "delegate"]
+- ["PSs8Hashable", "delegate"]
 - ["PSs8Hashable", "descTextField"]
 - !private ["PSs8Hashable", "description"]
 - ["PSs8Hashable", "didReceiveMemoryWarning"]
 - ["PSs8Hashable", "dismissAssignView"]
-- !private ["PSs8Hashable", "dismissViewControllerAnimated"]
 - !private ["PSs8Hashable", "enabled"]
 - !private ["PSs8Hashable", "frame"]
 - ["PSs8Hashable", "init"]
+- !private ["PSs8Hashable", "navigationController"]
+- !private ["PSs8Hashable", "popViewControllerAnimated"]
 - !private ["PSs8Hashable", "print"]
 - !private ["PSs8Hashable", "removeFromSuperview"]
 - !private ["PSs8Hashable", "saveInBackgroundWithBlock"]
@@ -293,15 +299,16 @@ depends-member:
 - ["PSo8NSCoding", "creator"]
 - ["PSo8NSCoding", "currentUserType"]
 - !private ["PSo8NSCoding", "dateFormat"]
-- !private ["PSo8NSCoding", "delegate"]
+- ["PSo8NSCoding", "delegate"]
 - ["PSo8NSCoding", "descTextField"]
 - !private ["PSo8NSCoding", "description"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
 - ["PSo8NSCoding", "dismissAssignView"]
-- !private ["PSo8NSCoding", "dismissViewControllerAnimated"]
 - !private ["PSo8NSCoding", "enabled"]
 - !private ["PSo8NSCoding", "frame"]
 - ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "navigationController"]
+- !private ["PSo8NSCoding", "popViewControllerAnimated"]
 - !private ["PSo8NSCoding", "print"]
 - !private ["PSo8NSCoding", "removeFromSuperview"]
 - !private ["PSo8NSCoding", "setTitle"]
@@ -335,11 +342,13 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "assignee"]
 - ["PSo26NSExtensionRequestHandling", "creator"]
 - ["PSo26NSExtensionRequestHandling", "currentUserType"]
+- ["PSo26NSExtensionRequestHandling", "delegate"]
 - ["PSo26NSExtensionRequestHandling", "descTextField"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
 - ["PSo26NSExtensionRequestHandling", "dismissAssignView"]
-- !private ["PSo26NSExtensionRequestHandling", "dismissViewControllerAnimated"]
 - ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "navigationController"]
+- !private ["PSo26NSExtensionRequestHandling", "popViewControllerAnimated"]
 - !private ["PSo26NSExtensionRequestHandling", "print"]
 - ["PSo26NSExtensionRequestHandling", "submitButtonPressed"]
 - ["PSo26NSExtensionRequestHandling", "titleTextField"]
@@ -359,6 +368,7 @@ depends-member:
 - ["CSo8NSObject", "NSIndexPath"]
 - ["CSo8NSObject", "PFObject"]
 - ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "TicketViewDelegate"]
 - ["CSo8NSObject", "UIButton"]
 - !private ["CSo8NSObject", "UIControlState"]
 - ["CSo8NSObject", "UITextView"]
@@ -375,15 +385,16 @@ depends-member:
 - ["CSo8NSObject", "currentUserType"]
 - !private ["CSo8NSObject", "dateFormat"]
 - !private ["CSo8NSObject", "deinit"]
-- !private ["CSo8NSObject", "delegate"]
+- ["CSo8NSObject", "delegate"]
 - ["CSo8NSObject", "descTextField"]
 - !private ["CSo8NSObject", "description"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
 - ["CSo8NSObject", "dismissAssignView"]
-- !private ["CSo8NSObject", "dismissViewControllerAnimated"]
 - !private ["CSo8NSObject", "enabled"]
 - !private ["CSo8NSObject", "frame"]
 - ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "navigationController"]
+- !private ["CSo8NSObject", "popViewControllerAnimated"]
 - !private ["CSo8NSObject", "print"]
 - !private ["CSo8NSObject", "removeFromSuperview"]
 - !private ["CSo8NSObject", "saveInBackgroundWithBlock"]
@@ -413,15 +424,16 @@ depends-member:
 - ["PSo16NSObjectProtocol", "creator"]
 - ["PSo16NSObjectProtocol", "currentUserType"]
 - !private ["PSo16NSObjectProtocol", "dateFormat"]
-- !private ["PSo16NSObjectProtocol", "delegate"]
+- ["PSo16NSObjectProtocol", "delegate"]
 - ["PSo16NSObjectProtocol", "descTextField"]
 - !private ["PSo16NSObjectProtocol", "description"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
 - ["PSo16NSObjectProtocol", "dismissAssignView"]
-- !private ["PSo16NSObjectProtocol", "dismissViewControllerAnimated"]
 - !private ["PSo16NSObjectProtocol", "enabled"]
 - !private ["PSo16NSObjectProtocol", "frame"]
 - ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "navigationController"]
+- !private ["PSo16NSObjectProtocol", "popViewControllerAnimated"]
 - !private ["PSo16NSObjectProtocol", "print"]
 - !private ["PSo16NSObjectProtocol", "removeFromSuperview"]
 - !private ["PSo16NSObjectProtocol", "saveInBackgroundWithBlock"]
@@ -455,6 +467,7 @@ depends-member:
 - ["C8MamaBear20TicketViewController", "NSIndexPath"]
 - ["C8MamaBear20TicketViewController", "PFObject"]
 - ["C8MamaBear20TicketViewController", "String"]
+- ["C8MamaBear20TicketViewController", "TicketViewDelegate"]
 - ["C8MamaBear20TicketViewController", "UIButton"]
 - !private ["C8MamaBear20TicketViewController", "UIControlState"]
 - ["C8MamaBear20TicketViewController", "UITextView"]
@@ -467,17 +480,19 @@ depends-member:
 - ["C8MamaBear20TicketViewController", "creator"]
 - ["C8MamaBear20TicketViewController", "currentUserType"]
 - ["C8MamaBear20TicketViewController", "deinit"]
+- ["C8MamaBear20TicketViewController", "delegate"]
 - ["C8MamaBear20TicketViewController", "descTextField"]
 - ["C8MamaBear20TicketViewController", "didReceiveMemoryWarning"]
 - ["C8MamaBear20TicketViewController", "dismissAssignView"]
-- !private ["C8MamaBear20TicketViewController", "dismissViewControllerAnimated"]
 - ["C8MamaBear20TicketViewController", "init"]
+- !private ["C8MamaBear20TicketViewController", "navigationController"]
 - !private ["C8MamaBear20TicketViewController", "print"]
 - ["C8MamaBear20TicketViewController", "submitButtonPressed"]
 - ["C8MamaBear20TicketViewController", "titleTextField"]
 - ["C8MamaBear20TicketViewController", "users"]
 - !private ["C8MamaBear20TicketViewController", "view"]
 - ["C8MamaBear20TicketViewController", "viewDidLoad"]
+- !private ["P8MamaBear18TicketViewDelegate", "users"]
 - !private ["PSo29UIAccessibilityIdentification", "addSubview"]
 - !private ["PSo29UIAccessibilityIdentification", "alpha"]
 - !private ["PSo29UIAccessibilityIdentification", "bringUp"]
@@ -515,14 +530,15 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "bringUp"]
 - ["PSo21UIAppearanceContainer", "creator"]
 - ["PSo21UIAppearanceContainer", "currentUserType"]
-- !private ["PSo21UIAppearanceContainer", "delegate"]
+- ["PSo21UIAppearanceContainer", "delegate"]
 - ["PSo21UIAppearanceContainer", "descTextField"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
 - ["PSo21UIAppearanceContainer", "dismissAssignView"]
-- !private ["PSo21UIAppearanceContainer", "dismissViewControllerAnimated"]
 - !private ["PSo21UIAppearanceContainer", "enabled"]
 - !private ["PSo21UIAppearanceContainer", "frame"]
 - ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "navigationController"]
+- !private ["PSo21UIAppearanceContainer", "popViewControllerAnimated"]
 - !private ["PSo21UIAppearanceContainer", "print"]
 - !private ["PSo21UIAppearanceContainer", "removeFromSuperview"]
 - !private ["PSo21UIAppearanceContainer", "setTitle"]
@@ -549,11 +565,13 @@ depends-member:
 - ["PSo18UIContentContainer", "assignee"]
 - ["PSo18UIContentContainer", "creator"]
 - ["PSo18UIContentContainer", "currentUserType"]
+- ["PSo18UIContentContainer", "delegate"]
 - ["PSo18UIContentContainer", "descTextField"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
 - ["PSo18UIContentContainer", "dismissAssignView"]
-- !private ["PSo18UIContentContainer", "dismissViewControllerAnimated"]
 - ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "navigationController"]
+- !private ["PSo18UIContentContainer", "popViewControllerAnimated"]
 - !private ["PSo18UIContentContainer", "print"]
 - ["PSo18UIContentContainer", "submitButtonPressed"]
 - ["PSo18UIContentContainer", "titleTextField"]
@@ -587,7 +605,43 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "setTitle"]
 - !private ["PSo13UIDynamicItem", "staffList"]
 - !private ["PSo13UIDynamicItem", "text"]
+- !private ["PSo18UIFocusEnvironment", "AssignView"]
+- !private ["PSo18UIFocusEnvironment", "NSDate"]
+- !private ["PSo18UIFocusEnvironment", "NSDateFormatter"]
+- !private ["PSo18UIFocusEnvironment", "PFObject"]
+- !private ["PSo18UIFocusEnvironment", "UIControlState"]
+- !private ["PSo18UIFocusEnvironment", "addSubview"]
+- !private ["PSo18UIFocusEnvironment", "alpha"]
+- ["PSo18UIFocusEnvironment", "assignButton"]
+- ["PSo18UIFocusEnvironment", "assignButtonPressed"]
+- ["PSo18UIFocusEnvironment", "assignView"]
+- ["PSo18UIFocusEnvironment", "assigned"]
+- ["PSo18UIFocusEnvironment", "assignee"]
+- !private ["PSo18UIFocusEnvironment", "bringUp"]
+- ["PSo18UIFocusEnvironment", "creator"]
+- ["PSo18UIFocusEnvironment", "currentUserType"]
+- ["PSo18UIFocusEnvironment", "delegate"]
+- ["PSo18UIFocusEnvironment", "descTextField"]
+- ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "dismissAssignView"]
+- !private ["PSo18UIFocusEnvironment", "enabled"]
+- !private ["PSo18UIFocusEnvironment", "frame"]
+- ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "navigationController"]
+- !private ["PSo18UIFocusEnvironment", "popViewControllerAnimated"]
+- !private ["PSo18UIFocusEnvironment", "print"]
+- !private ["PSo18UIFocusEnvironment", "removeFromSuperview"]
+- !private ["PSo18UIFocusEnvironment", "setTitle"]
+- !private ["PSo18UIFocusEnvironment", "staffList"]
+- ["PSo18UIFocusEnvironment", "submitButtonPressed"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- ["PSo18UIFocusEnvironment", "titleTextField"]
+- ["PSo18UIFocusEnvironment", "users"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
 - !private ["PSo10UIKeyInput", "text"]
+- !private ["CSo22UINavigationController", "popViewControllerAnimated"]
 - ["CSo11UIResponder", "AnyObject"]
 - ["CSo11UIResponder", "AssignView"]
 - !private ["CSo11UIResponder", "Bool"]
@@ -597,6 +651,7 @@ depends-member:
 - ["CSo11UIResponder", "NSIndexPath"]
 - ["CSo11UIResponder", "PFObject"]
 - ["CSo11UIResponder", "String"]
+- ["CSo11UIResponder", "TicketViewDelegate"]
 - ["CSo11UIResponder", "UIButton"]
 - !private ["CSo11UIResponder", "UIControlState"]
 - ["CSo11UIResponder", "UITextView"]
@@ -612,14 +667,15 @@ depends-member:
 - ["CSo11UIResponder", "creator"]
 - ["CSo11UIResponder", "currentUserType"]
 - !private ["CSo11UIResponder", "deinit"]
-- !private ["CSo11UIResponder", "delegate"]
+- ["CSo11UIResponder", "delegate"]
 - ["CSo11UIResponder", "descTextField"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
 - ["CSo11UIResponder", "dismissAssignView"]
-- !private ["CSo11UIResponder", "dismissViewControllerAnimated"]
 - !private ["CSo11UIResponder", "enabled"]
 - !private ["CSo11UIResponder", "frame"]
 - ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "navigationController"]
+- !private ["CSo11UIResponder", "popViewControllerAnimated"]
 - !private ["CSo11UIResponder", "print"]
 - !private ["CSo11UIResponder", "removeFromSuperview"]
 - !private ["CSo11UIResponder", "setTitle"]
@@ -648,11 +704,13 @@ depends-member:
 - ["PSo16UIStateRestoring", "assignee"]
 - ["PSo16UIStateRestoring", "creator"]
 - ["PSo16UIStateRestoring", "currentUserType"]
+- ["PSo16UIStateRestoring", "delegate"]
 - ["PSo16UIStateRestoring", "descTextField"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
 - ["PSo16UIStateRestoring", "dismissAssignView"]
-- !private ["PSo16UIStateRestoring", "dismissViewControllerAnimated"]
 - ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "navigationController"]
+- !private ["PSo16UIStateRestoring", "popViewControllerAnimated"]
 - !private ["PSo16UIStateRestoring", "print"]
 - ["PSo16UIStateRestoring", "submitButtonPressed"]
 - ["PSo16UIStateRestoring", "titleTextField"]
@@ -688,14 +746,15 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "bringUp"]
 - ["PSo18UITraitEnvironment", "creator"]
 - ["PSo18UITraitEnvironment", "currentUserType"]
-- !private ["PSo18UITraitEnvironment", "delegate"]
+- ["PSo18UITraitEnvironment", "delegate"]
 - ["PSo18UITraitEnvironment", "descTextField"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
 - ["PSo18UITraitEnvironment", "dismissAssignView"]
-- !private ["PSo18UITraitEnvironment", "dismissViewControllerAnimated"]
 - !private ["PSo18UITraitEnvironment", "enabled"]
 - !private ["PSo18UITraitEnvironment", "frame"]
 - ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "navigationController"]
+- !private ["PSo18UITraitEnvironment", "popViewControllerAnimated"]
 - !private ["PSo18UITraitEnvironment", "print"]
 - !private ["PSo18UITraitEnvironment", "removeFromSuperview"]
 - !private ["PSo18UITraitEnvironment", "setTitle"]
@@ -728,6 +787,7 @@ depends-member:
 - ["CSo16UIViewController", "NSIndexPath"]
 - ["CSo16UIViewController", "PFObject"]
 - ["CSo16UIViewController", "String"]
+- ["CSo16UIViewController", "TicketViewDelegate"]
 - ["CSo16UIViewController", "UIButton"]
 - !private ["CSo16UIViewController", "UIControlState"]
 - ["CSo16UIViewController", "UITextView"]
@@ -739,11 +799,13 @@ depends-member:
 - ["CSo16UIViewController", "assignee"]
 - ["CSo16UIViewController", "creator"]
 - ["CSo16UIViewController", "currentUserType"]
+- ["CSo16UIViewController", "delegate"]
 - ["CSo16UIViewController", "descTextField"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
 - ["CSo16UIViewController", "dismissAssignView"]
-- !private ["CSo16UIViewController", "dismissViewControllerAnimated"]
 - ["CSo16UIViewController", "init"]
+- !private ["CSo16UIViewController", "navigationController"]
+- !private ["CSo16UIViewController", "popViewControllerAnimated"]
 - !private ["CSo16UIViewController", "print"]
 - ["CSo16UIViewController", "submitButtonPressed"]
 - ["CSo16UIViewController", "titleTextField"]
@@ -798,6 +860,7 @@ depends-nominal:
 - !private "PSs14SetAlgebraType"
 - !private "SS"
 - "C8MamaBear20TicketViewController"
+- !private "P8MamaBear18TicketViewDelegate"
 - !private "PSo29UIAccessibilityIdentification"
 - !private "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
@@ -807,7 +870,9 @@ depends-nominal:
 - !private "VSC14UIControlState"
 - !private "PSo17UICoordinateSpace"
 - !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
 - !private "PSo10UIKeyInput"
+- !private "CSo22UINavigationController"
 - "CSo11UIResponder"
 - !private "CSo12UIScrollView"
 - !private "PSo20UIScrollViewDelegate"
@@ -880,4 +945,4 @@ depends-external:
 - "./Parse.framework/Headers/Parse.h"
 - "./Parse.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
-interface-hash: "9f2381471fc12fb75cc9d0aef92adcf1"
+interface-hash: "9806fcb14f0346631bb06392c1261a1f"

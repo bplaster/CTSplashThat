@@ -29,9 +29,7 @@ class LoginViewController: UIViewController {
         taskView.currentUserType = userTypeTextField.text!
         taskView.currentUser = usernameTextField.text!
         
-        let navCon = UINavigationController(rootViewController: taskView)
-        presentViewController(navCon, animated: true
-            , completion: nil)
+        navigationController?.pushViewController(taskView, animated: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

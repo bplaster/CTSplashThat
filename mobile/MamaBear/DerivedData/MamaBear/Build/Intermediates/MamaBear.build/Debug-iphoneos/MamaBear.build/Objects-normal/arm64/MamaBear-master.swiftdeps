@@ -1,10 +1,10 @@
-version: "Apple Swift version 2.0 (swiftlang-700.0.59 clang-700.0.72)"
-options: "3519690b72323d6d2f5a27047f7e7c75"
-build_time: [498942915, 470808000]
-inputs: 
-	"/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/TaskTableViewCell.swift": [498928987, 0]
-	"/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/TicketListViewController.swift": [498941905, 0]
-	"/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/AppDelegate.swift": [498940818, 0]
-	"/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/TicketViewController.swift": [498930803, 0]
-	"/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/LoginViewController.swift": [498942037, 0]
-	"/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/AssignView.swift": [498930662, 0]
+version: "Apple Swift version 2.1 (swiftlang-700.1.101.6 clang-700.1.76)"
+options: "168ff038db5fe896a9af8c9fdb63b0fc"
+build_time: [499233874, 588577000]
+inputs:
+  "/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/LoginViewController.swift": [499227716, 0]
+  "/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/AppDelegate.swift": [499195504, 0]
+  "/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/TicketListViewController.swift": [499230919, 0]
+  "/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/TicketViewController.swift": [499233867, 0]
+  "/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/TaskTableViewCell.swift": [499230486, 0]
+  "/Users/brandonplaster/Development/Projects/CTSplashThat/mobile/MamaBear/MamaBear/AssignView.swift": [499194542, 0]

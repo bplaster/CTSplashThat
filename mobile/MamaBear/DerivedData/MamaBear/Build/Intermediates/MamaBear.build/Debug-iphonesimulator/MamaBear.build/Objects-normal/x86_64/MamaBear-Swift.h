@@ -147,7 +147,6 @@ SWIFT_CLASS("_TtC8MamaBear19LoginViewController")
 @class UILabel;
 @class UIImageView;
 @class UIButton;
-@class UIColor;
 
 SWIFT_CLASS("_TtC8MamaBear17TaskTableViewCell")
 @interface TaskTableViewCell : UITableViewCell
@@ -161,11 +160,6 @@ SWIFT_CLASS("_TtC8MamaBear17TaskTableViewCell")
 @property (nonatomic, strong) UIButton * __null_unspecified acceptButton;
 @property (nonatomic, strong) UIButton * __null_unspecified completeButton;
 @property (nonatomic, strong) IBOutlet UIButton * __null_unspecified primaryButton;
-@property (nonatomic, strong) UIColor * __nonnull red;
-@property (nonatomic, strong) UIColor * __nonnull orange;
-@property (nonatomic, strong) UIColor * __nonnull green;
-@property (nonatomic, strong) UIColor * __nonnull blue;
-@property (nonatomic, strong) UIColor * __nonnull grey;
 @property (nonatomic, copy) NSString * __null_unspecified accepted;
 @property (nonatomic, copy) NSString * __null_unspecified assigned;
 @property (nonatomic, copy) NSString * __null_unspecified assignee;
@@ -184,6 +178,7 @@ SWIFT_CLASS("_TtC8MamaBear17TaskTableViewCell")
 @end
 
 @class NSTimer;
+@class UIColor;
 
 SWIFT_CLASS("_TtC8MamaBear24TicketListViewController")
 @interface TicketListViewController : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -195,6 +190,12 @@ SWIFT_CLASS("_TtC8MamaBear24TicketListViewController")
 @property (nonatomic, copy) NSString * __nonnull currentUserType;
 @property (nonatomic, strong) AssignView * __null_unspecified assignView;
 @property (nonatomic, copy) NSString * __nonnull assignee;
+@property (nonatomic, strong) UIColor * __nonnull red;
+@property (nonatomic, strong) UIColor * __nonnull orange;
+@property (nonatomic, strong) UIColor * __nonnull green;
+@property (nonatomic, strong) UIColor * __nonnull blue;
+@property (nonatomic, strong) UIColor * __nonnull lightGrey;
+@property (nonatomic, strong) UIColor * __nonnull darkGrey;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)dismissAssignView:(NSIndexPath * __nullable)index;
@@ -214,9 +215,11 @@ SWIFT_CLASS("_TtC8MamaBear24TicketListViewController")
 @end
 
 @class UITextView;
+@class UITouch;
+@class UIEvent;
 
 SWIFT_CLASS("_TtC8MamaBear20TicketViewController")
-@interface TicketViewController : UIViewController
+@interface TicketViewController : UIViewController <UIScrollViewDelegate, UITextViewDelegate>
 @property (nonatomic, strong) IBOutlet UITextView * __null_unspecified titleTextField;
 @property (nonatomic, strong) IBOutlet UITextView * __null_unspecified descTextField;
 @property (nonatomic, strong) IBOutlet UIButton * __null_unspecified assignButton;
@@ -226,8 +229,12 @@ SWIFT_CLASS("_TtC8MamaBear20TicketViewController")
 @property (nonatomic, copy) NSString * __nonnull assignee;
 @property (nonatomic, copy) NSString * __nonnull assigned;
 @property (nonatomic, strong) AssignView * __null_unspecified assignView;
+@property (nonatomic, readonly, copy) NSString * __nonnull titleDefault;
+@property (nonatomic, readonly, copy) NSString * __nonnull descDefault;
 - (void)viewDidLoad;
 - (IBAction)assignButtonPressed:(id __nonnull)sender;
+- (void)textViewDidBeginEditing:(UITextView * __nonnull)textView;
+- (void)touchesBegan:(NSSet<UITouch *> * __nonnull)touches withEvent:(UIEvent * __nullable)event;
 - (void)dismissAssignView:(NSIndexPath * __nullable)index;
 - (IBAction)submitButtonPressed:(id __nonnull)sender;
 - (void)didReceiveMemoryWarning;

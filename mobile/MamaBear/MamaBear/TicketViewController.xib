@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TicketViewController" customModule="MamaBear" customModuleProvider="target">
@@ -17,14 +17,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Brief Description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OBN-cs-MQ4">
+                <textView multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Brief Description..." translatesAutoresizingMaskIntoConstraints="NO" id="OBN-cs-MQ4">
                     <rect key="frame" x="20" y="160" width="560" height="252"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" translatesAutoresizingMaskIntoConstraints="NO" id="QE0-K1-use">
+                <textView multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Title" translatesAutoresizingMaskIntoConstraints="NO" id="QE0-K1-use">
                     <rect key="frame" x="20" y="80" width="560" height="50"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -69,26 +69,20 @@
             </subviews>
             <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="OBN-cs-MQ4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="1eC-Lc-VDs"/>
-                <constraint firstAttribute="trailing" secondItem="QE0-K1-use" secondAttribute="trailing" constant="20" id="3c7-0j-h5f"/>
+                <constraint firstItem="OWj-a5-bkV" firstAttribute="width" secondItem="OYW-j4-MLo" secondAttribute="width" id="13q-kP-B9x"/>
+                <constraint firstAttribute="trailing" secondItem="QE0-K1-use" secondAttribute="trailing" priority="750" constant="20" id="3c7-0j-h5f"/>
                 <constraint firstItem="QE0-K1-use" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="At5-nZ-PmL"/>
-                <constraint firstAttribute="trailing" secondItem="OYW-j4-MLo" secondAttribute="trailing" constant="20" id="CpK-8K-SpM"/>
-                <constraint firstItem="OWj-a5-bkV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="EPR-o3-WMq"/>
-                <constraint firstAttribute="trailing" secondItem="OWj-a5-bkV" secondAttribute="trailing" constant="20" id="J3R-Lf-UVB"/>
+                <constraint firstItem="OBN-cs-MQ4" firstAttribute="width" secondItem="QE0-K1-use" secondAttribute="width" id="HHP-r7-UWS"/>
                 <constraint firstItem="OWj-a5-bkV" firstAttribute="top" secondItem="OYW-j4-MLo" secondAttribute="bottom" constant="8" id="JtI-qt-pjh"/>
-                <constraint firstAttribute="trailing" secondItem="OBN-cs-MQ4" secondAttribute="trailing" constant="20" id="MZK-1D-tVc"/>
-                <constraint firstItem="OYW-j4-MLo" firstAttribute="top" secondItem="OBN-cs-MQ4" secondAttribute="bottom" constant="20" id="mI7-fy-ZM0"/>
+                <constraint firstItem="OYW-j4-MLo" firstAttribute="centerX" secondItem="OBN-cs-MQ4" secondAttribute="centerX" id="UCs-n8-hut"/>
+                <constraint firstItem="OWj-a5-bkV" firstAttribute="centerX" secondItem="OYW-j4-MLo" secondAttribute="centerX" id="jD3-ie-qfM"/>
+                <constraint firstItem="OBN-cs-MQ4" firstAttribute="centerX" secondItem="QE0-K1-use" secondAttribute="centerX" id="jFr-PC-gJA"/>
+                <constraint firstItem="OYW-j4-MLo" firstAttribute="top" secondItem="OBN-cs-MQ4" secondAttribute="bottom" priority="750" constant="20" id="mI7-fy-ZM0"/>
                 <constraint firstAttribute="bottom" secondItem="OWj-a5-bkV" secondAttribute="bottom" constant="20" id="nmj-No-gBb"/>
                 <constraint firstItem="QE0-K1-use" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="o2p-Bj-w5T"/>
-                <constraint firstItem="OYW-j4-MLo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="pCy-8m-iZn"/>
-                <constraint firstItem="OWj-a5-bkV" firstAttribute="top" secondItem="OBN-cs-MQ4" secondAttribute="bottom" constant="98" id="pxH-xu-1fH"/>
                 <constraint firstItem="OBN-cs-MQ4" firstAttribute="top" secondItem="QE0-K1-use" secondAttribute="bottom" constant="30" id="qKS-88-0BG"/>
+                <constraint firstItem="OYW-j4-MLo" firstAttribute="width" secondItem="OBN-cs-MQ4" secondAttribute="width" id="s1X-G8-NKy"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="pxH-xu-1fH"/>
-                </mask>
-            </variation>
         </view>
     </objects>
 </document>

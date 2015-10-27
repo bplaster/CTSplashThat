@@ -13,6 +13,12 @@ protocol TaskCellDelegate {
     func refreshTicketList()
     func assignTicket(index: NSIndexPath)
     func refreshTickets(indexPaths: [NSIndexPath])
+    var red: UIColor {get set};
+    var orange: UIColor {get set};
+    var green: UIColor {get set};
+    var blue: UIColor {get set};
+    var lightGrey: UIColor {get set};
+    var darkGrey: UIColor {get set};
 }
 
 protocol AssignViewDelegate {
@@ -20,8 +26,19 @@ protocol AssignViewDelegate {
     var assignee: String {get set}
 }
 
+protocol TicketViewDelegate {
+    var users: [PFObject] {get}
+    var red: UIColor {get set};
+    var orange: UIColor {get set};
+    var green: UIColor {get set};
+    var blue: UIColor {get set};
+    var lightGrey: UIColor {get set};
+    var darkGrey: UIColor {get set};
+}
 
-class TicketListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TaskCellDelegate, AssignViewDelegate {
+
+class TicketListViewController: UIViewController, UITableViewDataSource,
+UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
 
     @IBOutlet var ticketTableView: UITableView!
     var tickets: [PFObject] = []
@@ -32,9 +49,16 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
     var assignView: AssignView!
     var assignee: String = ""
     
+    var red: UIColor = UIColor(red: 1.0, green: 0.404, blue: 0.404, alpha: 1.0) //#FF6767
+    var orange: UIColor = UIColor(red: 1.0, green: 0.745, blue: 0.42, alpha: 1.0) //#FFBE6B
+    var green: UIColor = UIColor(red: 0.549, green: 0.749, blue: 0.439, alpha: 1.0) //#8CBF70
+    var blue: UIColor = UIColor(red: 0.502, green: 0.69, blue: 0.871, alpha: 1.0) //#80B0DE
+    var lightGrey: UIColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 1.0) //#5B5B5B
+    var darkGrey: UIColor = UIColor(red: 0.357, green: 0.357, blue: 0.357, alpha: 1.0) //#5B5B5B
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         ticketTableView.delegate = self
         ticketTableView.dataSource = self
         ticketTableView.rowHeight = UITableViewAutomaticDimension
@@ -91,13 +115,13 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     @IBAction func AddButtonPressed(sender: AnyObject) {
+        
         let newTicketView = TicketViewController()
         newTicketView.creator = currentUser
         newTicketView.currentUserType = currentUserType
-        newTicketView.users = users
-        let navCon = UINavigationController(rootViewController: newTicketView)
-
-        presentViewController(navCon, animated: true, completion: nil)
+        newTicketView.delegate = self
+        newTicketView.view.backgroundColor = lightGrey
+        navigationController?.pushViewController(newTicketView, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -204,10 +228,9 @@ class TicketListViewController: UIViewController, UITableViewDataSource, UITable
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellType) as? TaskTableViewCell
         
-        
+        cell!.delegate = self
         cell!.customizeCell(cellType)
         cell!.populateCell(tickets[indexPath.row], currentUser: currentUser)
-        cell!.cellDelegate = self
         cell!.index = indexPath
         return cell!
     }

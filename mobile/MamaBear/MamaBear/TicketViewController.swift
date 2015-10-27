@@ -9,11 +9,12 @@
 import UIKit
 import Parse
 
-class TicketViewController: UIViewController, AssignViewDelegate {
+class TicketViewController: UIViewController, AssignViewDelegate, UITextViewDelegate {
 
     @IBOutlet var titleTextField: UITextView!
     @IBOutlet var descTextField: UITextView!
     @IBOutlet var assignButton: UIButton!
+    var delegate: TicketViewDelegate!
     var currentUserType : String!
     var users: [PFObject] = []
     var creator: String = ""
@@ -21,10 +22,18 @@ class TicketViewController: UIViewController, AssignViewDelegate {
     var assigned: String = "N"
     var assignView: AssignView!
     
+    let titleDefault = "Title"
+    let descDefault = "Brief Description..."
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        titleTextField.delegate = self
+        descTextField.delegate = self
+        titleTextField.text = titleDefault
+        descTextField.text = descDefault
+        
         if(currentUserType == "manager"){
             assignButton.enabled = true
             assignButton.alpha = 1.0
@@ -34,15 +43,35 @@ class TicketViewController: UIViewController, AssignViewDelegate {
         }
         // Do any additional setup after loading the view.
     }
+
     
     @IBAction func assignButtonPressed(sender: AnyObject) {
         assignView = AssignView(frame: view.frame)
         assignView.delegate = self
-        assignView.staffList = users
+        assignView.staffList = delegate.users
         view.addSubview(assignView)
         
         assignView.bringUp(nil)
     }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if(textView == titleTextField){
+            if(textView.text == titleDefault){
+                textView.text = ""
+            }
+        } else if (textView == descTextField) {
+            if(textView.text == descDefault){
+                textView.text = ""
+            }
+        }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
+
     
     func dismissAssignView(index: NSIndexPath?) {
         if(assignView != nil){
@@ -71,7 +100,7 @@ class TicketViewController: UIViewController, AssignViewDelegate {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 print("Saved!")
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.navigationController?.popViewControllerAnimated(true)
                 // The object has been saved.
             } else {
                 print(error?.description)

@@ -23,14 +23,8 @@ class TaskTableViewCell: UITableViewCell {
     var buttonFrame: CGRect!
     
     @IBOutlet var primaryButton: UIButton!
-    var cellDelegate: TaskCellDelegate!
-    
-    var red: UIColor = UIColor(red: 1.0, green: 0.404, blue: 0.404, alpha: 1.0) //#FF6767
-    var orange: UIColor = UIColor(red: 1.0, green: 0.745, blue: 0.42, alpha: 1.0) //#FFBE6B
-    var green: UIColor = UIColor(red: 0.549, green: 0.749, blue: 0.439, alpha: 1.0) //#8CBF70
-    var blue: UIColor = UIColor(red: 0.502, green: 0.69, blue: 0.871, alpha: 1.0) //#80B0DE
-    var grey: UIColor = UIColor(red: 0.357, green: 0.357, blue: 0.357, alpha: 1.0) //#5B5B5B
-    
+    var delegate: TaskCellDelegate!
+        
     var accepted : String!
     var assigned : String!
     var assignee : String!
@@ -46,7 +40,7 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     func assignButtonPressed() {
-        cellDelegate.assignTicket(index)
+        delegate.assignTicket(index)
     }
 
     func acceptButtonPressed() {
@@ -62,7 +56,7 @@ class TaskTableViewCell: UITableViewCell {
                 ticket["accepted"] = dateFormatter.stringFromDate(date)
                 ticket.saveInBackground()
                 
-                self.cellDelegate.refreshTickets([self.index])
+                self.delegate.refreshTickets([self.index])
             }
         }
     }
@@ -80,7 +74,7 @@ class TaskTableViewCell: UITableViewCell {
                 ticket["completed"] = dateFormatter.stringFromDate(date)
                 ticket.saveInBackground()
                 
-                self.cellDelegate.refreshTickets([self.index])
+                self.delegate.refreshTickets([self.index])
             }
         }
 
@@ -88,40 +82,41 @@ class TaskTableViewCell: UITableViewCell {
     
     func customizeCell(type:String){
         primaryButton.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
+        contentView.backgroundColor = delegate.lightGrey
         
         switch(type) {
             case "acceptCell":
-                primaryButton.backgroundColor = green
+                primaryButton.backgroundColor = delegate.green
                 primaryButton.setTitle("ACCEPT", forState: UIControlState.Normal)
                 primaryButton.addTarget(self, action: "acceptButtonPressed", forControlEvents: .TouchUpInside)
-                headerView.backgroundColor = orange
-                titleLabel.textColor = orange
+                headerView.backgroundColor = delegate.orange
+                titleLabel.textColor = delegate.orange
                 typeImageView.image = UIImage(named: "icon_2")
                 
                 break;
             case "completeCell":
-                primaryButton.backgroundColor = blue
+                primaryButton.backgroundColor = delegate.blue
                 primaryButton.setTitle("COMPLETE", forState: UIControlState.Normal)
                 primaryButton.addTarget(self, action: "completeButtonPressed", forControlEvents: .TouchUpInside)
-                titleLabel.textColor = green
-                headerView.backgroundColor = green
+                titleLabel.textColor = delegate.green
+                headerView.backgroundColor = delegate.green
                 typeImageView.image = UIImage(named: "icon_3")
                 break;
             case "assignCell":
-                primaryButton.backgroundColor = orange
+                primaryButton.backgroundColor = delegate.orange
                 primaryButton.setTitle("ASSIGN", forState: UIControlState.Normal)
                 primaryButton.addTarget(self, action: "assignButtonPressed", forControlEvents: .TouchUpInside)
-                headerView.backgroundColor = red
-                titleLabel.textColor = red
+                headerView.backgroundColor = delegate.red
+                titleLabel.textColor = delegate.red
                 typeImageView.image = UIImage(named: "icon_1")
 
                 break;
         default:
-            primaryButton.backgroundColor = grey
+            primaryButton.backgroundColor = delegate.darkGrey
             primaryButton.enabled = false
             primaryButton.setTitle("COMPLETED", forState: UIControlState.Disabled)
-            headerView.backgroundColor = blue
-            titleLabel.textColor = blue
+            headerView.backgroundColor = delegate.blue
+            titleLabel.textColor = delegate.blue
             typeImageView.image = UIImage(named: "icon_4")
             break;
         }
