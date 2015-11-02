@@ -145,6 +145,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         default:
             break
         }
+        query.whereKey("completed", equalTo: "N")
         
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in

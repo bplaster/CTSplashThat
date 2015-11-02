@@ -74,7 +74,8 @@ class TaskTableViewCell: UITableViewCell {
                 ticket["completed"] = dateFormatter.stringFromDate(date)
                 ticket.saveInBackground()
                 
-                self.delegate.refreshTickets([self.index])
+//                self.delegate.refreshTickets([self.index])
+                self.delegate.refreshTicketList()
             }
         }
 
