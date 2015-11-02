@@ -1,6 +1,8 @@
 # README #
 
-Squad 
+Squad
+
+<img src="http://bplaster.github.io/CTSplashThat/mock.png" width="500px">
 
 Handling unexpected “fires” during an event can often throw an entire event into freefall. What adds to the difficulty in resolving these issues is the complications of discovering those issues in a timely manner and communicating the problem to staff members for resolution. There is not a solution on the market at this time to efficiently discover and resolve issues during an event. The solution is Squad: a mobile application designed for event planners and their team to be able to discover issues and resolve them in a timely manner, using social media feeds and machine learning in the background to uncover crowd-generated issues.
 
