@@ -2,7 +2,7 @@
 
 Squad
 
-<img src="http://bplaster.github.io/CTSplashThat/mock.png" width="500px">
+<img src="http://bplaster.github.io/CTSplashThat/mock.png" width="600px">
 
 Handling unexpected “fires” during an event can often throw an entire event into freefall. What adds to the difficulty in resolving these issues is the complications of discovering those issues in a timely manner and communicating the problem to staff members for resolution. There is not a solution on the market at this time to efficiently discover and resolve issues during an event. The solution is Squad: a mobile application designed for event planners and their team to be able to discover issues and resolve them in a timely manner, using social media feeds and machine learning in the background to uncover crowd-generated issues.
 
@@ -58,11 +58,11 @@ Estimate an increase in paying user total by 5% due to the addition of this new 
 
 ### Implementation Strategy ###
 
-![NCP arch](https://github.com/bplaster/CTSplashThat/blob/master/image/NCP%20arch.png)
+<img src="https://github.com/bplaster/CTSplashThat/blob/master/image/NCP%20arch.png" width="600px">
 
 According to the NCP architecture shown above, we split the functions into three categories and prioritized them based on the analysis of complexity/impact, as is demonstrated in the prioritization matrix:
 
-![NCP arch](https://github.com/bplaster/CTSplashThat/blob/master/image/priority%20matrix.png)
+<img src="https://github.com/bplaster/CTSplashThat/blob/master/image/priority%20matrix.png" width="600px">
 
 * Quick wins: this category includes the basic functions which reflect our narrative well, such as the function for staff members to report identified issues, take issues assigned by managers, and report progress of handling issues, as well as the function for manager to track all issues and manage them.
 
