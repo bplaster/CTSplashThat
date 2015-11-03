@@ -141,11 +141,12 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         switch(currentUserType){
             case "staff":
                 query.whereKey("assignee", equalTo:currentUser)
+                query.whereKey("completed", equalTo: "N")
                 break
         default:
             break
         }
-        query.whereKey("completed", equalTo: "N")
+        query.orderByAscending("completed");
         
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
