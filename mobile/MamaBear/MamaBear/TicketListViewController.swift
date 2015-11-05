@@ -12,7 +12,7 @@ import Parse
 protocol TaskCellDelegate {
     func refreshTicketList()
     func assignTicket(index: NSIndexPath)
-    func refreshTickets(indexPaths: [NSIndexPath])
+    func refreshTickets(indexPaths: [NSIndexPath], remove: Bool)
     var red: UIColor {get set};
     var orange: UIColor {get set};
     var green: UIColor {get set};
@@ -75,7 +75,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         
         refreshUserList()
         refreshTicketList()
-//        timer = NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: "refreshTicketList", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(6.0, target: self, selector: "refreshTicketList", userInfo: nil, repeats: true)
         
     }
     
@@ -107,7 +107,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
                         let push = PFPush()
                         push.setChannel("tickets")
                         push.setMessage("A new task needs attention")
-                        self.refreshTickets([index!])
+                        self.refreshTickets([index!], remove: false)
                     }
                 }
             }
@@ -129,9 +129,14 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func refreshTickets(indexPaths: [NSIndexPath]){
+    func refreshTickets(indexPaths: [NSIndexPath], remove: Bool){
         self.ticketTableView.beginUpdates()
-        self.ticketTableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        if(remove) {
+            self.tickets.removeAtIndex(indexPaths[0].row)
+            self.ticketTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        } else {
+            self.ticketTableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        }
         self.ticketTableView.endUpdates()
     }
     
@@ -160,13 +165,18 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
                 print("Successfully retrieved \(objects!.count) tickets.")
                 // Do something with the found objects
                 if (objects != nil) {
-                    self.tickets = objects!
+                    if(self.tickets != objects!){
+                        print("Updating Table")
+                        self.tickets = objects!
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.ticketTableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+                            //                    self.ticketTableView.reloadData()
+                        })
+                    }
+
                 } else {
                     self.tickets = []
                 }
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.ticketTableView.reloadData()
-                })
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")

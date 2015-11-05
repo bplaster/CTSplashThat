@@ -56,7 +56,7 @@ class TaskTableViewCell: UITableViewCell {
                 ticket["accepted"] = dateFormatter.stringFromDate(date)
                 ticket.saveInBackground()
                 
-                self.delegate.refreshTickets([self.index])
+                self.delegate.refreshTickets([self.index], remove: false)
             }
         }
     }
@@ -74,8 +74,7 @@ class TaskTableViewCell: UITableViewCell {
                 ticket["completed"] = dateFormatter.stringFromDate(date)
                 ticket.saveInBackground()
                 
-//                self.delegate.refreshTickets([self.index])
-                self.delegate.refreshTicketList()
+                self.delegate.refreshTickets([self.index], remove: true)
             }
         }
 
@@ -97,7 +96,7 @@ class TaskTableViewCell: UITableViewCell {
                 break;
             case "completeCell":
                 primaryButton.backgroundColor = delegate.blue
-                primaryButton.setTitle("COMPLETE", forState: UIControlState.Normal)
+                primaryButton.setTitle("CLOSE", forState: UIControlState.Normal)
                 primaryButton.addTarget(self, action: "completeButtonPressed", forControlEvents: .TouchUpInside)
                 titleLabel.textColor = delegate.green
                 headerView.backgroundColor = delegate.green
