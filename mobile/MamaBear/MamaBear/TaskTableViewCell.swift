@@ -31,12 +31,17 @@ class TaskTableViewCell: UITableViewCell {
     var completed : String!
     var objectID : String!
     
+    var expanded : Bool = false
+    var customized : Bool = false
     var index: NSIndexPath!
+    var infoHeightConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
+        autoresizingMask = UIViewAutoresizing.FlexibleHeight
+        infoHeightConstraint = NSLayoutConstraint(item: infoView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 160.0)
+        infoHeightConstraint.priority = 999
+        infoView.addConstraint(infoHeightConstraint)
     }
     
     func assignButtonPressed() {
@@ -80,7 +85,12 @@ class TaskTableViewCell: UITableViewCell {
 
     }
     
-    func customizeCell(type:String){
+    func customizeCell(type:String, expanded:Bool){
+        var height: CGFloat = 160.0
+        if expanded { height = 320.0 }
+        
+        infoHeightConstraint.constant = height
+        
         primaryButton.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
         contentView.backgroundColor = delegate.lightGrey
         
@@ -120,6 +130,8 @@ class TaskTableViewCell: UITableViewCell {
             typeImageView.image = UIImage(named: "icon_4")
             break;
         }
+        
+        customized = true
     }
     
     func populateCell(ticket: PFObject, currentUser: String){
@@ -142,41 +154,6 @@ class TaskTableViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(false, animated: animated)
-        
-//        infoView.bounds.size = CGSizeMake(infoView.frame.width, infoView.frame.height*2)
-        
-        // Configure the view for the selected state
-        
-//        buttonFrame = CGRectMake(infoView.frame.origin.x, 0, infoView.bounds.width, 40)
-        
-//        if(assignee == currentUser){
-//            if(accepted == "N" || accepted == nil){
-//                acceptButton = UIButton(frame: buttonFrame)
-//                acceptButton.addTarget(self, action: "acceptButtonPressed", forControlEvents: .TouchUpInside)
-//                acceptButton.backgroundColor = green
-//                acceptButton.titleLabel?.text = "Accept"
-//                acceptButton.center = CGPointMake(acceptButton.center.x, infoView.frame.origin.y + infoView.frame.height + acceptButton.frame.height/2)
-//                addSubview(acceptButton)
-//            } else {
-//                completeButton = UIButton(frame: buttonFrame)
-//                completeButton.addTarget(self, action: "completeButtonPressed", forControlEvents: .TouchUpInside)
-//                completeButton.backgroundColor = blue
-//                completeButton.titleLabel?.text = "Complete"
-//                completeButton.center = CGPointMake(completeButton.center.x, infoView.frame.origin.y + infoView.frame.height + completeButton.frame.height/2)
-//                addSubview(completeButton)
-//            }
-//        } else if(completed == "N" || completed == nil){
-//            
-//            assignButton = UIButton(frame: buttonFrame)
-//            assignButton.addTarget(self, action: "assignButtonPressed", forControlEvents: .TouchUpInside)
-//            assignButton.backgroundColor = orange
-//            assignButton.titleLabel?.text = "Assign"
-//            assignButton.center = CGPointMake(assignButton.center.x, infoView.frame.origin.y + infoView.frame.height + assignButton.frame.height/2)
-//            addSubview(assignButton)
-//        } else {
-//            
-//        }
-
     }
     
 }
