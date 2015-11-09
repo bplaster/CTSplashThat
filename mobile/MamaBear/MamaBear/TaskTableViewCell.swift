@@ -36,12 +36,16 @@ class TaskTableViewCell: UITableViewCell {
     var index: NSIndexPath!
     var infoHeightConstraint: NSLayoutConstraint!
     
+    let expandedHeight : CGFloat = 300.0
+    let compressedHeight : CGFloat = 160.0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         autoresizingMask = UIViewAutoresizing.FlexibleHeight
-        infoHeightConstraint = NSLayoutConstraint(item: infoView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 160.0)
+        infoHeightConstraint = NSLayoutConstraint(item: infoView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: compressedHeight)
         infoHeightConstraint.priority = 999
         infoView.addConstraint(infoHeightConstraint)
+        selectionStyle = UITableViewCellSelectionStyle.None
     }
     
     func assignButtonPressed() {
@@ -86,8 +90,9 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     func customizeCell(type:String, expanded:Bool){
-        var height: CGFloat = 160.0
-        if expanded { height = 320.0 }
+        self.expanded = expanded
+        var height = compressedHeight
+        if expanded { height = expandedHeight }
         
         infoHeightConstraint.constant = height
         
@@ -154,6 +159,13 @@ class TaskTableViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(false, animated: animated)
+    }
+    
+    func toggleCellExpansion(){
+        expanded = !expanded
+        var height = compressedHeight
+        if expanded { height = expandedHeight }
+        infoHeightConstraint.constant = height
     }
     
 }

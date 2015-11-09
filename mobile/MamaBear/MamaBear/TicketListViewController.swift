@@ -285,24 +285,36 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     
     // MARK: - Table view delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
- 
-        var reloadCells:[NSIndexPath] = [indexPath]
-
+        
+        var previousCell: TaskTableViewCell?
+        
+        // Get current cell and toggle expansion
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! TaskTableViewCell
+        cell.toggleCellExpansion()
+        
+        // Update selected cell
         if selectedCell != nil {
             if selectedCell == indexPath { selectedCell = nil }
             else {
-                reloadCells.append(selectedCell)
+                // Get previous selected cell
+                previousCell = tableView.cellForRowAtIndexPath(selectedCell) as? TaskTableViewCell
+                previousCell?.toggleCellExpansion()
+                
                 selectedCell = indexPath
             }
         } else {
             selectedCell = indexPath
         }
-
-        UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
-            tableView.reloadRowsAtIndexPaths(reloadCells, withRowAnimation: .Automatic)
-            }, completion: nil)
-//        tableView.beginUpdates()
-//        tableView.endUpdates()
+        
+        UIView.animateWithDuration(0.1) { () -> Void in
+            previousCell?.contentView.layoutIfNeeded()
+            cell.contentView.layoutIfNeeded()
+        }
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+        
     }
     
 }
