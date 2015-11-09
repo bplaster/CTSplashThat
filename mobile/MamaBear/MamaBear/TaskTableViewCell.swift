@@ -20,7 +20,6 @@ class TaskTableViewCell: UITableViewCell {
     var assignButton: UIButton!
     var acceptButton: UIButton!
     var completeButton: UIButton!
-    var buttonFrame: CGRect!
     
     @IBOutlet var primaryButton: UIButton!
     var delegate: TaskCellDelegate!
@@ -41,11 +40,14 @@ class TaskTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        // Create constraint to allow for expanding views
         autoresizingMask = UIViewAutoresizing.FlexibleHeight
         infoHeightConstraint = NSLayoutConstraint(item: infoView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: compressedHeight)
         infoHeightConstraint.priority = 999
         infoView.addConstraint(infoHeightConstraint)
         selectionStyle = UITableViewCellSelectionStyle.None
+        
     }
     
     func assignButtonPressed() {
@@ -157,6 +159,20 @@ class TaskTableViewCell: UITableViewCell {
         
     }
     
+    func populateInfoView(){
+        // Create expanded information views
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm"
+        
+        if accepted != "N" {
+            let status = accepted + " Accepted by " + assignee
+            let frame = CGRect(x: 0, y: compressedHeight, width: primaryButton.frame.width, height: primaryButton.bounds.height)
+            let acceptedStatus = StatusInfoView(frame: frame, status: status, color: delegate.green)
+            infoView.addSubview(acceptedStatus)
+            
+        }
+    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(false, animated: animated)
     }
@@ -164,7 +180,9 @@ class TaskTableViewCell: UITableViewCell {
     func toggleCellExpansion(){
         expanded = !expanded
         var height = compressedHeight
-        if expanded { height = expandedHeight }
+        if expanded { height = expandedHeight
+            populateInfoView()
+        }
         infoHeightConstraint.constant = height
     }
     

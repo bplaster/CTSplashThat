@@ -13,21 +13,23 @@
 		1A24465D1BD8660F00A6D407 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A24465B1BD8660F00A6D407 /* LaunchScreen.storyboard */; };
 		1A2446681BD8660F00A6D407 /* MamaBearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2446671BD8660F00A6D407 /* MamaBearTests.swift */; };
 		1A2446731BD8660F00A6D407 /* MamaBearUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2446721BD8660F00A6D407 /* MamaBearUITests.swift */; };
+		1A6A78711BF130460064F301 /* StatusInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6A78701BF130460064F301 /* StatusInfoView.swift */; };
+		1A6A78731BF130660064F301 /* StatusInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6A78721BF130660064F301 /* StatusInfoView.xib */; };
 		1AC1F5DA1BD99AD800D6FBAA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC1F5D81BD99AD800D6FBAA /* Bolts.framework */; };
 		1AC1F5DB1BD99AD800D6FBAA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC1F5D91BD99AD800D6FBAA /* Parse.framework */; };
-		1AC1F5E41BD9A1A300D6FBAA /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1F5E21BD9A1A300D6FBAA /* TicketViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		1AC1F5E51BD9A1A300D6FBAA /* TicketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F5E31BD9A1A300D6FBAA /* TicketViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		1AC1F5E41BD9A1A300D6FBAA /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1F5E21BD9A1A300D6FBAA /* TicketViewController.swift */; };
+		1AC1F5E51BD9A1A300D6FBAA /* TicketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F5E31BD9A1A300D6FBAA /* TicketViewController.xib */; };
 		1AC1F5E81BD9A4ED00D6FBAA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC1F5E71BD9A4ED00D6FBAA /* SystemConfiguration.framework */; };
 		1AC1F5EA1BD9A4F700D6FBAA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC1F5E91BD9A4F700D6FBAA /* AudioToolbox.framework */; };
 		1AC1F5EC1BD9A52D00D6FBAA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC1F5EB1BD9A52D00D6FBAA /* libsqlite3.tbd */; };
 		1AC1F5EE1BD9A53B00D6FBAA /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC1F5ED1BD9A53B00D6FBAA /* libstdc++.6.tbd */; };
-		1AC1F5F11BD9B0BA00D6FBAA /* TicketListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1F5EF1BD9B0BA00D6FBAA /* TicketListViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		1AC1F5F21BD9B0BA00D6FBAA /* TicketListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F5F01BD9B0BA00D6FBAA /* TicketListViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		1AC1F5F91BD9BE7E00D6FBAA /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1F5F71BD9BE7E00D6FBAA /* TaskTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		1AC1F5FA1BD9BE7E00D6FBAA /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F5F81BD9BE7E00D6FBAA /* TaskTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		1AC1F6001BDA526000D6FBAA /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1F5FF1BDA526000D6FBAA /* AssignView.swift */; settings = {ASSET_TAGS = (); }; };
-		1AC1F6031BDAA91700D6FBAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1F6011BDAA91700D6FBAA /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		1AC1F6041BDAA91700D6FBAA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F6021BDAA91700D6FBAA /* LoginViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		1AC1F5F11BD9B0BA00D6FBAA /* TicketListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1F5EF1BD9B0BA00D6FBAA /* TicketListViewController.swift */; };
+		1AC1F5F21BD9B0BA00D6FBAA /* TicketListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F5F01BD9B0BA00D6FBAA /* TicketListViewController.xib */; };
+		1AC1F5F91BD9BE7E00D6FBAA /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1F5F71BD9BE7E00D6FBAA /* TaskTableViewCell.swift */; };
+		1AC1F5FA1BD9BE7E00D6FBAA /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F5F81BD9BE7E00D6FBAA /* TaskTableViewCell.xib */; };
+		1AC1F6001BDA526000D6FBAA /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1F5FF1BDA526000D6FBAA /* AssignView.swift */; };
+		1AC1F6031BDAA91700D6FBAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1F6011BDAA91700D6FBAA /* LoginViewController.swift */; };
+		1AC1F6041BDAA91700D6FBAA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F6021BDAA91700D6FBAA /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		1A24466E1BD8660F00A6D407 /* MamaBearUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MamaBearUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A2446721BD8660F00A6D407 /* MamaBearUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MamaBearUITests.swift; sourceTree = "<group>"; };
 		1A2446741BD8660F00A6D407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A6A78701BF130460064F301 /* StatusInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusInfoView.swift; sourceTree = "<group>"; };
+		1A6A78721BF130660064F301 /* StatusInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusInfoView.xib; sourceTree = "<group>"; };
 		1AC1F5D81BD99AD800D6FBAA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		1AC1F5D91BD99AD800D6FBAA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		1AC1F5E21BD9A1A300D6FBAA /* TicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				1AC1F5FF1BDA526000D6FBAA /* AssignView.swift */,
 				1AC1F6011BDAA91700D6FBAA /* LoginViewController.swift */,
 				1AC1F6021BDAA91700D6FBAA /* LoginViewController.xib */,
+				1A6A78701BF130460064F301 /* StatusInfoView.swift */,
+				1A6A78721BF130660064F301 /* StatusInfoView.xib */,
 				1AC1F5F71BD9BE7E00D6FBAA /* TaskTableViewCell.swift */,
 				1AC1F5F81BD9BE7E00D6FBAA /* TaskTableViewCell.xib */,
 				1AC1F5EF1BD9B0BA00D6FBAA /* TicketListViewController.swift */,
@@ -291,6 +297,7 @@
 				1A2446581BD8660F00A6D407 /* Main.storyboard in Resources */,
 				1AC1F5F21BD9B0BA00D6FBAA /* TicketListViewController.xib in Resources */,
 				1AC1F6041BDAA91700D6FBAA /* LoginViewController.xib in Resources */,
+				1A6A78731BF130660064F301 /* StatusInfoView.xib in Resources */,
 				1AC1F5E51BD9A1A300D6FBAA /* TicketViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A6A78711BF130460064F301 /* StatusInfoView.swift in Sources */,
 				1AC1F6031BDAA91700D6FBAA /* LoginViewController.swift in Sources */,
 				1AC1F5F91BD9BE7E00D6FBAA /* TaskTableViewCell.swift in Sources */,
 				1A2446531BD8660F00A6D407 /* AppDelegate.swift in Sources */,
