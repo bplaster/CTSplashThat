@@ -15,6 +15,8 @@ class StatusInfoView: UIView {
     
     convenience init(frame: CGRect, status: String, color: UIColor){
         self.init(frame: frame)
+        autoresizingMask = UIViewAutoresizing.FlexibleWidth
+
         xibSetup(status, color: color)
     }
     

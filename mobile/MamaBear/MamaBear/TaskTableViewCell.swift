@@ -21,6 +21,10 @@ class TaskTableViewCell: UITableViewCell {
     var acceptButton: UIButton!
     var completeButton: UIButton!
     
+    var assignedStatusView: StatusInfoView!
+    var acceptedStatusView: StatusInfoView!
+    var completedStatusView: StatusInfoView!
+    
     @IBOutlet var primaryButton: UIButton!
     var delegate: TaskCellDelegate!
         
@@ -35,8 +39,8 @@ class TaskTableViewCell: UITableViewCell {
     var index: NSIndexPath!
     var infoHeightConstraint: NSLayoutConstraint!
     
-    let expandedHeight : CGFloat = 300.0
-    let compressedHeight : CGFloat = 160.0
+    let compressedHeight : CGFloat = 165.0
+    var expandedHeight : CGFloat = 165.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -135,6 +139,7 @@ class TaskTableViewCell: UITableViewCell {
             headerView.backgroundColor = delegate.blue
             titleLabel.textColor = delegate.blue
             typeImageView.image = UIImage(named: "icon_4")
+            contentView.alpha = 0.6
             break;
         }
         
@@ -157,20 +162,45 @@ class TaskTableViewCell: UITableViewCell {
         completed = ticket["completed"] as? String
         objectID = ticket.objectId
         
+        populateInfoView()
     }
     
     func populateInfoView(){
+        expandedHeight = compressedHeight
+        
         // Create expanded information views
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "hh:mm"
+        dateFormatter.dateFormat = "MM DD, YY, hh:mm"
+        let stringFormatter = NSDateFormatter()
+        stringFormatter.dateFormat = "hh:mm"
+        let frame = CGRect(x: 0, y: compressedHeight, width: infoView.bounds.width, height: primaryButton.bounds.height)
+        
+        if assigned != "N" {
+            let date = dateFormatter.dateFromString(assigned)
+            let status = stringFormatter.stringFromDate(date!) + " Assigned to " + assignee
+            assignedStatusView = StatusInfoView(frame: frame, status: status, color: delegate.orange)
+//            let widthConstraint = 
+//            assignedStatusView.addConstraint(<#T##constraint: NSLayoutConstraint##NSLayoutConstraint#>)
+            infoView.addSubview(assignedStatusView)
+            expandedHeight += assignedStatusView.bounds.height
+        }
         
         if accepted != "N" {
-            let status = accepted + " Accepted by " + assignee
-            let frame = CGRect(x: 0, y: compressedHeight, width: primaryButton.frame.width, height: primaryButton.bounds.height)
-            let acceptedStatus = StatusInfoView(frame: frame, status: status, color: delegate.green)
-            infoView.addSubview(acceptedStatus)
-            
+            let date = dateFormatter.dateFromString(accepted)
+            let status = stringFormatter.stringFromDate(date!) + " Accepted"
+            acceptedStatusView = StatusInfoView(frame: frame, status: status, color: delegate.green)
+            infoView.addSubview(acceptedStatusView)
+            expandedHeight += acceptedStatusView.bounds.height
         }
+        
+        if completed != "N" {
+            let date = dateFormatter.dateFromString(completed)
+            let status = stringFormatter.stringFromDate(date!) + " Completed"
+            completedStatusView = StatusInfoView(frame: frame, status: status, color: delegate.blue)
+            infoView.addSubview(completedStatusView)
+            primaryButton.alpha = 0.0
+        }
+
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -180,10 +210,38 @@ class TaskTableViewCell: UITableViewCell {
     func toggleCellExpansion(){
         expanded = !expanded
         var height = compressedHeight
-        if expanded { height = expandedHeight
-            populateInfoView()
+        
+        if expanded {
+            height = expandedHeight
         }
         infoHeightConstraint.constant = height
+    }
+    
+    func animateCellExpansion(){
+        if expanded {
+            var addHeight:CGFloat = 0.0
+            
+            if assigned != "N" {
+                addHeight += assignedStatusView.bounds.height
+            }
+            if accepted != "N" {
+                acceptedStatusView.transform = CGAffineTransformMakeTranslation(0, addHeight)
+                addHeight += acceptedStatusView.bounds.height
+            }
+            if completed != "N" {
+                completedStatusView.transform = CGAffineTransformMakeTranslation(0, addHeight)
+            }
+        } else {
+            if assigned != "N" {
+                assignedStatusView.transform = CGAffineTransformMakeTranslation(0, 0)
+            }
+            if accepted != "N" {
+                acceptedStatusView.transform = CGAffineTransformMakeTranslation(0, 0)
+            }
+            if completed != "N" {
+                completedStatusView.transform = CGAffineTransformMakeTranslation(0, 0)
+            }
+        }
     }
     
 }

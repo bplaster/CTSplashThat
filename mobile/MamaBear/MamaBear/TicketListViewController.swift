@@ -306,12 +306,13 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
             selectedCell = indexPath
         }
         
-        UIView.animateWithDuration(0.1) { () -> Void in
-            previousCell?.contentView.layoutIfNeeded()
-            cell.contentView.layoutIfNeeded()
-        }
-        
         tableView.beginUpdates()
+        UIView.animateWithDuration(0.2) { () -> Void in
+            previousCell?.contentView.layoutIfNeeded()
+            previousCell?.animateCellExpansion()
+            cell.contentView.layoutIfNeeded()
+            cell.animateCellExpansion()
+        }
         tableView.endUpdates()
         
         
