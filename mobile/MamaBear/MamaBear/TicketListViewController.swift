@@ -12,13 +12,14 @@ import Parse
 protocol TaskCellDelegate {
     func refreshTicketList()
     func assignTicket(index: NSIndexPath)
-    func refreshTickets(indexPaths: [NSIndexPath])
-    var red: UIColor {get set};
-    var orange: UIColor {get set};
-    var green: UIColor {get set};
-    var blue: UIColor {get set};
-    var lightGrey: UIColor {get set};
-    var darkGrey: UIColor {get set};
+    func refreshTickets(indexPaths: [NSIndexPath], remove: Bool)
+    func layoutTableView()
+    var red: UIColor {get set}
+    var orange: UIColor {get set}
+    var green: UIColor {get set}
+    var blue: UIColor {get set}
+    var lightGrey: UIColor {get set}
+    var darkGrey: UIColor {get set}
 }
 
 protocol AssignViewDelegate {
@@ -28,12 +29,12 @@ protocol AssignViewDelegate {
 
 protocol TicketViewDelegate {
     var users: [PFObject] {get}
-    var red: UIColor {get set};
-    var orange: UIColor {get set};
-    var green: UIColor {get set};
-    var blue: UIColor {get set};
-    var lightGrey: UIColor {get set};
-    var darkGrey: UIColor {get set};
+    var red: UIColor {get set}
+    var orange: UIColor {get set}
+    var green: UIColor {get set}
+    var blue: UIColor {get set}
+    var lightGrey: UIColor {get set}
+    var darkGrey: UIColor {get set}
 }
 
 
@@ -56,6 +57,8 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     var lightGrey: UIColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 1.0) //#5B5B5B
     var darkGrey: UIColor = UIColor(red: 0.357, green: 0.357, blue: 0.357, alpha: 1.0) //#5B5B5B
     
+    var selectedCell: NSIndexPath!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,18 +67,19 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         ticketTableView.rowHeight = UITableViewAutomaticDimension
         ticketTableView.estimatedRowHeight = 260.0
         
-        var nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
         ticketTableView.registerNib(nib, forCellReuseIdentifier: "completeCell")
-        nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
         ticketTableView.registerNib(nib, forCellReuseIdentifier: "completedCell")
-        nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
         ticketTableView.registerNib(nib, forCellReuseIdentifier: "assignCell")
-        nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
         ticketTableView.registerNib(nib, forCellReuseIdentifier: "acceptCell")
+        ticketTableView.registerNib(nib, forCellReuseIdentifier: "completeCellExpanded")
+        ticketTableView.registerNib(nib, forCellReuseIdentifier: "completedCellExpanded")
+        ticketTableView.registerNib(nib, forCellReuseIdentifier: "assignCellExpanded")
+        ticketTableView.registerNib(nib, forCellReuseIdentifier: "acceptCellExpanded")
         
         refreshUserList()
         refreshTicketList()
-//        timer = NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: "refreshTicketList", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(6.0, target: self, selector: "refreshTicketList", userInfo: nil, repeats: true)
         
     }
     
@@ -107,7 +111,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
                         let push = PFPush()
                         push.setChannel("tickets")
                         push.setMessage("A new task needs attention")
-                        self.refreshTickets([index!])
+                        self.refreshTickets([index!], remove: false)
                     }
                 }
             }
@@ -129,9 +133,14 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func refreshTickets(indexPaths: [NSIndexPath]){
+    func refreshTickets(indexPaths: [NSIndexPath], remove: Bool){
         self.ticketTableView.beginUpdates()
-        self.ticketTableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        if(remove) {
+            self.tickets.removeAtIndex(indexPaths[0].row)
+            self.ticketTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        } else {
+            self.ticketTableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        }
         self.ticketTableView.endUpdates()
     }
     
@@ -160,13 +169,18 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
                 print("Successfully retrieved \(objects!.count) tickets.")
                 // Do something with the found objects
                 if (objects != nil) {
-                    self.tickets = objects!
+                    if(self.tickets != objects!){
+                        print("Updating Table")
+                        self.tickets = objects!
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.ticketTableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+                            //                    self.ticketTableView.reloadData()
+                        })
+                    }
+
                 } else {
                     self.tickets = []
                 }
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.ticketTableView.reloadData()
-                })
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
@@ -203,7 +217,10 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         view.addSubview(assignView)
         
         assignView.bringUp(index)
-        
+    }
+    
+    func layoutTableView() {
+        ticketTableView.layoutIfNeeded()
     }
     
 
@@ -230,85 +247,75 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let ticket = tickets[indexPath.row]
-        let cellType = checkCellType(ticket)
+        let expanded = (self.selectedCell != nil && self.selectedCell == indexPath)
+        let cellType = checkCellType(ticket, expanded: expanded)
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellType) as? TaskTableViewCell
+        var childType = cellType
+        if(expanded) { childType += "Expanded" }
+
+        let cell = tableView.dequeueReusableCellWithIdentifier(childType) as? TaskTableViewCell
         
         cell!.delegate = self
-        cell!.customizeCell(cellType)
+        if(!cell!.customized){ cell!.customizeCell(cellType, expanded: expanded)}
         cell!.populateCell(tickets[indexPath.row], currentUser: currentUser)
         cell!.index = indexPath
+        
         return cell!
     }
     
-    func checkCellType(ticket: PFObject) -> String {
+    func checkCellType(ticket: PFObject, expanded: Bool) -> String {
         let accepted = ticket["accepted"] as? String
         let assignee = ticket["assignee"] as? String
         let completed = ticket["completed"] as? String
+        var cellType = ""
         
         if(assignee == currentUser && (completed == nil || completed == "N" )){
             if(accepted == nil || accepted == "N"){
-                return "acceptCell"
+                cellType = "acceptCell"
             } else {
-                return "completeCell"
+                cellType = "completeCell"
             }
         } else if(completed == nil || completed == "N" ) {
-            return "assignCell"
+            cellType = "assignCell"
         } else {
-            return "completedCell"
+            cellType = "completedCell"
         }
+        return cellType
     }
-
-
     
     // MARK: - Table view delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        var previousCell: TaskTableViewCell?
+        
+        // Get current cell and toggle expansion
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! TaskTableViewCell
+        cell.toggleCellExpansion()
+        
+        // Update selected cell
+        if selectedCell != nil {
+            if selectedCell == indexPath { selectedCell = nil }
+            else {
+                // Get previous selected cell
+                previousCell = tableView.cellForRowAtIndexPath(selectedCell) as? TaskTableViewCell
+                previousCell?.toggleCellExpansion()
+                
+                selectedCell = indexPath
+            }
+        } else {
+            selectedCell = indexPath
+        }
+        
+        tableView.beginUpdates()
+        UIView.animateWithDuration(0.2) { () -> Void in
+            previousCell?.contentView.layoutIfNeeded()
+            previousCell?.animateCellExpansion()
+            cell.contentView.layoutIfNeeded()
+            cell.animateCellExpansion()
+        }
+        tableView.endUpdates()
+        
+        
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
     
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-
 }
