@@ -130,6 +130,20 @@ def search(search_term, num_tweets, auth):
         }
     max_count = 100
     next_results = ''
+
+    # Get last tweet ID
+    db = pymongo.MongoClient().twitter_db
+    tweets = db.tweets
+
+#    last_tweet = tweets.find({}, {"_id":1}).sort(["_id",-1]).limit(-1)
+    last_tweet = tweets.find_one(sort=[("id", -1)])
+
+    if last_tweet is not None:
+        last_tweet_id = last_tweet["id"]
+        print last_tweet_id
+    else:
+        last_tweet_id = 0
+
     # Can't stop, won't stop
     while True:
         print "Search iteration, Tweet collection size: %d" % len(collection)
@@ -142,7 +156,9 @@ def search(search_term, num_tweets, auth):
             parameters = {
                 'q' : search_term,
                 'count' : count,
-                'lang' : 'en'
+                'lang' : 'en',
+                'result_type' : 'recent',
+                'since_id': last_tweet_id
                 } 
             get_url = url + '?' + urllib.urlencode(parameters)
 
@@ -155,15 +171,15 @@ def search(search_term, num_tweets, auth):
             text = status['text'].encode('utf-8')
 
             # Filter out retweets
-            if status['retweeted'] == True:
-                continue
-            if text[:3] == 'RT ':
-                continue
+            #if status['retweeted'] == True:
+            #    continue
+            #if text[:3] == 'RT ':
+            #    continue
 
             tweet = {}
             # Configure the fields you are interested in from the status object
             tweet['text']        = text
-            tweet['id']          = status['id']
+            tweet['id']          = status['id_str']
             tweet['time']        = status['created_at'].encode('utf-8')
             tweet['screen_name'] = status['user']['screen_name'].encode('utf-8')
             
@@ -298,9 +314,9 @@ def print_results():
     most_neg_tweets = tweets.aggregate([    
         {"$unwind" : "$keyword"},
         {"$match": {"sentiment": {"$lt":0}}},
-        {"$group": {"_id": "$keyword", "count": {"$sum":1}, "avgScore": {"$avg": "$sentiment"}, "tweets":{"$push": {"content": "$text"}}}},
-        {"$sort": {"count": -1, "avgScore":-1, "tweets.sentiment": -1}}, #sorting by tweets.sentiment not working
-        {"$match": {"count": {"$gt":1}}}, #threshold = 1 now
+        {"$group": {"_id": "$keyword", "count": {"$sum":1}, "minTime": {"$min": "$time"}, "tweets":{"$push": {"content": "$text"}}}},
+        {"$sort": {"count": -1, "minTime":1, "tweets.sentiment": -1}}, #sorting by tweets.sentiment not working
+        {"$match": {"count": {"$gt":2}}}, #threshold = 1 now
         {"$out": "most_neg_tweets_sprintdemo"}
         ])
 

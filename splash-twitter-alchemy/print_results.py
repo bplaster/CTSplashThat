@@ -8,7 +8,7 @@ import subprocess
 def print_results():
     
     db = pymongo.MongoClient().twitter_db
-    tweets = db.tweets_sprintdemo
+    tweets = db.tweets
 
     neg_tweets = tweets.find({"sentiment" : {"$lt" : 0}})
 
@@ -18,9 +18,9 @@ def print_results():
     most_neg_tweets = tweets.aggregate([    
         {"$unwind" : "$keyword"},
         {"$match": {"sentiment": {"$lt":0}}},
-        {"$group": {"_id": "$keyword", "count": {"$sum":1}, "avgScore": {"$avg": "$sentiment"}, "tweets":{"$push": {"content": "$text", "sentiment":"$sentiment"}}}},
-        {"$sort": {"count": -1, "avgScore":-1, "tweets.sentiment": -1}}, #sorting by tweets.sentiment not working
-        {"$match": {"count": {"$gt":1}}}, #threshold = 1 now
+        {"$group": {"_id": "$keyword", "count": {"$sum":1}, "minTime": {"$min": "$time"}, "tweets":{"$push": {"content": "$text", "sentiment":"$sentiment"}}}},
+        {"$sort": {"count": -1, "minTime":1, "tweets.sentiment": -1}}, #sorting by tweets.sentiment not working
+        {"$match": {"count": {"$gt":1}}}, #threshold = 2 now
         {"$out": "most_neg_tweets_sprintdemo"}
         ])
 

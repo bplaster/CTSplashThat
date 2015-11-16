@@ -6,7 +6,7 @@ var Ticket = Parse.Object.extend("Ticket");
 var last_length = 0;
 
 function job() {
-  var data = JSON.parse(fs.readFileSync('sprint_demo.json', 'utf8'));
+  var data = JSON.parse(fs.readFileSync('sprint_demo_2.json', 'utf8'));
   console.log("Retrieved data.");
   //console.log(data);
   var titles = data.map(function(item) {
