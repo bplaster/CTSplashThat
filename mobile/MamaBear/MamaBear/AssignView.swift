@@ -16,6 +16,7 @@ class AssignView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestureR
     var objectID: String!
     var indexPath: NSIndexPath!
     var delegate: AssignViewDelegate!
+    var availability: [Bool]!
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -23,6 +24,7 @@ class AssignView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestureR
         assigneeTableView = UITableView(frame: CGRectMake(frame.origin.x, frame.height, frame.width, 2.0*frame.height/3.0))
         assigneeTableView.delegate = self
         assigneeTableView.dataSource = self
+        assigneeTableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissView")
         tapGestureRecognizer.delegate = self
         addGestureRecognizer(tapGestureRecognizer)
@@ -94,6 +96,18 @@ class AssignView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestureR
         }
         
         cell?.textLabel?.text = label
+        let height:CGFloat = 10.0
+        let xVal = cell!.contentView.bounds.width + 2*height
+        let yVal = cell!.contentView.center.y - height/2
+        let statusView = UIView(frame: CGRect(x: xVal, y: yVal, width: height, height: height))
+        statusView.layer.cornerRadius = height/2
+        
+        if availability[indexPath.row] {
+            statusView.backgroundColor = UIColor.greenColor()
+        } else {
+            statusView.backgroundColor = UIColor.redColor()
+        }
+        cell?.addSubview(statusView)
         
         return cell!
     }
@@ -104,7 +118,7 @@ class AssignView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestureR
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let username = staffList[indexPath.row]["username"] as? String
         self.delegate.assignee = username!
-        self.putDown(indexPath)
+        self.putDown(self.indexPath)
     }
 
 }

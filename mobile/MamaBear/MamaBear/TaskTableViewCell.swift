@@ -148,7 +148,7 @@ class TaskTableViewCell: UITableViewCell {
         switch(type) {
             case "acceptCell":
                 buttonView.hidden = false
-                typeImageView.image = UIImage(named: "icon_2")
+                typeImageView.image = UIImage(named: "icon_3")
                 buttonViewBackgroundMargin.constant = 2.0
                 buttonViewHeight.constant = largeButtonHeight
                 confirmButton.setTitle(" ACCEPT", forState: UIControlState.Normal)
@@ -203,11 +203,13 @@ class TaskTableViewCell: UITableViewCell {
         priority = ticket["priority"] as? Int
         objectID = ticket.objectId
         
+        // TODO Check to see if title working now
         if(assignee != "N"){
-            assignButton.titleLabel?.text = "ASSIGNED To " + assignee
+            assignButton.setTitle("ASSIGNED To " + assignee, forState: .Normal)
         } else {
-            assignButton.titleLabel?.text = "ASSIGN"
+            assignButton.setTitle("ASSIGN", forState: .Normal)
         }
+        
         
         populateDetailView()
     }
@@ -245,6 +247,7 @@ class TaskTableViewCell: UITableViewCell {
             detailView.addSubview(completedStatusView)
             expandedHeight += acceptedStatusView.bounds.height
         }
+        
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

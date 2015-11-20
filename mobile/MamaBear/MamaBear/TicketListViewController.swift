@@ -63,31 +63,38 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     var selectedCell: NSIndexPath!
     var prototypeCell: TaskTableViewCell!
     let taskIdent: String = "taskCell"
+    var availability: [Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.title = "Tasks"
         ticketTableView.delegate = self
         ticketTableView.dataSource = self
         ticketTableView.rowHeight = UITableViewAutomaticDimension
         ticketTableView.estimatedRowHeight = 260.0
                 
-        let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let nib1 = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let nib2 = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let nib3 = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let nib4 = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let nib5 = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let nib6 = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let nib7 = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let nib8 = UINib(nibName: "TaskTableViewCell", bundle: nil)
+
 //        ticketTableView.registerNib(nib, forCellReuseIdentifier: taskIdent)
 //        prototypeCell = ticketTableView.dequeueReusableCellWithIdentifier(taskIdent) as? TaskTableViewCell
         
-        ticketTableView.registerNib(nib, forCellReuseIdentifier: "completeCell")
-        ticketTableView.registerNib(nib, forCellReuseIdentifier: "completedCell")
-        ticketTableView.registerNib(nib, forCellReuseIdentifier: "assignCell")
-        ticketTableView.registerNib(nib, forCellReuseIdentifier: "acceptCell")
-        ticketTableView.registerNib(nib, forCellReuseIdentifier: "completeCellExpanded")
-        ticketTableView.registerNib(nib, forCellReuseIdentifier: "completedCellExpanded")
-        ticketTableView.registerNib(nib, forCellReuseIdentifier: "assignCellExpanded")
-        ticketTableView.registerNib(nib, forCellReuseIdentifier: "acceptCellExpanded")
+        ticketTableView.registerNib(nib1, forCellReuseIdentifier: "completeCell")
+        ticketTableView.registerNib(nib2, forCellReuseIdentifier: "completedCell")
+        ticketTableView.registerNib(nib3, forCellReuseIdentifier: "assignCell")
+        ticketTableView.registerNib(nib4, forCellReuseIdentifier: "acceptCell")
+        ticketTableView.registerNib(nib5, forCellReuseIdentifier: "completeCellExpanded")
+        ticketTableView.registerNib(nib6, forCellReuseIdentifier: "completedCellExpanded")
+        ticketTableView.registerNib(nib7, forCellReuseIdentifier: "assignCellExpanded")
+        ticketTableView.registerNib(nib8, forCellReuseIdentifier: "acceptCellExpanded")
         
         refreshUserList()
-        refreshTicketList()
         timer = NSTimer.scheduledTimerWithTimeInterval(6.0, target: self, selector: "refreshTicketList", userInfo: nil, repeats: true)
         
     }
@@ -99,10 +106,13 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+//        let imageView = UIImageView(image: UIImage(named: "list small"))
+
         UIView.animateWithDuration(0.2, delay: 0.0, options: .TransitionCrossDissolve, animations: { () -> Void in
             self.navigationController?.navigationBar.barTintColor = self.darkGrey
             self.navigationController?.navigationBar.tintColor = self.lightGrey
-
+//            self.navigationItem.titleView = imageView
+            self.navigationItem.title = "TASKS"
             }, completion: nil)
 
     }
@@ -145,6 +155,21 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         newTicketView.currentUserType = currentUserType
         newTicketView.delegate = self
         newTicketView.view.backgroundColor = lightGrey
+        
+        self.availability.removeAll()
+        for user in self.users {
+            self.availability.append(true)
+            for object in self.tickets {
+                if object["assignee"] as! String == user["username"] as! String
+                    && object["accepted"] as! String != "N"
+                    && object["completed"] as! String == "N" {
+                        self.availability[self.availability.count - 1] = false
+                        continue
+                }
+            }
+        }
+
+        newTicketView.availability = availability
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
         navigationController?.pushViewController(newTicketView, animated: true)
     }
@@ -196,10 +221,12 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
                         print("Updating Table")
                         self.tickets = objects!
                         self.expanded = [Bool](count: self.tickets.count, repeatedValue: false)
+        
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             self.ticketTableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
                             //                    self.ticketTableView.reloadData()
-                        })
+                            
+                            })
                     }
 
                 } else {
@@ -224,6 +251,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
                 // Do something with the found objects
                 if (objects != nil) {
                     self.users = objects!
+                    self.refreshTicketList()
                 } else {
                     self.users = []
                 }
@@ -238,6 +266,21 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         assignView = AssignView(frame: view.frame)
         assignView.delegate = self
         assignView.staffList = users
+        
+        self.availability.removeAll()
+        for user in self.users {
+            self.availability.append(true)
+            for object in self.tickets {
+                if object["assignee"] as! String == user["username"] as! String
+                    && object["accepted"] as! String != "N"
+                    && object["completed"] as! String == "N" {
+                        self.availability[self.availability.count - 1] = false
+                        continue
+                }
+            }
+        }
+        assignView.availability = availability
+        
 //        assignView.objectID = tickets[index.row].objectId
         view.addSubview(assignView)
         
@@ -285,6 +328,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         cell!.populateCell(tickets[indexPath.row], currentUser: currentUser)
         cell!.customizeCell(cellType, expanded: expand)
         cell!.index = indexPath
+        cell!.setNeedsDisplay()
         
         return cell!
     }
@@ -316,17 +360,16 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         var previousCell: TaskTableViewCell?
         
         // Get current cell and toggle expansion
+        expanded[indexPath.row] = !expanded[indexPath.row]
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! TaskTableViewCell
         cell.toggleCellExpansion()
         
-        expanded[indexPath.row] = !expanded[indexPath.row]
-        
         // Update selected cell
         if selectedCell != nil {
-            expanded[selectedCell.row] = !expanded[selectedCell.row]
             if selectedCell == indexPath { selectedCell = nil }
             else {
                 // Get previous selected cell
+                expanded[selectedCell.row] = !expanded[selectedCell.row]
                 previousCell = tableView.cellForRowAtIndexPath(selectedCell) as? TaskTableViewCell
                 previousCell?.toggleCellExpansion()
                 
@@ -336,6 +379,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
             selectedCell = indexPath
         }
         
+        // Animate transition
         tableView.beginUpdates()
         UIView.animateWithDuration(0.25) { () -> Void in
             previousCell?.contentView.layoutIfNeeded()

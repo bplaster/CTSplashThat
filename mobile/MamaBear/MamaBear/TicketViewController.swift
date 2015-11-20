@@ -18,11 +18,18 @@ class TicketViewController: UIViewController, AssignViewDelegate {
     var delegate: TicketViewDelegate!
     var currentUserType : String!
     var users: [PFObject] = []
+    var availability: [Bool]!
     var creator: String = ""
     var assignee: String = "N"
     var assigned: String = "N"
     var assignView: AssignView!
     var priority: Int = 2
+    let priorityTitle1 = "TODO"
+    let priorityTitle2 = "Task"
+    let priorityTitle3 = "Emergency"
+    
+    @IBOutlet var submitButton: UIButton!
+    @IBOutlet var dividerCenter: NSLayoutConstraint!
     
     @IBOutlet var priorityButton1: UIButton!
     @IBOutlet var priorityButton2: UIButton!
@@ -47,9 +54,12 @@ class TicketViewController: UIViewController, AssignViewDelegate {
         if(currentUserType == "manager"){
             assignButton.enabled = true
             assignButton.alpha = 1.0
+            dividerCenter.constant = 0.0
         } else {
             assignButton.enabled = false
             assignButton.alpha = 0.0
+            submitButton.contentEdgeInsets.left = -30.0
+            dividerCenter.constant = -assignButton.bounds.width/2
         }
         // Do any additional setup after loading the view.
     }
@@ -58,6 +68,7 @@ class TicketViewController: UIViewController, AssignViewDelegate {
         super.viewWillAppear(animated)
         UIView.animateWithDuration(0.2) { () -> Void in
             self.navigationController?.navigationBar.barTintColor = self.priorityButton2.backgroundColor
+            self.navigationItem.title  = self.priorityTitle2
         }
     }
     
@@ -65,6 +76,7 @@ class TicketViewController: UIViewController, AssignViewDelegate {
         assignView = AssignView(frame: view.frame)
         assignView.delegate = self
         assignView.staffList = delegate.users
+        assignView.availability = availability
         view.addSubview(assignView)
         
         assignView.bringUp(nil)
@@ -78,21 +90,26 @@ class TicketViewController: UIViewController, AssignViewDelegate {
 
     @IBAction func priorityButtonPressed(sender: AnyObject) {
         let button = sender as! UIButton
+        var titleText = ""
         switch (button){
         case priorityButton1:
             priority = 1
+            titleText = self.priorityTitle1
             break
         case priorityButton2:
             priority = 2
+            titleText = self.priorityTitle2
             break
         case priorityButton3:
             priority = 3
+            titleText = self.priorityTitle3
             break
         default:
             break
         }
         UIView.animateWithDuration(0.2) { () -> Void in
             self.navigationController?.navigationBar.barTintColor = button.backgroundColor
+            self.navigationItem.title = titleText
         }
 
     }

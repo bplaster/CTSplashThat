@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="MamaBear" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImage" destination="Nof-lu-aKd" id="0pY-t8-O4I"/>
                 <outlet property="userTypeTextField" destination="eQC-yN-PnZ" id="F0c-4W-1Qw"/>
                 <outlet property="usernameTextField" destination="Go8-SI-CCt" id="PEp-cN-N4I"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -16,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_page" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-lu-aKd">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_page" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-lu-aKd">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <animations/>
                 </imageView>
