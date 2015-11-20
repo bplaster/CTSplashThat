@@ -58,7 +58,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     var green: UIColor = UIColor(red: 0.549, green: 0.749, blue: 0.439, alpha: 1.0) //#8CBF70
     var blue: UIColor = UIColor(red: 0.502, green: 0.69, blue: 0.871, alpha: 1.0) //#80B0DE
     var lightGrey: UIColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 1.0) //#5B5B5B
-    var darkGrey: UIColor = UIColor(red: 0.2, green: 0.2, blue: 0.239, alpha: 1.0) //#5B5B5B
+    var darkGrey: UIColor = UIColor(red: 0.247, green: 0.263, blue: 0.349, alpha: 1.0) //#5B5B5B
     
     var selectedCell: NSIndexPath!
     var prototypeCell: TaskTableViewCell!
@@ -72,7 +72,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         ticketTableView.dataSource = self
         ticketTableView.rowHeight = UITableViewAutomaticDimension
         ticketTableView.estimatedRowHeight = 260.0
-        
+                
         let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
 //        ticketTableView.registerNib(nib, forCellReuseIdentifier: taskIdent)
 //        prototypeCell = ticketTableView.dequeueReusableCellWithIdentifier(taskIdent) as? TaskTableViewCell
@@ -99,9 +99,12 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        UIView.animateWithDuration(0.2) { () -> Void in
+        UIView.animateWithDuration(0.2, delay: 0.0, options: .TransitionCrossDissolve, animations: { () -> Void in
             self.navigationController?.navigationBar.barTintColor = self.darkGrey
-        }
+            self.navigationController?.navigationBar.tintColor = self.lightGrey
+
+            }, completion: nil)
+
     }
     
     func dismissAssignView(index: NSIndexPath?) {
@@ -122,6 +125,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
                         dateFormatter.dateFormat = "MM dd, yy, hh:mm"
                         ticket["assigned"] = dateFormatter.stringFromDate(date)
                         ticket["assignee"] = self.assignee
+                        ticket["accepted"] = "N"
                         ticket.saveInBackground()
                         
                         let push = PFPush()
@@ -141,6 +145,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         newTicketView.currentUserType = currentUserType
         newTicketView.delegate = self
         newTicketView.view.backgroundColor = lightGrey
+        navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
         navigationController?.pushViewController(newTicketView, animated: true)
     }
     
@@ -274,7 +279,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         var childType = cellType
         if(expand) { childType += "Expanded" }
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(childType) as? TaskTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(childType, forIndexPath: indexPath) as? TaskTableViewCell
         
         cell!.delegate = self
         cell!.populateCell(tickets[indexPath.row], currentUser: currentUser)

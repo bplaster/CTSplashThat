@@ -8,22 +8,29 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="330" id="KGk-i7-Jjw" customClass="TaskTableViewCell" customModule="MamaBear" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="614" height="328"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="224" id="KGk-i7-Jjw" customClass="TaskTableViewCell" customModule="MamaBear" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="614" height="222"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="614" height="327"/>
+            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="614" height="221"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qex-TD-82W" userLabel="Background View">
-                        <rect key="frame" x="23" y="15" width="583" height="212"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qex-TD-82W" userLabel="Background View">
+                        <rect key="frame" x="20" y="10" width="578" height="203"/>
                         <animations/>
                         <color key="backgroundColor" white="0.84049637690000001" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <view contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTK-J5-b7R" userLabel="Info View">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyd-rT-cVH" userLabel="Detail View">
+                        <rect key="frame" x="18" y="210" width="578" height="1"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" priority="250" id="LUX-Ww-gLN"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="pTK-J5-b7R" userLabel="Info View">
                         <rect key="frame" x="18" y="8" width="578" height="150"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LAx-1H-XKe">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAx-1H-XKe">
                                 <rect key="frame" x="0.0" y="0.0" width="578" height="8"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.30588235289999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,8 +38,8 @@
                                     <constraint firstAttribute="height" constant="8" id="n52-lJ-Jak"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2K-AW-dkQ">
-                                <rect key="frame" x="86" y="15" width="379" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2K-AW-dkQ">
+                                <rect key="frame" x="85" y="15" width="380" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="290" id="RPR-nf-l3d"/>
@@ -47,8 +54,8 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juS-jg-ZkG">
-                                <rect key="frame" x="86" y="45" width="484" height="63"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juS-jg-ZkG">
+                                <rect key="frame" x="85" y="45" width="485" height="62"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="Cyt-0K-B7i"/>
@@ -68,7 +75,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Brandon 10:10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGc-7U-0Qo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brandon 10:10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGc-7U-0Qo">
                                 <rect key="frame" x="470" y="17" width="100" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -87,7 +94,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSY-6s-SMQ" userLabel="Separator">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSY-6s-SMQ" userLabel="Separator">
                                 <rect key="frame" x="75" y="108" width="503" height="2"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.84049637690000001" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,8 +102,8 @@
                                     <constraint firstAttribute="height" constant="2" id="cAl-Ur-rGK"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCj-8K-dzp">
-                                <rect key="frame" x="71" y="110" width="507" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCj-8K-dzp">
+                                <rect key="frame" x="85" y="110" width="493" height="40"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Qjt-a3-b0X"/>
@@ -117,15 +124,15 @@
                                     <action selector="assignButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vFf-bZ-aZ2"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="cpW-4l-QnT">
-                                <rect key="frame" x="81" y="118" width="25" height="25"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="cpW-4l-QnT">
+                                <rect key="frame" x="100" y="120" width="20" height="20"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cpW-4l-QnT" secondAttribute="height" multiplier="1:1" id="Sqf-El-aOW"/>
                                     <constraint firstAttribute="width" constant="20" id="Z2d-UW-cxr"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2B-zi-LtK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z2B-zi-LtK">
                                 <rect key="frame" x="0.0" y="8" width="71" height="142"/>
                                 <animations/>
                                 <constraints>
@@ -140,8 +147,8 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="exclamation" translatesAutoresizingMaskIntoConstraints="NO" id="1TD-rA-CqL">
-                                <rect key="frame" x="26" y="15" width="35" height="35"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamation" translatesAutoresizingMaskIntoConstraints="NO" id="1TD-rA-CqL">
+                                <rect key="frame" x="25" y="15" width="35" height="35"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="EYx-pz-88r"/>
@@ -154,8 +161,8 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="caret_right" translatesAutoresizingMaskIntoConstraints="NO" id="7JN-hr-kj1">
-                                <rect key="frame" x="550" y="123" width="18" height="16"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="caret_right" translatesAutoresizingMaskIntoConstraints="NO" id="7JN-hr-kj1">
+                                <rect key="frame" x="550" y="122" width="18" height="16"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="18" id="Ief-4p-l6c"/>
@@ -172,7 +179,7 @@
                             <constraint firstItem="eSY-6s-SMQ" firstAttribute="top" secondItem="juS-jg-ZkG" secondAttribute="top" id="89j-Pl-zWo"/>
                             <constraint firstAttribute="trailing" secondItem="eSY-6s-SMQ" secondAttribute="trailing" id="9dj-EL-x6r"/>
                             <constraint firstAttribute="trailing" secondItem="ZGc-7U-0Qo" secondAttribute="trailing" constant="8" id="AMM-gC-MwA"/>
-                            <constraint firstItem="juS-jg-ZkG" firstAttribute="bottom" secondItem="eSY-6s-SMQ" secondAttribute="bottom" id="DQt-8y-XiJ"/>
+                            <constraint firstItem="juS-jg-ZkG" firstAttribute="bottom" secondItem="eSY-6s-SMQ" secondAttribute="bottom" constant="-3" id="DQt-8y-XiJ"/>
                             <constraint firstItem="H2K-AW-dkQ" firstAttribute="top" secondItem="pTK-J5-b7R" secondAttribute="top" constant="15" id="Dy9-99-R1z"/>
                             <constraint firstItem="cpW-4l-QnT" firstAttribute="top" secondItem="KCj-8K-dzp" secondAttribute="bottom" constant="-35" id="FhX-5H-nvJ"/>
                             <constraint firstItem="LAx-1H-XKe" firstAttribute="centerX" secondItem="pTK-J5-b7R" secondAttribute="centerX" id="HL3-T2-aF7"/>
@@ -221,19 +228,19 @@
                             </mask>
                         </variation>
                     </view>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ul-bR-S5E" userLabel="Button View">
-                        <rect key="frame" x="18" y="160" width="578" height="47"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ul-bR-S5E" userLabel="Button View">
+                        <rect key="frame" x="18" y="160" width="578" height="50"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Bw-TO-U2F" userLabel="Divider">
-                                <rect key="frame" x="288" y="0.0" width="2" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Bw-TO-U2F" userLabel="Divider">
+                                <rect key="frame" x="289" y="0.0" width="0.0" height="50"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.84049637690000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" id="Mk5-ya-IDo"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RT7-cY-hNI">
-                                <rect key="frame" x="59" y="-11" width="175" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RT7-cY-hNI">
+                                <rect key="frame" x="0.0" y="0.0" width="289" height="50"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="cD3-NY-tHK"/>
@@ -251,8 +258,8 @@
                                     </mask>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3u-nR-kfV">
-                                <rect key="frame" x="357" y="-13" width="179" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3u-nR-kfV">
+                                <rect key="frame" x="289" y="0.0" width="289" height="50"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="DKg-aO-Paz"/>
@@ -291,14 +298,6 @@
                             <constraint firstItem="RT7-cY-hNI" firstAttribute="leading" secondItem="8Ul-bR-S5E" secondAttribute="leading" id="yba-2R-BrL"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xyd-rT-cVH" userLabel="Detail View">
-                        <rect key="frame" x="18" y="210" width="578" height="10"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.94980084899999995" green="0.37059834600000002" blue="0.21505534649999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" id="LUX-Ww-gLN"/>
-                        </constraints>
-                    </view>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -335,7 +334,7 @@
                 <outlet property="titleLabel" destination="H2K-AW-dkQ" id="Zk7-zZ-U0K"/>
                 <outlet property="typeImageView" destination="1TD-rA-CqL" id="Ubd-Cs-M3w"/>
             </connections>
-            <point key="canvasLocation" x="255" y="412"/>
+            <point key="canvasLocation" x="255" y="359"/>
         </tableViewCell>
     </objects>
     <resources>

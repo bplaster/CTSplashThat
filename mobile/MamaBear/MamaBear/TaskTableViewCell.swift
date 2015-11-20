@@ -32,7 +32,6 @@ class TaskTableViewCell: UITableViewCell {
     var acceptedStatusView: StatusInfoView!
     var completedStatusView: StatusInfoView!
     
-//    @IBOutlet var primaryButton: UIButton!
     var delegate: TaskCellDelegate!
         
     var accepted : String!
@@ -64,8 +63,22 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     @IBAction func declineButtonPressed(sender: AnyObject) {
-    }
+        let query = PFQuery(className:"Ticket")
+        query.getObjectInBackgroundWithId(objectID) {
+            (ticket: PFObject?, error: NSError?) -> Void in
+            if error != nil {
+                print(error)
+            } else if let ticket = ticket {
+                ticket["accepted"] = "N"
+                ticket["assigned"] = "N"
+                ticket["assignee"] = "N"
+                ticket.saveInBackground()
+                
+                self.delegate.refreshTickets([self.index], remove: false)
+            }
+        }
 
+    }
 
     func acceptButtonPressed() {
         let query = PFQuery(className:"Ticket")
@@ -106,6 +119,14 @@ class TaskTableViewCell: UITableViewCell {
     
     func customizeCell(type:String, expanded:Bool){
         
+        self.expanded = expanded
+        var height = compressedHeight
+        if expanded {
+            height = expandedHeight
+        }
+
+        detailViewHeight.constant = height
+        
         confirmButton.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
         contentView.backgroundColor = delegate.lightGrey
         
@@ -124,61 +145,40 @@ class TaskTableViewCell: UITableViewCell {
             break
         }
         
-        if(assignee != "N"){
-            assignButton.titleLabel?.text = "ASSIGNED To " + assignee
-        }
-        
         switch(type) {
             case "acceptCell":
                 buttonView.hidden = false
-                
+                typeImageView.image = UIImage(named: "icon_2")
                 buttonViewBackgroundMargin.constant = 2.0
                 buttonViewHeight.constant = largeButtonHeight
                 confirmButton.setTitle(" ACCEPT", forState: UIControlState.Normal)
                 confirmButton.addTarget(self, action: "acceptButtonPressed", forControlEvents: .TouchUpInside)
-//                headerView.backgroundColor = delegate.orange
-//                titleLabel.textColor = delegate.orange
-//                typeImageView.image = UIImage(named: "icon_2")
-                
                 break;
             case "completeCell":
                 buttonView.hidden = false
-
+                typeImageView.image = UIImage(named: "time")
                 buttonViewBackgroundMargin.constant = 2.0
                 buttonViewHeight.constant = largeButtonHeight
-//                primaryButton.backgroundColor = delegate.blue
                 confirmButton.setTitle(" COMPLETE", forState: UIControlState.Normal)
                 confirmButton.addTarget(self, action: "completeButtonPressed", forControlEvents: .TouchUpInside)
-//                titleLabel.textColor = delegate.green
-//                headerView.backgroundColor = delegate.green
-//                typeImageView.image = UIImage(named: "icon_3")
                 break;
             case "assignCell":
+                typeImageView.image = UIImage(named: "exclamation")
                 buttonView.hidden = true
                 buttonViewBackgroundMargin.constant = 0.0
-
                 buttonViewHeight.constant = 0.0
-//                primaryButton.backgroundColor = delegate.orange
-//                primaryButton.setTitle("ASSIGN", forState: UIControlState.Normal)
-//                primaryButton.addTarget(self, action: "assignButtonPressed", forControlEvents: .TouchUpInside)
-//                headerView.backgroundColor = delegate.red
-//                titleLabel.textColor = delegate.red
-//                typeImageView.image = UIImage(named: "icon_1")
 
                 break;
         default:
-//            primaryButton.backgroundColor = delegate.darkGrey
-//            primaryButton.enabled = false
+
             buttonView.hidden = true
+            typeImageView.image = UIImage(named: "icon_4")
             buttonViewBackgroundMargin.constant = 0.0
 
             buttonViewHeight.constant = 0.0
             assignButton.enabled = false
             assignButton.setTitle("COMPLETED By " + assignee, forState: UIControlState.Disabled)
-//            primaryButton.setTitle("COMPLETED", forState: UIControlState.Disabled)
-//            headerView.backgroundColor = delegate.blue
-//            titleLabel.textColor = delegate.blue
-//            typeImageView.image = UIImage(named: "icon_4")
+
             contentView.alpha = 0.6
             break;
         }
@@ -203,6 +203,12 @@ class TaskTableViewCell: UITableViewCell {
         priority = ticket["priority"] as? Int
         objectID = ticket.objectId
         
+        if(assignee != "N"){
+            assignButton.titleLabel?.text = "ASSIGNED To " + assignee
+        } else {
+            assignButton.titleLabel?.text = "ASSIGN"
+        }
+        
         populateDetailView()
     }
     
@@ -214,7 +220,7 @@ class TaskTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "MM DD, YY, hh:mm"
         let stringFormatter = NSDateFormatter()
         stringFormatter.dateFormat = "hh:mm"
-        let frame = CGRect(x: 0, y: compressedHeight, width: detailView.bounds.width, height: singleLineHeight)
+        let frame = CGRect(x: 0, y: 0 - singleLineHeight, width: detailView.bounds.width, height: singleLineHeight)
         
         if assigned != "N" {
             let date = dateFormatter.dateFromString(assigned)
@@ -237,12 +243,8 @@ class TaskTableViewCell: UITableViewCell {
             let status = stringFormatter.stringFromDate(date!) + " Completed"
             completedStatusView = StatusInfoView(frame: frame, status: status, color: delegate.blue)
             detailView.addSubview(completedStatusView)
-//            primaryButton.alpha = 0.0
+            expandedHeight += acceptedStatusView.bounds.height
         }
-        
-        detailView.hidden = true
-        detailViewHeight.constant = 0.0
-
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -260,15 +262,17 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     func animateCellExpansion(){
+
         if expanded {
-            var addHeight:CGFloat = 0.0
+            var addHeight:CGFloat = singleLineHeight
             
             if assigned != "N" {
-                addHeight += assignedStatusView.bounds.height
+                assignedStatusView.transform = CGAffineTransformMakeTranslation(0, addHeight)
+                addHeight += singleLineHeight
             }
             if accepted != "N" {
                 acceptedStatusView.transform = CGAffineTransformMakeTranslation(0, addHeight)
-                addHeight += acceptedStatusView.bounds.height
+                addHeight += singleLineHeight
             }
             if completed != "N" {
                 completedStatusView.transform = CGAffineTransformMakeTranslation(0, addHeight)

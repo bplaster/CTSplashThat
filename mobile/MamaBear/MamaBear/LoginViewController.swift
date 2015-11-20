@@ -29,11 +29,19 @@ class LoginViewController: UIViewController {
         taskView.currentUserType = userTypeTextField.text!
         taskView.currentUser = usernameTextField.text!
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
         navigationController?.pushViewController(taskView, animated: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIView.animateWithDuration(0.2) { () -> Void in
+            self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        }
     }
     
     
