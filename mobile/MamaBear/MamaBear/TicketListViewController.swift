@@ -43,6 +43,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
 
     @IBOutlet var ticketTableView: UITableView!
     var tickets: [PFObject] = []
+    var expanded: [Bool] = []
     var users: [PFObject] = []
     var timer: NSTimer = NSTimer()
     var currentUser = "brandon"
@@ -58,16 +59,22 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     var darkGrey: UIColor = UIColor(red: 0.357, green: 0.357, blue: 0.357, alpha: 1.0) //#5B5B5B
     
     var selectedCell: NSIndexPath!
+    var prototypeCell: TaskTableViewCell!
+    let taskIdent: String = "taskCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.title = "Tasks"
         ticketTableView.delegate = self
         ticketTableView.dataSource = self
         ticketTableView.rowHeight = UITableViewAutomaticDimension
         ticketTableView.estimatedRowHeight = 260.0
         
         let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+//        ticketTableView.registerNib(nib, forCellReuseIdentifier: taskIdent)
+//        prototypeCell = ticketTableView.dequeueReusableCellWithIdentifier(taskIdent) as? TaskTableViewCell
+        
         ticketTableView.registerNib(nib, forCellReuseIdentifier: "completeCell")
         ticketTableView.registerNib(nib, forCellReuseIdentifier: "completedCell")
         ticketTableView.registerNib(nib, forCellReuseIdentifier: "assignCell")
@@ -84,8 +91,15 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
         refreshTicketList()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIView.animateWithDuration(0.2) { () -> Void in
+            self.navigationController?.navigationBar.barTintColor = self.darkGrey
+        }
     }
     
     func dismissAssignView(index: NSIndexPath?) {
@@ -137,6 +151,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         self.ticketTableView.beginUpdates()
         if(remove) {
             self.tickets.removeAtIndex(indexPaths[0].row)
+            self.expanded.removeAtIndex(indexPaths[0].row)
             self.ticketTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
         } else {
             self.ticketTableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
@@ -172,6 +187,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
                     if(self.tickets != objects!){
                         print("Updating Table")
                         self.tickets = objects!
+                        self.expanded = [Bool](count: self.tickets.count, repeatedValue: false)
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             self.ticketTableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
                             //                    self.ticketTableView.reloadData()
@@ -180,6 +196,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
 
                 } else {
                     self.tickets = []
+                    self.expanded = []
                 }
             } else {
                 // Log details of the failure
@@ -247,21 +264,23 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let ticket = tickets[indexPath.row]
-        let expanded = (self.selectedCell != nil && self.selectedCell == indexPath)
-        let cellType = checkCellType(ticket, expanded: expanded)
+//        let expanded = (self.selectedCell != nil && self.selectedCell == indexPath)
+        let expand = expanded[indexPath.row]
+        let cellType = checkCellType(ticket, expanded: expand)
         
         var childType = cellType
-        if(expanded) { childType += "Expanded" }
+        if(expand) { childType += "Expanded" }
 
         let cell = tableView.dequeueReusableCellWithIdentifier(childType) as? TaskTableViewCell
         
         cell!.delegate = self
-        if(!cell!.customized){ cell!.customizeCell(cellType, expanded: expanded)}
+        cell!.customizeCell(cellType, expanded: expand)
         cell!.populateCell(tickets[indexPath.row], currentUser: currentUser)
         cell!.index = indexPath
         
         return cell!
     }
+    
     
     func checkCellType(ticket: PFObject, expanded: Bool) -> String {
         let accepted = ticket["accepted"] as? String
@@ -292,8 +311,11 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! TaskTableViewCell
         cell.toggleCellExpansion()
         
+        expanded[indexPath.row] = !expanded[indexPath.row]
+        
         // Update selected cell
         if selectedCell != nil {
+            expanded[selectedCell.row] = !expanded[selectedCell.row]
             if selectedCell == indexPath { selectedCell = nil }
             else {
                 // Get previous selected cell
@@ -307,15 +329,20 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         }
         
         tableView.beginUpdates()
-        UIView.animateWithDuration(0.2) { () -> Void in
+        UIView.animateWithDuration(0.25) { () -> Void in
             previousCell?.contentView.layoutIfNeeded()
             previousCell?.animateCellExpansion()
             cell.contentView.layoutIfNeeded()
             cell.animateCellExpansion()
         }
         tableView.endUpdates()
-        
-        
     }
     
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if(expanded[indexPath.row]){
+            return 600.0
+        } else {
+            return 200.0
+        }
+    }
 }

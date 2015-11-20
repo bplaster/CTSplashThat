@@ -15,8 +15,11 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet var descLabel: UILabel!
     @IBOutlet var typeImageView: UIImageView!
     @IBOutlet var creatorLabel: UILabel!
-    @IBOutlet var infoView: UIView!
     @IBOutlet var headerView: UIView!
+    @IBOutlet var detailImage: UIImageView!
+    @IBOutlet var detailView: UIView!
+    @IBOutlet var detailViewHeight: NSLayoutConstraint!
+    
     var assignButton: UIButton!
     var acceptButton: UIButton!
     var completeButton: UIButton!
@@ -37,9 +40,8 @@ class TaskTableViewCell: UITableViewCell {
     var expanded : Bool = false
     var customized : Bool = false
     var index: NSIndexPath!
-    var infoHeightConstraint: NSLayoutConstraint!
     
-    let compressedHeight : CGFloat = 165.0
+    let compressedHeight : CGFloat = 0.0
     var expandedHeight : CGFloat = 165.0
     
     override func awakeFromNib() {
@@ -47,11 +49,10 @@ class TaskTableViewCell: UITableViewCell {
         
         // Create constraint to allow for expanding views
         autoresizingMask = UIViewAutoresizing.FlexibleHeight
-        infoHeightConstraint = NSLayoutConstraint(item: infoView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: compressedHeight)
-        infoHeightConstraint.priority = 999
-        infoView.addConstraint(infoHeightConstraint)
+//        infoHeightConstraint = NSLayoutConstraint(item: infoView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: compressedHeight)
+//        infoHeightConstraint.priority = 999
+//        infoView.addConstraint(infoHeightConstraint)
         selectionStyle = UITableViewCellSelectionStyle.None
-        
     }
     
     func assignButtonPressed() {
@@ -96,18 +97,18 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     func customizeCell(type:String, expanded:Bool){
-        self.expanded = expanded
-        var height = compressedHeight
-        if expanded { height = expandedHeight }
-        
-        infoHeightConstraint.constant = height
+//        self.expanded = expanded
+//        var height = compressedHeight
+//        if expanded { height = expandedHeight }
+//        
+//        infoHeightConstraint.constant = height
         
         primaryButton.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
         contentView.backgroundColor = delegate.lightGrey
         
         switch(type) {
             case "acceptCell":
-                primaryButton.backgroundColor = delegate.green
+//                primaryButton.backgroundColor = delegate.green
                 primaryButton.setTitle("ACCEPT", forState: UIControlState.Normal)
                 primaryButton.addTarget(self, action: "acceptButtonPressed", forControlEvents: .TouchUpInside)
                 headerView.backgroundColor = delegate.orange
@@ -116,7 +117,7 @@ class TaskTableViewCell: UITableViewCell {
                 
                 break;
             case "completeCell":
-                primaryButton.backgroundColor = delegate.blue
+//                primaryButton.backgroundColor = delegate.blue
                 primaryButton.setTitle("CLOSE", forState: UIControlState.Normal)
                 primaryButton.addTarget(self, action: "completeButtonPressed", forControlEvents: .TouchUpInside)
                 titleLabel.textColor = delegate.green
@@ -124,7 +125,7 @@ class TaskTableViewCell: UITableViewCell {
                 typeImageView.image = UIImage(named: "icon_3")
                 break;
             case "assignCell":
-                primaryButton.backgroundColor = delegate.orange
+//                primaryButton.backgroundColor = delegate.orange
                 primaryButton.setTitle("ASSIGN", forState: UIControlState.Normal)
                 primaryButton.addTarget(self, action: "assignButtonPressed", forControlEvents: .TouchUpInside)
                 headerView.backgroundColor = delegate.red
@@ -162,10 +163,10 @@ class TaskTableViewCell: UITableViewCell {
         completed = ticket["completed"] as? String
         objectID = ticket.objectId
         
-        populateInfoView()
+//        populateDetailView()
     }
     
-    func populateInfoView(){
+    func populateDetailView(){
         expandedHeight = compressedHeight
         
         // Create expanded information views
@@ -173,15 +174,13 @@ class TaskTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "MM DD, YY, hh:mm"
         let stringFormatter = NSDateFormatter()
         stringFormatter.dateFormat = "hh:mm"
-        let frame = CGRect(x: 0, y: compressedHeight, width: infoView.bounds.width, height: primaryButton.bounds.height)
+        let frame = CGRect(x: 0, y: compressedHeight, width: detailView.bounds.width, height: primaryButton.bounds.height)
         
         if assigned != "N" {
             let date = dateFormatter.dateFromString(assigned)
             let status = stringFormatter.stringFromDate(date!) + " Assigned to " + assignee
             assignedStatusView = StatusInfoView(frame: frame, status: status, color: delegate.orange)
-//            let widthConstraint = 
-//            assignedStatusView.addConstraint(<#T##constraint: NSLayoutConstraint##NSLayoutConstraint#>)
-            infoView.addSubview(assignedStatusView)
+            detailView.addSubview(assignedStatusView)
             expandedHeight += assignedStatusView.bounds.height
         }
         
@@ -189,7 +188,7 @@ class TaskTableViewCell: UITableViewCell {
             let date = dateFormatter.dateFromString(accepted)
             let status = stringFormatter.stringFromDate(date!) + " Accepted"
             acceptedStatusView = StatusInfoView(frame: frame, status: status, color: delegate.green)
-            infoView.addSubview(acceptedStatusView)
+            detailView.addSubview(acceptedStatusView)
             expandedHeight += acceptedStatusView.bounds.height
         }
         
@@ -197,7 +196,7 @@ class TaskTableViewCell: UITableViewCell {
             let date = dateFormatter.dateFromString(completed)
             let status = stringFormatter.stringFromDate(date!) + " Completed"
             completedStatusView = StatusInfoView(frame: frame, status: status, color: delegate.blue)
-            infoView.addSubview(completedStatusView)
+            detailView.addSubview(completedStatusView)
             primaryButton.alpha = 0.0
         }
 
@@ -214,7 +213,7 @@ class TaskTableViewCell: UITableViewCell {
         if expanded {
             height = expandedHeight
         }
-        infoHeightConstraint.constant = height
+        detailViewHeight.constant = height
     }
     
     func animateCellExpansion(){
