@@ -16,6 +16,7 @@ protocol TaskCellDelegate {
     func layoutTableView()
     var red: UIColor {get set}
     var orange: UIColor {get set}
+    var yellow: UIColor {get set}
     var green: UIColor {get set}
     var blue: UIColor {get set}
     var lightGrey: UIColor {get set}
@@ -53,10 +54,11 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
     
     var red: UIColor = UIColor(red: 1.0, green: 0.404, blue: 0.404, alpha: 1.0) //#FF6767
     var orange: UIColor = UIColor(red: 1.0, green: 0.745, blue: 0.42, alpha: 1.0) //#FFBE6B
+    var yellow: UIColor = UIColor(red: 1.0, green: 0.9, blue: 0.404, alpha: 1.0)
     var green: UIColor = UIColor(red: 0.549, green: 0.749, blue: 0.439, alpha: 1.0) //#8CBF70
     var blue: UIColor = UIColor(red: 0.502, green: 0.69, blue: 0.871, alpha: 1.0) //#80B0DE
     var lightGrey: UIColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 1.0) //#5B5B5B
-    var darkGrey: UIColor = UIColor(red: 0.357, green: 0.357, blue: 0.357, alpha: 1.0) //#5B5B5B
+    var darkGrey: UIColor = UIColor(red: 0.2, green: 0.2, blue: 0.239, alpha: 1.0) //#5B5B5B
     
     var selectedCell: NSIndexPath!
     var prototypeCell: TaskTableViewCell!
@@ -175,6 +177,7 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         default:
             break
         }
+        query.addDescendingOrder("priority")
 
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
@@ -274,8 +277,8 @@ UITableViewDelegate, TaskCellDelegate, AssignViewDelegate, TicketViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier(childType) as? TaskTableViewCell
         
         cell!.delegate = self
-        cell!.customizeCell(cellType, expanded: expand)
         cell!.populateCell(tickets[indexPath.row], currentUser: currentUser)
+        cell!.customizeCell(cellType, expanded: expand)
         cell!.index = indexPath
         
         return cell!
