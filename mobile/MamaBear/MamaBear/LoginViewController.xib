@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="MamaBear" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImage" destination="Nof-lu-aKd" id="0pY-t8-O4I"/>
                 <outlet property="userTypeTextField" destination="eQC-yN-PnZ" id="F0c-4W-1Qw"/>
                 <outlet property="usernameTextField" destination="Go8-SI-CCt" id="PEp-cN-N4I"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -16,8 +17,13 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_page" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-lu-aKd">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
+                </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="brandon" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Go8-SI-CCt">
-                    <rect key="frame" x="230" y="94" width="140" height="30"/>
+                    <rect key="frame" x="230" y="335" width="140" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="140" id="y8p-es-EcI"/>
                     </constraints>
@@ -25,7 +31,8 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="manager" borderStyle="roundedRect" placeholder="role" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQC-yN-PnZ">
-                    <rect key="frame" x="230" y="159" width="140" height="30"/>
+                    <rect key="frame" x="230" y="400" width="140" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="140" id="8qg-Rh-Dfe"/>
                     </constraints>
@@ -33,7 +40,8 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21f-3a-9w7">
-                    <rect key="frame" x="270" y="225" width="60" height="60"/>
+                    <rect key="frame" x="270" y="450" width="60" height="60"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="oNo-ll-oRm"/>
                         <constraint firstAttribute="width" constant="60" id="smJ-UJ-SvB"/>
@@ -44,15 +52,29 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.94000000000000006" alpha="1" colorSpace="calibratedWhite"/>
+            <animations/>
+            <color key="backgroundColor" white="0.97410554634897328" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="21f-3a-9w7" firstAttribute="top" secondItem="eQC-yN-PnZ" secondAttribute="bottom" constant="36" id="1DV-Bd-SlM"/>
+                <constraint firstItem="Nof-lu-aKd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0sv-pL-MdP"/>
+                <constraint firstItem="21f-3a-9w7" firstAttribute="top" secondItem="eQC-yN-PnZ" secondAttribute="bottom" constant="20" id="1DV-Bd-SlM"/>
+                <constraint firstItem="Nof-lu-aKd" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="AbQ-4q-yOb"/>
                 <constraint firstItem="Go8-SI-CCt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="LDW-dd-jdz"/>
                 <constraint firstItem="eQC-yN-PnZ" firstAttribute="top" secondItem="Go8-SI-CCt" secondAttribute="bottom" constant="35" id="Wh7-o0-MgV"/>
                 <constraint firstItem="21f-3a-9w7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YEI-yc-9Dq"/>
                 <constraint firstItem="eQC-yN-PnZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YKo-MA-kMN"/>
+                <constraint firstItem="Nof-lu-aKd" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="dnF-7N-val"/>
                 <constraint firstItem="Go8-SI-CCt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gzk-u6-vIU"/>
+                <constraint firstAttribute="bottom" secondItem="21f-3a-9w7" secondAttribute="bottom" constant="90" id="nOV-Qe-daM"/>
+                <constraint firstItem="Nof-lu-aKd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ytg-0T-yMa"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="LDW-dd-jdz"/>
+                </mask>
+            </variation>
         </view>
     </objects>
+    <resources>
+        <image name="splash_page" width="750" height="1334"/>
+    </resources>
 </document>
