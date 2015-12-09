@@ -6,7 +6,8 @@ var Ticket = Parse.Object.extend("Ticket");
 var last_length = 0;
 
 function job() {
-  var data = JSON.parse(fs.readFileSync('sprint_demo_2.json', 'utf8'));
+  var content = fs.readFileSync('demo_splash.json', 'utf8')
+  var data = JSON.parse(content);
   console.log("Retrieved data.");
   //console.log(data);
   var titles = data.map(function(item) {
@@ -14,6 +15,7 @@ function job() {
   });
 
   var changed = false;
+
   if (last_length != titles.length) {
     changed = true;
   }
@@ -38,6 +40,7 @@ function job() {
       newTicket.set("assigned", "N");
       newTicket.set("assignee", "N");
       newTicket.set("completed", "N");
+      newTicket.set("priority", "2");
       console.log(newTicket.get("title"));
       console.log(newTicket.get("description"));
       ticketArray.push(newTicket);

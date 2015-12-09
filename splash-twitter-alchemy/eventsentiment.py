@@ -133,7 +133,7 @@ def search(search_term, num_tweets, auth):
 
     # Get last tweet ID
     db = pymongo.MongoClient().twitter_db
-    tweets = db.tweets
+    tweets = db.tweets_splash
 
 #    last_tweet = tweets.find({}, {"_id":1}).sort(["_id",-1]).limit(-1)
     last_tweet = tweets.find_one(sort=[("id", -1)])
@@ -290,7 +290,7 @@ def store(tweets):
     # Retrieve (or create, if it doesn't exist) the twitter_db database from Mongo
     db = mongo_client.twitter_db
    
-    db_tweets = db.tweets
+    db_tweets = db.tweets_splash
 
     for tweet in tweets:
         if (db_tweets.find_one({'id': tweet['id']}) is None):
@@ -307,7 +307,7 @@ def store(tweets):
 def print_results():
     
     db = pymongo.MongoClient().twitter_db
-    tweets = db.tweets
+    tweets = db.tweets_splash
 
     neg_tweets = tweets.find({"sentiment" : {"$lt" : 0}})
 
@@ -316,11 +316,11 @@ def print_results():
         {"$match": {"sentiment": {"$lt":0}}},
         {"$group": {"_id": "$keyword", "count": {"$sum":1}, "minTime": {"$min": "$time"}, "tweets":{"$push": {"content": "$text"}}}},
         {"$sort": {"count": -1, "minTime":1, "tweets.sentiment": -1}}, #sorting by tweets.sentiment not working
-        {"$match": {"count": {"$gt":2}}}, #threshold = 1 now
-        {"$out": "most_neg_tweets_sprintdemo"}
+        {"$match": {"count": {"$gt":1}}}, #threshold = 1 now
+        {"$out": "most_neg_tweets_splash"}
         ])
 
-    subprocess.call("mongoexport --db twitter_db --collection most_neg_tweets_sprintdemo --fields 'tweets.content' --out sprint_demo_2.json --jsonArray", shell=True)
+    subprocess.call("mongoexport --db twitter_db --collection most_neg_tweets_splash --fields 'tweets.content' --out demo_splash.json --jsonArray", shell=True)
 
     return
 
