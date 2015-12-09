@@ -40,7 +40,7 @@ function job() {
       newTicket.set("assigned", "N");
       newTicket.set("assignee", "N");
       newTicket.set("completed", "N");
-      newTicket.set("priority", "2");
+      newTicket.set("priority", 2);
       console.log(newTicket.get("title"));
       console.log(newTicket.get("description"));
       ticketArray.push(newTicket);
